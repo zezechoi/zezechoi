@@ -100,9 +100,32 @@
 
   /* HERO */
   .hero {
-    text-align: center;
-    padding: 180px 40px 160px;
+    padding: 140px 40px 140px;
     border-bottom: 1px solid var(--border);
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-content {
+    text-align: left;
+  }
+  .hero-portrait {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-self: end;
+    position: relative;
+  }
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 28%;
+    display: block;
   }
   .hero-eyebrow {
     font-family: var(--serif);
@@ -110,12 +133,12 @@
     letter-spacing: 5px;
     text-transform: uppercase;
     color: var(--text-mute);
-    margin-bottom: 60px;
+    margin-bottom: 36px;
   }
   .hero-name {
     font-family: var(--serif);
     font-weight: 300;
-    font-size: clamp(56px, 8vw, 96px);
+    font-size: clamp(56px, 7vw, 88px);
     line-height: 1.05;
     letter-spacing: -1px;
     color: var(--text);
@@ -134,18 +157,18 @@
   }
   .hero-blurb {
     font-family: var(--serif-ko);
-    font-size: clamp(16px, 1.6vw, 19px);
-    line-height: 1.85;
-    color: var(--text-soft);
-    max-width: 480px;
-    margin: 48px auto 0;
-    font-weight: 300;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 540px;
+    margin: 40px 0 0;
+    font-weight: 400;
+    letter-spacing: -0.3px;
   }
   .hero-meta {
-    margin-top: 80px;
+    margin-top: 56px;
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    gap: 36px;
     flex-wrap: wrap;
   }
   .hero-meta a {
@@ -240,10 +263,23 @@
   .cap-num {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 14px;
+    font-size: 28px;
     color: var(--accent);
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+    line-height: 1;
+    font-weight: 400;
+    display: inline-block;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    min-width: 64px;
+  }
+  .cap-num sup {
+    font-size: 0.55em;
+    vertical-align: 0.7em;
+    margin-right: 3px;
+    font-style: italic;
+    letter-spacing: 0;
   }
   .cap-title {
     font-family: var(--serif-ko);
@@ -384,6 +420,101 @@
     color: var(--text-mute);
     text-align: right;
   }
+  a.feature-tag {
+    color: var(--text);
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 3px;
+    display: inline-block;
+    align-self: start;
+    justify-self: end;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  a.feature-tag:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    font-style: italic;
+  }
+  .feature-media {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .cap-thumb {
+    display: block;
+    width: 132px;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--bg);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .cap-thumb:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+  }
+  .cap-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .feature-photo {
+    display: block;
+    width: 320px;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .feature-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .feature-photo-caption {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
+  .feature-certs {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .cert-badge {
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+  }
+  .cert-badge img {
+    width: 180px;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .cert-name {
+    font-family: var(--serif-ko);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 2px;
+  }
+  .cert-meta {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
 
   /* INDEX (Education + Certs) */
   .index-grid {
@@ -480,10 +611,10 @@
     font-family: var(--serif-ko);
     font-size: clamp(28px, 3.4vw, 42px);
     font-weight: 300;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--text);
-    margin-bottom: 28px;
-    max-width: 720px;
+    margin-bottom: 32px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     letter-spacing: -0.3px;
@@ -496,9 +627,10 @@
   }
   .archive-note p {
     font-family: var(--serif-ko);
-    font-size: 15px;
-    color: var(--text-soft);
+    font-size: 17px;
+    color: var(--text);
     margin-bottom: 56px;
+    line-height: 1.9;
   }
   .archive-cta {
     font-family: var(--serif);
@@ -531,11 +663,11 @@
   }
   .contact p {
     font-family: var(--serif-ko);
-    font-size: 16px;
-    color: var(--text-soft);
+    font-size: 18px;
+    color: var(--text);
     margin-bottom: 56px;
-    line-height: 1.85;
-    max-width: 480px;
+    line-height: 1.95;
+    max-width: 520px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -571,6 +703,21 @@
 
   /* RESPONSIVE */
   @media (max-width: 880px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      text-align: center;
+      justify-items: center;
+    }
+    .hero-content { text-align: center; }
+    .hero-blurb { margin-left: auto; margin-right: auto; }
+    .hero-meta { justify-content: center; }
+    .hero-portrait {
+      order: -1;
+      width: 240px;
+      height: 240px;
+      justify-self: center;
+    }
     .caps { grid-template-columns: 1fr; }
     .career-entry { grid-template-columns: 1fr; gap: 24px; }
     .feature { grid-template-columns: 60px 1fr; gap: 24px; }
@@ -582,7 +729,8 @@
     nav { padding: 20px 20px 14px; }
     .nav-links { gap: 22px; }
     .container { padding: 0 24px; }
-    .hero { padding: 120px 24px 100px; }
+    .hero { padding: 100px 24px 80px; }
+    .hero-portrait { width: 200px; height: 200px; }
     section { padding: 100px 0; }
     .archive-note { padding: 100px 24px; }
     .contact { padding: 120px 24px; }
@@ -608,18 +756,23 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Global Beauty Brand Communicator</div>
-  <h1 class="hero-name">
-    <span class="ko">최지예</span>
-    <em>Zeze Choi</em>
-  </h1>
-  <p class="hero-blurb">
-    소비자의 언어로 뷰티를 읽고,<br>
-    글로벌의 언어로 브랜드를 씁니다.
-  </p>
-  <div class="hero-meta">
-    <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
-    <a href="https://instagram.com/zeze__choi_">@zeze__choi_</a>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Global Beauty Brand Communicator</div>
+    <h1 class="hero-name">
+      <span class="ko">최지예</span>
+      <em>Zeze Choi</em>
+    </h1>
+    <p class="hero-blurb">
+      소비자의 언어로 뷰티를 읽고,<br>
+      글로벌의 언어로 브랜드를 씁니다.
+    </p>
+    <div class="hero-meta">
+      <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
+      <a href="https://instagram.com/zeze__choi_">@zeze__choi_</a>
+    </div>
+  </div>
+  <div class="hero-portrait">
+    <img src="profile.jpg" alt="Zeze Choi">
   </div>
 </section>
 
@@ -634,14 +787,14 @@
     <div class="story-text">
       <p>저는 나를 더 빛나게 해주는 것에 끌리는 사람입니다.</p>
 
-      <p>퍼스널컬러를 배우면서 처음으로 나에게 맞는 색을 찾았고, 그 순간부터 뷰티가 다르게 보이기 시작했어요. 가을뮤트라는 걸 안 순간부터 색조화장품이 새롭게 보였고, MAC VIP가 될 만큼 빠져들었습니다. 친구들이 화장품 살 때마다 저한테 물어보기 시작했고, 그 사람들이 달라지는 걸 보면서 이게 단순한 취미가 아니라는 걸 알았어요.</p>
+      <p>퍼스널컬러를 배우면서 처음으로 나에게 맞는 색을 찾았고, 그 순간부터 뷰티가 다르게 보이기 시작했습니다. 가을뮤트라는 걸 안 순간부터 색조화장품이 새롭게 보였고, MAC VIP가 될 만큼 빠져들었습니다. 친구들이 화장품을 살 때마다 저에게 물어보기 시작했고, 그 사람들이 달라지는 걸 보면서 이게 단순한 취미가 아니라는 걸 알았습니다.</p>
 
-      <p>2020년, 퍼스널컬러 강사가 되고 싶어서 교육을 이수했습니다. 현실적인 이유로 포기했지만 뷰티에 대한 마음은 사라지지 않았어요. 2021년엔 블로그와 인스타그램을 뷰티 콘텐츠로 채웠고, IT 기업에서 B2B 마케터로 일하며 브랜드가 시장과 소통하는 방식을 배웠습니다.</p>
+      <p>2020년, 퍼스널컬러 강사가 되고 싶어서 교육을 이수했습니다. 현실적인 이유로 포기했지만 뷰티에 대한 마음은 사라지지 않았습니다. 2021년에는 블로그와 인스타그램을 뷰티 콘텐츠로 채웠고, IT 기업에서 B2B 마케터로 일하며 브랜드가 시장과 소통하는 방식을 배웠습니다.</p>
 
-      <p>예민피부라 성분을 직접 공부했고, 히야·케어드처럼 나에게 맞는 브랜드를 찾아냈어요. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
+      <p>예민피부라 성분을 직접 공부했고, 히야·케어드처럼 나에게 맞는 브랜드를 찾아냈습니다. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
 
       <blockquote class="story-quote">
-        뷰티는 제가 한 번 포기했던 꿈이에요.<br>
+        뷰티는 제가 한 번 포기했던 꿈입니다.<br>
         하지만 글로벌 브랜드를 운영하며 쌓은 경험이<br>
         오히려 이 꿈을 더 단단하게 만들었습니다.
       </blockquote>
@@ -661,7 +814,7 @@
 
     <div class="caps">
       <div class="cap">
-        <div class="cap-num">i.</div>
+        <div class="cap-num">N<sup>o</sup> I</div>
         <div class="cap-title">글로벌 커뮤니케이션</div>
         <div class="cap-en">Global Communication</div>
         <p class="cap-desc">6개국 바이어 및 유럽 본사와 직접 소통한 경험. 문화가 다른 파트너와 신뢰를 쌓고 브랜드 메시지를 현지 언어로 전달합니다.</p>
@@ -669,7 +822,7 @@
       </div>
 
       <div class="cap">
-        <div class="cap-num">ii.</div>
+        <div class="cap-num">N<sup>o</sup> II</div>
         <div class="cap-title">뷰티 인사이트</div>
         <div class="cap-en">Beauty Insight</div>
         <p class="cap-desc">퍼스널컬러 컨설턴트 이수, 성분 기반 스킨케어 큐레이션, 뷰티 전시회·강연 꾸준히 참여. 소비자로서 뷰티를 깊이 이해합니다.</p>
@@ -677,7 +830,7 @@
       </div>
 
       <div class="cap">
-        <div class="cap-num">iii.</div>
+        <div class="cap-num">N<sup>o</sup> III</div>
         <div class="cap-title">브랜드 스토리텔링</div>
         <div class="cap-en">Brand Storytelling</div>
         <p class="cap-desc">마케팅은 소통, 브랜딩은 관계. 브랜드의 감성적 가치를 언어로 설계하고 실행합니다. 마케팅 기획자 양성과정 이수.</p>
@@ -685,7 +838,7 @@
       </div>
 
       <div class="cap">
-        <div class="cap-num">iv.</div>
+        <div class="cap-num">N<sup>o</sup> IV</div>
         <div class="cap-title">AI 활용 실행력</div>
         <div class="cap-en">AI-Powered Execution</div>
         <p class="cap-desc">Claude Code로 웹 포트폴리오 직접 구축. 뷰티 브랜드 리서치 자동화 시스템 운영. 도구를 만드는 마케터.</p>
@@ -725,7 +878,7 @@
         <div>
           <h3 class="career-company">Mondrian AI</h3>
           <div class="career-role">마케팅·영업팀 주임</div>
-          <p class="career-lede">IT 스타트업의 B2B 마케터로 브랜드 커뮤니케이션 전략을 기획하고 실행했습니다. 채널 리뉴얼부터 해외 파트너 발굴까지 주도했어요.</p>
+          <p class="career-lede">IT 스타트업의 B2B 마케터로 브랜드 커뮤니케이션 전략을 기획하고 실행했습니다. 채널 리뉴얼부터 해외 파트너 발굴까지 주도했습니다.</p>
           <ul class="career-bullets">
             <li>브랜드 <strong>톤앤매너 가이드</strong>를 처음부터 설계하고 전 채널 리뉴얼을 주도, 일관된 브랜드 인상 정착</li>
             <li>SNS·홈페이지 Owned Media를 직접 운영하며 콘텐츠 발행 사이클 안정화</li>
@@ -768,8 +921,26 @@
         <div class="feature-body">
           <h3>AI 화장품 영상 제작</h3>
           <p>AI 툴로 뷰티 콘텐츠 직접 제작. 브랜드 계정에서 샤라웃을 받으며 콘텐츠 퀄리티를 시장에서 검증받았습니다.</p>
+
+          <div class="feature-media">
+            <a href="https://www.threads.com/@zeze__choi_/post/DXmLguTESpp" target="_blank" rel="noopener" class="cap-thumb" aria-label="브랜드 샤라웃 1"><img src="cap1.jpg" alt="kared.kr 브랜드 샤라웃 1"></a>
+            <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="cap-thumb" aria-label="브랜드 샤라웃 2"><img src="cap2.jpg" alt="kared.kr 브랜드 샤라웃 2"></a>
+          </div>
+
+          <div class="feature-certs">
+            <div class="cert-badge">
+              <img src="certi1.png" alt="뷰티·패션 AI 영상 챌린지 수료증">
+              <span class="cert-name">수료증 — 뷰티 · 패션 AI 영상 챌린지</span>
+              <span class="cert-meta">Selfish Club · 2026.04</span>
+            </div>
+            <div class="cert-badge">
+              <img src="certi2.png" alt="우수상">
+              <span class="cert-name">우수상 — AI 영상 챌린지</span>
+              <span class="cert-meta">Selfish Club · 2026.04</span>
+            </div>
+          </div>
         </div>
-        <div class="feature-tag">브랜드 샤라웃</div>
+        <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="feature-tag">Watch on Instagram →</a>
       </article>
 
       <article class="feature">
@@ -786,6 +957,13 @@
         <div class="feature-body">
           <h3>롯데홈쇼핑 MD 상품기획</h3>
           <p>상생일자리 프로그램 참여. 생활가전 상품기획 발표에서 우수발표팀 3등을 수상했습니다.</p>
+
+          <div class="feature-media">
+            <figure class="feature-photo">
+              <img src="lotte.jpg" alt="2021 롯데홈쇼핑 잡페스티벌 우수발표팀 3등 수상">
+            </figure>
+          </div>
+          <div class="feature-photo-caption">2021 Lotte Homeshopping Job Festival · 상생일자리 프로그램</div>
         </div>
         <div class="feature-tag">우수발표팀 3등</div>
       </article>
@@ -889,15 +1067,15 @@
 <!-- ARCHIVE NOTE -->
 <section class="archive-note">
   <div class="eyebrow">Insight Archive</div>
-  <h2>글로벌 뷰티 브랜드를 <em>마케터의 시선</em>으로 읽습니다</h2>
+  <h2>글로벌 뷰티 브랜드를<br><em>마케터의 시선</em>으로 읽습니다</h2>
   <p>매주 뷰티 브랜드의 글로벌 전략을 분석하고 기록합니다.</p>
   <a href="archive.html" class="archive-cta">Read Archive</a>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <h2>함께 만들어요</h2>
-  <p>뷰티 글로벌 커뮤니케이션에 관심 있는 팀이라면 언제든지 연락주세요.</p>
+  <h2>함께 만듭니다</h2>
+  <p>뷰티 글로벌 커뮤니케이션에 관심 있는 팀이라면<br>언제든지 연락주세요.</p>
   <div class="contact-links">
     <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
     <a href="https://instagram.com/zeze__choi_">@zeze__choi_</a>
