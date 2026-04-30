@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최지예 | Global Beauty Brand Communicator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #FAF5EE;
+    --warm-white: #FFFBF4;
+    --dark: #5C3D2E;
+    --brown: #5C3D2E;
+    --accent: #C17A5A;
+    --accent-light: #E8C8B5;
+    --accent-pale: #F4E1CE;
+    --green: #7A8C5C;
+    --green-light: #DEE3C9;
+    --muted: #8C7560;
+    --border: #E8D8C4;
+    --text: #2C1810;
+    --text2: #6B5443;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 245, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(193,122,90,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: 'BEAUTY';
+    position: absolute;
+    bottom: 40px; right: 40px;
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 180px;
+    font-weight: 300;
+    color: var(--accent-light);
+    opacity: 0.4;
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -4px;
+  }
+
+  .hero-content {
+    max-width: 680px;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    animation: fadeUp 1s ease 0.1s both;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 8px;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+
+  .hero-catchphrase {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--brown);
+    margin-bottom: 48px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-contacts {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+
+  .hero-contact {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .hero-contact:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  /* STORY */
+  .story-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--brown);
+    max-width: 680px;
+  }
+
+  .story-text p { margin-bottom: 28px; }
+
+  .story-text p:first-child {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+
+  .story-highlight {
+    background: var(--accent-pale);
+    padding: 24px 32px;
+    border-radius: 4px;
+    margin: 40px 0;
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--brown);
+    line-height: 1.8;
+    border-left: 3px solid var(--accent);
+  }
+
+  /* CAPABILITIES */
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cap-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .cap-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(193,122,90,0.08);
+  }
+
+  .cap-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .cap-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .cap-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .cap-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .cap-tag {
+    font-size: 11px;
+    background: var(--accent-pale);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .cap-tag.green {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  /* CAREER */
+  .career-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .career-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .career-item:last-child { border-bottom: none; }
+
+  .career-left {
+    padding-top: 4px;
+  }
+
+  .career-period {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .career-company {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .career-role {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .career-right {}
+
+  .career-desc {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .career-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .career-points li {
+    font-size: 13px;
+    color: var(--text2);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .career-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+  }
+
+  .career-points li strong {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .project-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover { border-color: var(--accent); }
+
+  .project-num {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .project-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .project-desc {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .project-badge {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .edu-group h3 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .edu-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .edu-detail {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* SKILLS */
+  .skills-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .skill-group {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+  }
+
+  .skill-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-item {
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  /* INSIGHT SECTION */
+  .insight-box {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 60px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insight-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(193,122,90,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .insight-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .insight-title {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .insight-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .insight-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+  }
+
+  .insight-link {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .insight-link:hover { opacity: 0.85; }
+
+  /* CONTACT */
+  .contact-area {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .contact-left p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .contact-link {
+    font-size: 13px;
+    color: var(--text2);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-badge {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero::after { display: none; }
+    .hero-name { font-size: 48px; }
+    .hero-catchphrase { font-size: 18px; }
+    section { padding: 60px 20px; }
+    .caps-grid { grid-template-columns: 1fr; }
+    .career-item { grid-template-columns: 1fr; gap: 16px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .skills-row { grid-template-columns: 1fr 1fr; }
+    .insight-box { padding: 40px 24px; }
+    .insight-title { font-size: 26px; }
+    .contact-area { flex-direction: column; gap: 28px; align-items: flex-start; }
+    .contact-links { align-items: flex-start; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Zeze Choi</div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#capabilities">역량</a></li>
+    <li><a href="#career">경력</a></li>
+    <li><a href="#projects">프로젝트</a></li>
+    <li><a href="#contact">연락처</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Global Beauty Brand Communicator</div>
+    <h1 class="hero-name">최지예<br><em>Zeze Choi</em></h1>
+    <div class="hero-title">Beauty × Global × Brand Communication</div>
+    <div class="hero-catchphrase">
+      소비자의 언어로 뷰티를 읽고,<br>
+      글로벌의 언어로 브랜드를 씁니다
+    </div>
+    <div class="hero-contacts">
+      <a href="mailto:iamzezechoi@gmail.com" class="hero-contact">✉ iamzezechoi@gmail.com</a>
+      <a href="https://instagram.com/zeze__choi_" class="hero-contact">📷 @zeze__choi_</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="section-label">Story</div>
+  <h2 class="section-title">나의 이야기</h2>
+
+  <div class="story-text">
+    <p>저는 나를 더 빛나게 해주는 것에 끌리는 사람입니다.</p>
+
+    <p>퍼스널컬러를 배우면서 처음으로 나에게 맞는 색을 찾았고, 그 순간부터 뷰티가 다르게 보이기 시작했어요. 가을뮤트라는 걸 안 순간부터 색조화장품이 새롭게 보였고, MAC VIP가 될 만큼 빠져들었습니다. 친구들이 화장품 살 때마다 저한테 물어보기 시작했고, 그 사람들이 달라지는 걸 보면서 이게 단순한 취미가 아니라는 걸 알았어요.</p>
+
+    <p>2020년, 퍼스널컬러 강사가 되고 싶어서 교육을 이수했습니다. 현실적인 이유로 포기했지만 뷰티에 대한 마음은 사라지지 않았어요. 2021년엔 블로그와 인스타그램을 뷰티 콘텐츠로 채웠고, IT 기업에서 B2B 마케터로 일하며 브랜드가 시장과 소통하는 방식을 배웠습니다.</p>
+
+    <p>예민피부라 성분을 직접 공부했고, 히야·케어드처럼 나에게 맞는 브랜드를 찾아냈어요. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
+
+    <div class="story-highlight">
+      "뷰티는 제가 한 번 포기했던 꿈이에요.<br>
+      하지만 글로벌 브랜드를 운영하며 쌓은 경험이<br>
+      오히려 이 꿈을 더 단단하게 만들었습니다."
+    </div>
+
+    <p>유럽 프리미엄 브랜드 6개를 운영하며 브랜드 아이덴티티를 지키는 것이 얼마나 중요한지 알았고, 6개국 바이어·유럽 본사와 직접 소통하며 글로벌 브랜드 언어를 배웠습니다. 이제는 K-뷰티가 글로벌 파트너와 소통하는 그 언어를 만드는 사람이 되고 싶습니다.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">핵심 역량</h2>
+
+  <div class="caps-grid">
+    <div class="cap-card">
+      <div class="cap-icon">🌏</div>
+      <div class="cap-title">글로벌 커뮤니케이션</div>
+      <div class="cap-desc">6개국 바이어 및 유럽 본사와 직접 소통한 경험. 문화가 다른 파트너와 신뢰를 쌓고 브랜드 메시지를 현지 언어로 전달합니다.</div>
+      <div class="cap-tags">
+        <span class="cap-tag">영어 비즈니스</span>
+        <span class="cap-tag">호주 고교 졸업</span>
+        <span class="cap-tag">6개국 경험</span>
+      </div>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">💄</div>
+      <div class="cap-title">뷰티 인사이트</div>
+      <div class="cap-desc">퍼스널컬러 컨설턴트 이수, 성분 기반 스킨케어 큐레이션, 뷰티 전시회·강연 꾸준히 참여. 소비자로서 뷰티를 깊이 이해합니다.</div>
+      <div class="cap-tags">
+        <span class="cap-tag">퍼스널컬러</span>
+        <span class="cap-tag">성분 분석</span>
+        <span class="cap-tag">클린뷰티</span>
+      </div>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">✍️</div>
+      <div class="cap-title">브랜드 스토리텔링</div>
+      <div class="cap-desc">마케팅은 소통, 브랜딩은 관계. 브랜드의 감성적 가치를 언어로 설계하고 실행합니다. 마케팅 기획자 양성과정 이수.</div>
+      <div class="cap-tags">
+        <span class="cap-tag">STP 전략</span>
+        <span class="cap-tag">SNS 운영</span>
+        <span class="cap-tag">PR</span>
+      </div>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">🤖</div>
+      <div class="cap-title">AI 활용 실행력</div>
+      <div class="cap-desc">Claude Code로 웹 포트폴리오 직접 구축. 뷰티 브랜드 리서치 자동화 시스템 운영. 도구를 만드는 마케터.</div>
+      <div class="cap-tags">
+        <span class="cap-tag green">Claude Code</span>
+        <span class="cap-tag green">자동화 시스템</span>
+        <span class="cap-tag green">AI 콘텐츠</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">경력</h2>
+
+  <div class="career-list">
+
+    <div class="career-item">
+      <div class="career-left">
+        <div class="career-period">2023 — 2025</div>
+        <div class="career-company">T&amp;S Trading</div>
+        <div class="career-role">무역부 대리</div>
+      </div>
+      <div class="career-right">
+        <div class="career-desc">이탈리아 프리미엄 인테리어 브랜드 수입·운영. 유럽 본사 6개 브랜드의 아이덴티티를 한국 시장에서 유지하며 운영 프로세스를 설계했습니다.</div>
+        <ul class="career-points">
+          <li>유럽 본사 <strong>6개 브랜드</strong> 커뮤니케이션 총괄</li>
+          <li>브랜드 운영 프로세스 설계 → 피드백 속도 <strong>30% 향상</strong></li>
+          <li>브랜드별 패키징·라벨 가이드 통합 관리 → 오류율 <strong>0%</strong></li>
+          <li>납기 캘린더 및 일정 자동화 시스템 직접 구축</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="career-item">
+      <div class="career-left">
+        <div class="career-period">2021 — 2022</div>
+        <div class="career-company">Mondrian AI</div>
+        <div class="career-role">마케팅·영업팀 주임</div>
+      </div>
+      <div class="career-right">
+        <div class="career-desc">IT 스타트업의 B2B 마케터로 브랜드 커뮤니케이션 전략을 기획하고 실행했습니다. 채널 리뉴얼부터 해외 파트너 발굴까지 주도했어요.</div>
+        <ul class="career-points">
+          <li>브랜드 <strong>톤앤매너 가이드</strong> 설계 + 채널 리뉴얼</li>
+          <li>SNS·홈페이지 Owned Media 운영 및 관리</li>
+          <li>PR 언론활동·내외부 행사 기획 운영</li>
+          <li>해외 파트너 발굴 + 정부지원 수출사업 제안서 작성</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="career-item">
+      <div class="career-left">
+        <div class="career-period">2017 — 2020</div>
+        <div class="career-company">Saturn Bath</div>
+        <div class="career-role">해외영업부 주임</div>
+      </div>
+      <div class="career-right">
+        <div class="career-desc">글로벌 바이어 발굴부터 계약까지 전 과정을 담당. 브랜드 스토리 중심의 제안으로 6개국 신규 거래선을 확보했습니다.</div>
+        <ul class="career-points">
+          <li><strong>6개국</strong> 신규 거래선 확보</li>
+          <li>회사 <strong>영문 브랜드 제안서</strong> 제작 주도</li>
+          <li>심천 국제 공업 디자인전시회 등 해외 전시회 참가</li>
+          <li>인도·베트남·인도네시아·미얀마 바이어 상담</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects &amp; Activities</div>
+  <h2 class="section-title">프로젝트 · 활동</h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">AI 화장품 영상 제작</div>
+      <div class="project-desc">AI 툴로 뷰티 콘텐츠 직접 제작. 브랜드 계정에서 샤라웃을 받으며 콘텐츠 퀄리티를 시장에서 검증받았습니다.</div>
+      <span class="project-badge">브랜드 샤라웃 수령</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">뷰티 브랜드 리서치 아카이브</div>
+      <div class="project-desc">글로벌 뷰티 브랜드의 시장 전략을 마케터 관점으로 분석. Claude Code로 자동화 시스템 구축하여 운영 중입니다.</div>
+      <span class="project-badge">Claude Code 구축</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">롯데홈쇼핑 MD 상품기획</div>
+      <div class="project-desc">상생일자리 프로그램 참여. 생활가전 상품기획 발표에서 우수발표팀 3등을 수상했습니다.</div>
+      <span class="project-badge">우수발표팀 3등</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-title">하나투어 투어챌린저 10기</div>
+      <div class="project-desc">라오스 현지 시장조사, 타겟팅, 여행상품 기획·발표. 실제 현지 시장을 조사하고 마케팅 전략을 수립한 경험.</div>
+      <span class="project-badge">시장조사·기획·발표</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">05</div>
+      <div class="project-title">마케터 커뮤니티 활동</div>
+      <div class="project-desc">청년마케터 정기모임, 힙한 마케터의 비밀 5기, 힙한 주니어의 비밀 1기 활동. 매달 마케팅 인사이트를 발견하고 기록했습니다.</div>
+      <span class="project-badge">지속 활동</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">06</div>
+      <div class="project-title">퍼스널컬러 컨설턴트</div>
+      <div class="project-desc">이미지호 퍼스널컬러 컨설턴트 훈련 프로그램 이수. 색과 이미지로 사람들을 더 빛나게 만드는 경험을 쌓았습니다.</div>
+      <span class="project-badge">자격 이수</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">학력 · 자격</h2>
+
+  <div class="edu-grid">
+    <div class="edu-group">
+      <h3>학력</h3>
+      <div class="edu-item">
+        <div class="edu-name">안양대학교</div>
+        <div class="edu-detail">관광영어통역 졸업 · 2013–2017<br>4년 장학생 · 학점 4.0/4.5</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-name">대만 명전대학교</div>
+        <div class="edu-detail">교환학생 · 2015–2016</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-name">Bankstown Grammar School</div>
+        <div class="edu-detail">호주 고등학교 졸업 · 2007–2010<br>논술 쓰기 State 3등</div>
+      </div>
+    </div>
+
+    <div class="edu-group">
+      <h3>자격 · 교육</h3>
+      <div class="edu-item">
+        <div class="edu-name">퍼스널컬러 컨설턴트</div>
+        <div class="edu-detail">이미지호 훈련 프로그램 이수</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-name">마케팅 기획자 양성과정</div>
+        <div class="edu-detail">STP·4P 전략, SNS·브랜딩 마케팅</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-name">맞춤형화장품 자격증</div>
+        <div class="edu-detail">준비 중</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-label">Skills &amp; Tools</div>
+  <h2 class="section-title">스킬 · 툴</h2>
+
+  <div class="skills-row">
+    <div class="skill-group">
+      <div class="skill-label">언어</div>
+      <div class="skill-items">
+        <div class="skill-item">영어 (비즈니스)</div>
+        <div class="skill-item">한국어 (모국어)</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">뷰티</div>
+      <div class="skill-items">
+        <div class="skill-item">퍼스널컬러</div>
+        <div class="skill-item">성분 분석</div>
+        <div class="skill-item">클린뷰티</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">마케팅</div>
+      <div class="skill-items">
+        <div class="skill-item">브랜드 전략</div>
+        <div class="skill-item">SNS 운영</div>
+        <div class="skill-item">콘텐츠 기획</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">툴 · AI</div>
+      <div class="skill-items">
+        <div class="skill-item">Claude Code</div>
+        <div class="skill-item">Notion · Figma</div>
+        <div class="skill-item">Canva · Slack</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- INSIGHT -->
+<section>
+  <div class="insight-box">
+    <div class="insight-label">Beauty Brand Insight Archive</div>
+    <h2 class="insight-title">
+      글로벌 뷰티 브랜드를<br>
+      <em>마케터의 시선</em>으로 읽습니다
+    </h2>
+    <div class="insight-sub">매주 뷰티 브랜드의 글로벌 전략을 분석하고 기록합니다</div>
+    <a href="#" class="insight-link">아카이브 보기 →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-area">
+    <div class="contact-left">
+      <h2>함께 만들어요</h2>
+      <p>뷰티 글로벌 커뮤니케이션에 관심 있는 팀이라면 언제든지 연락주세요</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:iamzezechoi@gmail.com" class="contact-link">✉ iamzezechoi@gmail.com</a>
+      <a href="https://instagram.com/zeze__choi_" class="contact-link">📷 @zeze__choi_</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Zeze Choi · Global Beauty Brand Communicator</p>
+  <div class="footer-badge">Built with Claude Code ✦</div>
+</footer>
+
+</body>
+</html>
