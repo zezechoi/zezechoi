@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight Archive — Zeze Choi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F4;
+    --text: #1A1612;
+    --text-soft: #5C5651;
+    --text-mute: #8A847C;
+    --border: #E5DFD6;
+    --accent: #B25E3F;
+    --serif: 'Cormorant Garamond', 'Noto Serif KR', serif;
+    --serif-ko: 'Noto Serif KR', 'Cormorant Garamond', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif-ko);
+    font-weight: 400;
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  em { font-style: italic; }
+  ::selection { background: var(--text); color: var(--bg); }
+
+  /* NAV */
+  nav {
+    padding: 28px 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.active {
+    color: var(--text);
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 2px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 120px 40px 80px;
+  }
+  .hero-eyebrow {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 36px;
+  }
+  .hero h1 {
+    font-family: var(--serif-ko);
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 28px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .hero p {
+    font-family: var(--serif-ko);
+    font-size: 15px;
+    color: var(--text-soft);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.85;
+  }
+  .hero p a {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* PULSE — stats row */
+  .pulse {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 0 72px;
+    margin-top: 80px;
+  }
+  .pulse-label {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 56px;
+  }
+  .pulse-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .pulse-stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid var(--border);
+  }
+  .pulse-stat:last-child { border-right: none; }
+  .pulse-num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(64px, 8vw, 112px);
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .pulse-num em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    margin-right: 4px;
+    font-size: 0.7em;
+    vertical-align: 0.15em;
+  }
+  .pulse-label-sm {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .pulse-sub {
+    font-family: var(--serif-ko);
+    font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  /* CATEGORIES — leader-dot list */
+  .cats {
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cats-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .cats-head h2 {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    font-weight: 400;
+  }
+  .cats-head .total {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+  .cats-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+  }
+  .cat-row {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    gap: 16px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cat-row:last-child { border-bottom: none; }
+  .cat-name {
+    font-family: var(--serif-ko);
+    font-size: 16px;
+    color: var(--text);
+  }
+  .cat-leader {
+    border-bottom: 1px dotted var(--border);
+    align-self: end;
+    margin-bottom: 6px;
+    height: 1px;
+  }
+  .cat-count {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+  .cat-count em {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  /* RECENT — research list */
+  .recent {
+    padding: 100px 0 140px;
+  }
+  .recent-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .recent-head h2 {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    font-weight: 400;
+  }
+  .recent-head .meta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+  .filters {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .filter {
+    background: none;
+    border: none;
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    padding: 4px 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .filter:hover { color: var(--text); }
+  .filter.active {
+    color: var(--text);
+    border-bottom: 1px solid var(--text);
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: 100px 1fr 140px;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+    transition: opacity 0.2s;
+  }
+  .card:last-child { border-bottom: none; }
+  .card:hover .card-title { color: var(--accent); font-style: italic; }
+  .card-date {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--text-mute);
+    letter-spacing: 1px;
+  }
+  .card-body h3 {
+    font-family: var(--serif-ko);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--text);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .card-body .brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .card-body p {
+    font-family: var(--serif-ko);
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--text-soft);
+    max-width: 580px;
+  }
+  .card-tag {
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    text-align: right;
+  }
+  .card.placeholder .card-body h3,
+  .card.placeholder .card-body p,
+  .card.placeholder .card-body .brand {
+    color: var(--text-mute);
+    font-style: italic;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-mute);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 40px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-mute);
+  }
+  footer span { display: inline-block; margin: 0 12px; }
+  footer a {
+    color: var(--text-soft);
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--accent); font-style: italic; }
+
+  /* RESPONSIVE */
+  @media (max-width: 880px) {
+    .pulse-grid { grid-template-columns: 1fr 1fr; gap: 56px 0; }
+    .pulse-stat { padding: 0; border-right: none; }
+    .pulse-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+    .cats-list { grid-template-columns: 1fr; gap: 0; }
+    .card { grid-template-columns: 1fr; gap: 14px; }
+    .card-tag { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 20px 20px 14px; }
+    .nav-links { gap: 22px; }
+    .container { padding: 0 24px; }
+    .hero { padding: 80px 24px 60px; }
+    .pulse { padding: 56px 0; margin-top: 56px; }
+    .cats { padding: 72px 0 56px; }
+    .recent { padding: 72px 0 100px; }
+    footer span { display: block; margin: 4px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Zeze Choi</a>
+  <ul class="nav-links">
+    <li><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#capabilities">Capabilities</a></li>
+    <li><a href="index.html#career">Career</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="archive.html" class="active">Archive</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Insight Archive</div>
+  <h1>글로벌 뷰티 브랜드를 <em>마케터의 시선</em>으로 읽습니다</h1>
+  <p>매주 한 브랜드를 골라 글로벌 전략 · 캠페인 · 콘텐츠를 분석합니다. 여기 쌓이는 글은 인스타그램 <a href="https://instagram.com/zeze__choi_">@zeze__choi_</a>에도 함께 발행됩니다.</p>
+</section>
+
+<!-- PULSE — 핵심 지표 -->
+<section class="container">
+  <div class="pulse">
+    <div class="pulse-label">— Archive Pulse —</div>
+    <div class="pulse-grid">
+      <div class="pulse-stat">
+        <span class="pulse-label-sm">Total</span>
+        <span class="pulse-num" data-stat="total">00</span>
+        <span class="pulse-sub">분석한 브랜드</span>
+      </div>
+      <div class="pulse-stat">
+        <span class="pulse-label-sm">This Week</span>
+        <span class="pulse-num" data-stat="thisweek"><em>+</em>0</span>
+        <span class="pulse-sub">이번 주 추가</span>
+      </div>
+      <div class="pulse-stat">
+        <span class="pulse-label-sm">Categories</span>
+        <span class="pulse-num" data-stat="categories">00</span>
+        <span class="pulse-sub">분류 중인 주제</span>
+      </div>
+      <div class="pulse-stat">
+        <span class="pulse-label-sm">Weeks</span>
+        <span class="pulse-num" data-stat="weeks">00</span>
+        <span class="pulse-sub">기록을 시작한 주차</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES — 분류별 -->
+<section class="container">
+  <div class="cats">
+    <div class="cats-head">
+      <h2>By Category</h2>
+      <span class="total" data-cats-total>0 entries</span>
+    </div>
+    <div class="cats-list" id="catsList">
+      <div class="cat-row" data-cat="strategy">
+        <span class="cat-name">글로벌 전략</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="strategy">00</span>
+      </div>
+      <div class="cat-row" data-cat="campaign">
+        <span class="cat-name">캠페인</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="campaign">00</span>
+      </div>
+      <div class="cat-row" data-cat="product">
+        <span class="cat-name">신제품 · 라인</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="product">00</span>
+      </div>
+      <div class="cat-row" data-cat="channel">
+        <span class="cat-name">채널 · 콘텐츠</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="channel">00</span>
+      </div>
+      <div class="cat-row" data-cat="trend">
+        <span class="cat-name">트렌드 노트</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="trend">00</span>
+      </div>
+      <div class="cat-row" data-cat="ingredient">
+        <span class="cat-name">성분 · 포뮬러</span>
+        <span class="cat-leader"></span>
+        <span class="cat-count" data-count="ingredient">00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT RESEARCH -->
+<section class="container">
+  <div class="recent">
+    <div class="recent-head">
+      <h2>Recent Research</h2>
+      <span class="meta" id="recentMeta">최신 순</span>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="strategy">Strategy</button>
+      <button class="filter" data-filter="campaign">Campaign</button>
+      <button class="filter" data-filter="product">Product</button>
+      <button class="filter" data-filter="channel">Channel</button>
+      <button class="filter" data-filter="trend">Trend</button>
+      <button class="filter" data-filter="ingredient">Ingredient</button>
+    </div>
+
+    <div class="cards" id="cards">
+
+      <!-- 샘플 카드 — 실제 글이 쌓이면 교체 -->
+      <article class="card placeholder" data-category="strategy" data-brand="sample-1" data-date="2026-05">
+        <div class="card-date">2026.05</div>
+        <div class="card-body">
+          <div class="brand">Brand Name</div>
+          <h3>첫 번째 분석 글이 이 자리에 들어갑니다</h3>
+          <p>브랜드의 글로벌 포지셔닝, 시장별 메시지 차이, 최근 캠페인의 톤을 한 화면으로 정리합니다.</p>
+        </div>
+        <div class="card-tag">Strategy</div>
+      </article>
+
+      <article class="card placeholder" data-category="campaign" data-brand="sample-2" data-date="2026-05">
+        <div class="card-date">2026.05</div>
+        <div class="card-body">
+          <div class="brand">Brand Name</div>
+          <h3>캠페인 분석 — 무엇이 통했고 무엇이 빠졌나</h3>
+          <p>실행된 캠페인의 메시지·매체·소비자 반응을 분해해서 다음에 적용할 수 있는 패턴으로 정리합니다.</p>
+        </div>
+        <div class="card-tag">Campaign</div>
+      </article>
+
+      <article class="card placeholder" data-category="product" data-brand="sample-3" data-date="2026-05">
+        <div class="card-date">2026.05</div>
+        <div class="card-body">
+          <div class="brand">Brand Name</div>
+          <h3>신제품 라인 해부 — 누구에게, 왜 지금</h3>
+          <p>제품 라인의 타겟 페르소나, 가격 포지션, 출시 타이밍을 시장 맥락 안에서 읽습니다.</p>
+        </div>
+        <div class="card-tag">Product</div>
+      </article>
+
+    </div>
+
+    <div class="empty" id="empty" style="display:none;">No entries yet — first one's coming soon.</div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Zeze Choi</span>
+  <span>·</span>
+  <span><a href="index.html">Back to Portfolio</a></span>
+</footer>
+
+<script>
+  // 카드 데이터에서 통계 자동 계산 (placeholder 제외)
+  (function () {
+    const allCards = document.querySelectorAll('.card');
+    const realCards = document.querySelectorAll('.card:not(.placeholder)');
+
+    const total = realCards.length;
+    const brands = new Set([...realCards].map(c => c.dataset.brand).filter(Boolean));
+    const cats = new Set([...realCards].map(c => c.dataset.category).filter(Boolean));
+
+    // 이번 주 = 최근 7일 이내 (data-date 기준, ISO 또는 YYYY-MM/YYYY-MM-DD)
+    const now = new Date();
+    const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const thisWeek = [...realCards].filter(c => {
+      const d = new Date(c.dataset.date);
+      return !isNaN(d) && d >= weekAgo;
+    }).length;
+
+    const pad = n => String(n).padStart(2, '0');
+    const setStat = (key, val) => {
+      const el = document.querySelector(`[data-stat="${key}"]`);
+      if (el) el.textContent = pad(val);
+    };
+    setStat('total', total);
+    setStat('categories', cats.size);
+    setStat('weeks', total);
+    const tw = document.querySelector('[data-stat="thisweek"]');
+    if (tw) tw.innerHTML = `<em>+</em>${thisWeek}`;
+
+    // 카테고리별 카운트
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const cat = el.dataset.count;
+      const n = [...realCards].filter(c => c.dataset.category === cat).length;
+      el.textContent = pad(n);
+    });
+
+    // 합계 표시
+    const totalEl = document.querySelector('[data-cats-total]');
+    if (totalEl) totalEl.textContent = `${total} entr${total === 1 ? 'y' : 'ies'}`;
+  })();
+
+  // 필터 토글
+  const cards = document.querySelectorAll('.card');
+  const empty = document.getElementById('empty');
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      cards.forEach(c => {
+        const show = f === 'all' || c.dataset.category === f;
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      empty.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
