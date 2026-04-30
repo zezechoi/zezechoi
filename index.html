@@ -462,16 +462,19 @@
   }
   .feature-photo {
     display: block;
-    width: 320px;
-    max-width: 100%;
+    flex: 1 1 240px;
+    max-width: 320px;
+    min-width: 0;
     border: 1px solid var(--border);
     border-radius: 2px;
     overflow: hidden;
     background: var(--bg);
+    margin: 0;
   }
   .feature-photo img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
   }
   .feature-photo-caption {
@@ -555,6 +558,25 @@
     font-family: var(--serif);
     color: var(--text-mute);
     letter-spacing: 1px;
+  }
+  .index-cert {
+    display: inline-block;
+    margin-top: 14px;
+    width: 96px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--bg);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .index-cert:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+  .index-cert img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* SKILLS */
@@ -791,7 +813,7 @@
 
       <p>2020년, 퍼스널컬러 강사가 되고 싶어서 교육을 이수했습니다. 현실적인 이유로 포기했지만 뷰티에 대한 마음은 사라지지 않았습니다. 2021년에는 블로그와 인스타그램을 뷰티 콘텐츠로 채웠고, IT 기업에서 B2B 마케터로 일하며 브랜드가 시장과 소통하는 방식을 배웠습니다.</p>
 
-      <p>예민피부라 성분을 직접 공부했고, 히야·케어드처럼 나에게 맞는 브랜드를 찾아냈습니다. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
+      <p>예민피부라 성분을 직접 공부했고, 나에게 맞는 브랜드를 하나하나 찾아냈습니다. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
 
       <blockquote class="story-quote">
         뷰티는 제가 한 번 포기했던 꿈입니다.<br>
@@ -935,7 +957,7 @@
             </div>
             <div class="cert-badge">
               <img src="certi2.png" alt="우수상">
-              <span class="cert-name">우수상 — AI 영상 챌린지</span>
+              <span class="cert-name">우수상 — 뷰티 · 패션 AI 영상 챌린지</span>
               <span class="cert-meta">Selfish Club · 2026.04</span>
             </div>
           </div>
@@ -946,6 +968,25 @@
       <article class="feature">
         <div class="feature-num">02</div>
         <div class="feature-body">
+          <h3>퍼스널컬러 컨설턴트</h3>
+          <p>이미지호 퍼스널컬러 컨설턴트 훈련 프로그램 이수. 색과 이미지로 사람들을 더 빛나게 만드는 경험을 쌓았습니다.</p>
+
+          <div class="feature-media">
+            <figure class="feature-photo">
+              <img src="color1.jpg" alt="퍼스널컬러 컨설팅 현장 1">
+            </figure>
+            <figure class="feature-photo">
+              <img src="color2.jpg" alt="퍼스널컬러 드레이핑 현장">
+            </figure>
+          </div>
+          <div class="feature-photo-caption">퍼스널컬러 컨설팅 현장 · Image HO 훈련 프로그램</div>
+        </div>
+        <div class="feature-tag">자격 이수</div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-num">03</div>
+        <div class="feature-body">
           <h3>뷰티 브랜드 리서치 아카이브</h3>
           <p>글로벌 뷰티 브랜드의 시장 전략을 마케터 관점으로 분석. Claude Code로 자동화 시스템 구축하여 운영 중입니다.</p>
         </div>
@@ -953,7 +994,7 @@
       </article>
 
       <article class="feature">
-        <div class="feature-num">03</div>
+        <div class="feature-num">04</div>
         <div class="feature-body">
           <h3>롯데홈쇼핑 MD 상품기획</h3>
           <p>상생일자리 프로그램 참여. 생활가전 상품기획 발표에서 우수발표팀 3등을 수상했습니다.</p>
@@ -969,30 +1010,28 @@
       </article>
 
       <article class="feature">
-        <div class="feature-num">04</div>
+        <div class="feature-num">05</div>
         <div class="feature-body">
           <h3>하나투어 투어챌린저 10기</h3>
           <p>라오스 현지 시장조사, 타겟팅, 여행상품 기획·발표. 실제 현지 시장을 조사하고 마케팅 전략을 수립한 경험.</p>
+
+          <div class="feature-media">
+            <figure class="feature-photo">
+              <img src="tour.png" alt="하나투어 투어챌린저 10기 단체 사진">
+            </figure>
+          </div>
+          <div class="feature-photo-caption">하나투어 투어챌린저 10기 · Dream Book Zone</div>
         </div>
         <div class="feature-tag">시장조사 · 기획</div>
       </article>
 
       <article class="feature">
-        <div class="feature-num">05</div>
+        <div class="feature-num">06</div>
         <div class="feature-body">
           <h3>마케터 커뮤니티 활동</h3>
           <p>청년마케터 정기모임, 힙한 마케터의 비밀 5기, 힙한 주니어의 비밀 1기 활동. 매달 마케팅 인사이트를 발견하고 기록했습니다.</p>
         </div>
         <div class="feature-tag">지속 활동</div>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">06</div>
-        <div class="feature-body">
-          <h3>퍼스널컬러 컨설턴트</h3>
-          <p>이미지호 퍼스널컬러 컨설턴트 훈련 프로그램 이수. 색과 이미지로 사람들을 더 빛나게 만드는 경험을 쌓았습니다.</p>
-        </div>
-        <div class="feature-tag">자격 이수</div>
       </article>
     </div>
   </div>
@@ -1027,7 +1066,10 @@
         <h3>Certifications</h3>
         <div class="index-item">
           <div class="index-name">퍼스널컬러 컨설턴트</div>
-          <div class="index-detail">이미지호 훈련 프로그램 이수</div>
+          <div class="index-detail">이미지호 훈련 프로그램 이수 · 2020.11</div>
+          <a href="certi3.jpg" target="_blank" rel="noopener" class="index-cert" aria-label="수료증 보기">
+            <img src="certi3.jpg" alt="퍼스널컬러 컨설턴트 수료증">
+          </a>
         </div>
         <div class="index-item">
           <div class="index-name">마케팅 기획자 양성과정</div>
