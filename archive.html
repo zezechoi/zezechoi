@@ -346,6 +346,18 @@
     color: var(--text-soft);
     max-width: 580px;
   }
+  .card-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .card-link:hover { border-bottom-color: var(--accent); }
   .card-tag {
     font-family: var(--serif);
     font-size: 11px;
@@ -426,7 +438,7 @@
 <section class="hero">
   <div class="hero-eyebrow">Insight Archive</div>
   <h1>글로벌 뷰티 브랜드를<br><em>마케터의 시선</em>으로 읽습니다</h1>
-  <p>매주 한 브랜드를 골라 글로벌 전략 · 캠페인 · 콘텐츠를 분석합니다. 여기 쌓이는 글은 인스타그램 <a href="https://instagram.com/zeze__choi_">@zeze__choi_</a>에도 함께 발행됩니다.</p>
+  <p>매주 한 브랜드를 골라 브랜드 전략 · 캠페인 · 트렌드를 분석합니다. 여기 쌓이는 글은 인스타그램 <a href="https://www.instagram.com/zeze_beautynote/">@zeze_beautynote</a>에도 함께 발행됩니다.</p>
 </section>
 
 <!-- PULSE — 핵심 지표 -->
@@ -435,9 +447,9 @@
     <div class="pulse-label">— Archive Pulse —</div>
     <div class="pulse-grid">
       <div class="pulse-stat">
-        <span class="pulse-label-sm">Total</span>
-        <span class="pulse-num" data-stat="total">00</span>
-        <span class="pulse-sub">분석한 브랜드</span>
+        <span class="pulse-label-sm">Articles</span>
+        <span class="pulse-num" data-stat="articles">00</span>
+        <span class="pulse-sub">게시글</span>
       </div>
       <div class="pulse-stat">
         <span class="pulse-label-sm">This Week</span>
@@ -445,14 +457,14 @@
         <span class="pulse-sub">이번 주 추가</span>
       </div>
       <div class="pulse-stat">
-        <span class="pulse-label-sm">Categories</span>
-        <span class="pulse-num" data-stat="categories">00</span>
-        <span class="pulse-sub">분류 중인 주제</span>
+        <span class="pulse-label-sm">Brands</span>
+        <span class="pulse-num" data-stat="brands">00</span>
+        <span class="pulse-sub">브랜드</span>
       </div>
       <div class="pulse-stat">
         <span class="pulse-label-sm">Weeks</span>
         <span class="pulse-num" data-stat="weeks">00</span>
-        <span class="pulse-sub">기록을 시작한 주차</span>
+        <span class="pulse-sub">기록한 주차</span>
       </div>
     </div>
   </div>
@@ -467,34 +479,24 @@
     </div>
     <div class="cats-list" id="catsList">
       <div class="cat-row" data-cat="strategy">
-        <span class="cat-name">글로벌 전략</span>
+        <span class="cat-name">브랜드 전략</span>
         <span class="cat-leader"></span>
         <span class="cat-count" data-count="strategy">00</span>
       </div>
       <div class="cat-row" data-cat="campaign">
-        <span class="cat-name">캠페인</span>
+        <span class="cat-name">캠페인 분석</span>
         <span class="cat-leader"></span>
         <span class="cat-count" data-count="campaign">00</span>
-      </div>
-      <div class="cat-row" data-cat="product">
-        <span class="cat-name">신제품 · 라인</span>
-        <span class="cat-leader"></span>
-        <span class="cat-count" data-count="product">00</span>
-      </div>
-      <div class="cat-row" data-cat="channel">
-        <span class="cat-name">채널 · 콘텐츠</span>
-        <span class="cat-leader"></span>
-        <span class="cat-count" data-count="channel">00</span>
       </div>
       <div class="cat-row" data-cat="trend">
         <span class="cat-name">트렌드 노트</span>
         <span class="cat-leader"></span>
         <span class="cat-count" data-count="trend">00</span>
       </div>
-      <div class="cat-row" data-cat="ingredient">
-        <span class="cat-name">성분 · 포뮬러</span>
+      <div class="cat-row" data-cat="global">
+        <span class="cat-name">글로벌 마켓</span>
         <span class="cat-leader"></span>
-        <span class="cat-count" data-count="ingredient">00</span>
+        <span class="cat-count" data-count="global">00</span>
       </div>
     </div>
   </div>
@@ -512,43 +514,32 @@
       <button class="filter active" data-filter="all">All</button>
       <button class="filter" data-filter="strategy">Strategy</button>
       <button class="filter" data-filter="campaign">Campaign</button>
-      <button class="filter" data-filter="product">Product</button>
-      <button class="filter" data-filter="channel">Channel</button>
       <button class="filter" data-filter="trend">Trend</button>
-      <button class="filter" data-filter="ingredient">Ingredient</button>
+      <button class="filter" data-filter="global">Global</button>
     </div>
 
     <div class="cards" id="cards">
 
-      <!-- 샘플 카드 — 실제 글이 쌓이면 교체 -->
-      <article class="card placeholder" data-category="strategy" data-brand="sample-1" data-date="2026-05">
+      <article class="card" data-category="strategy" data-brand="hyaah" data-date="2026-05-04">
         <div class="card-date">2026.05</div>
         <div class="card-body">
-          <div class="brand">Brand Name</div>
-          <h3>첫 번째 분석 글이 이 자리에 들어갑니다</h3>
-          <p>브랜드의 글로벌 포지셔닝, 시장별 메시지 차이, 최근 캠페인의 톤을 한 화면으로 정리합니다.</p>
+          <div class="brand">히야 HYAAH</div>
+          <h3>카테고리 확장이 곧 브랜드 철학이다</h3>
+          <p>「브랜드의 첫 문장」 시리즈 vol.2. 스킨케어를 넘어 음식·침구로 확장하는 히야는, 제품 라인이 아니라 피부를 다루는 방식 자체를 라이프스타일로 재정의한다.</p>
+          <a class="card-link" href="https://www.instagram.com/p/DX54Ya5ges2/" target="_blank" rel="noopener">View on Instagram →</a>
         </div>
         <div class="card-tag">Strategy</div>
       </article>
 
-      <article class="card placeholder" data-category="campaign" data-brand="sample-2" data-date="2026-05">
+      <article class="card" data-category="strategy" data-brand="kared" data-date="2026-05-01">
         <div class="card-date">2026.05</div>
         <div class="card-body">
-          <div class="brand">Brand Name</div>
-          <h3>캠페인 분석 — 무엇이 통했고 무엇이 빠졌나</h3>
-          <p>실행된 캠페인의 메시지·매체·소비자 반응을 분해해서 다음에 적용할 수 있는 패턴으로 정리합니다.</p>
+          <div class="brand">케어드 KARED</div>
+          <h3>유통이 브랜드의 첫 메시지다 — 약국 입점이 말해주는 것</h3>
+          <p>「브랜드의 첫 문장」 시리즈 vol.1. 올리브영이 아닌 약국이라는 채널 선택은, 카피가 말하기 전에 브랜드가 가장 먼저 쓴 한 문장이다.</p>
+          <a class="card-link" href="https://www.instagram.com/p/DXyTG5UgSDW/" target="_blank" rel="noopener">View on Instagram →</a>
         </div>
-        <div class="card-tag">Campaign</div>
-      </article>
-
-      <article class="card placeholder" data-category="product" data-brand="sample-3" data-date="2026-05">
-        <div class="card-date">2026.05</div>
-        <div class="card-body">
-          <div class="brand">Brand Name</div>
-          <h3>신제품 라인 해부 — 누구에게, 왜 지금</h3>
-          <p>제품 라인의 타겟 페르소나, 가격 포지션, 출시 타이밍을 시장 맥락 안에서 읽습니다.</p>
-        </div>
-        <div class="card-tag">Product</div>
+        <div class="card-tag">Strategy</div>
       </article>
 
     </div>
@@ -586,8 +577,8 @@
       const el = document.querySelector(`[data-stat="${key}"]`);
       if (el) el.textContent = pad(val);
     };
-    setStat('total', total);
-    setStat('categories', cats.size);
+    setStat('articles', total);
+    setStat('brands', brands.size);
     setStat('weeks', total);
     const tw = document.querySelector('[data-stat="thisweek"]');
     if (tw) tw.innerHTML = `<em>+</em>${thisWeek}`;
