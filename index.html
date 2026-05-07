@@ -280,7 +280,7 @@
     font-size: clamp(48px, 5.6vw, 76px);
     line-height: 0.92;
     letter-spacing: -0.04em;
-    color: var(--text);
+    color: var(--accent);
     margin-bottom: 14px;
     font-feature-settings: "ss01", "tnum";
   }
@@ -401,7 +401,20 @@
     transition: background .25s;
     position: relative;
   }
+  .work-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform .35s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
   .work-card:hover { background: var(--bg-subtle); }
+  .work-card:hover::before { transform: scaleY(1); }
   .work-id {
     font-family: var(--mono);
     font-size: 11px;
