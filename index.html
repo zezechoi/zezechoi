@@ -1,22 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zeze Choi — Global Beauty Brand Communicator</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<title>Zeze Choi — Premium Brand Operator · From EU to K-Beauty</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="6년간 유럽 프리미엄 브랜드를 한국으로 옮겼습니다. 다음은, 한국 뷰티를 세계로. — 최지예 Zeze Choi">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+
 <style>
   :root {
-    --bg: #FAF8F4;
-    --text: #1A1612;
-    --text-soft: #5C5651;
-    --text-mute: #8A847C;
-    --border: #E5DFD6;
+    /* Pure A — Aesop / Le Labo discipline. Single accent. */
+    --bg: #F8F5EC;
+    --bg-subtle: #F0EBDC;
+    --text: #241A14;
+    --text-soft: #564A3D;
+    --text-mute: #8B7D6A;
+    --border: #DFD6BD;
+    --border-subtle: #EAE2CD;
     --accent: #B25E3F;
-    --serif: 'Cormorant Garamond', 'Noto Serif KR', serif;
-    --serif-ko: 'Noto Serif KR', 'Cormorant Garamond', serif;
+    --accent-deep: #8C4628;
+    --dark-bg: #241A14;
+    --dark-text: #F8F5EC;
+    --dark-mute: #9C8D78;
+    --dark-border: #3F3025;
+
+    --sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,100 +35,183 @@
 
   body {
     background: var(--bg);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
     color: var(--text);
-    font-family: var(--serif-ko);
+    font-family: var(--sans);
+    font-feature-settings: "ss01", "ss02", "ss03", "ss06", "ss07";
     font-weight: 400;
-    line-height: 1.75;
-    font-size: 16px;
+    line-height: 1.6;
+    font-size: 15.5px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
-  a { color: inherit; text-decoration: none; }
-  em { font-style: italic; }
+  .sec.warm { background: var(--bg-subtle); }
+  .sec.dark {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    border-bottom-color: var(--dark-border);
+  }
+  .sec.dark .sec-head { border-bottom-color: var(--dark-border); }
+  .sec.dark .sec-head-left { color: var(--dark-mute); }
+  .sec.dark .sec-title { color: var(--dark-text); }
+  .sec.dark .sec-title .soft { color: var(--dark-mute); }
+
+  a { color: inherit; text-decoration: none; transition: color .18s; }
   ::selection { background: var(--text); color: var(--bg); }
 
-  /* ELEMENTS — universal */
-  .eyebrow {
-    font-family: var(--serif);
+  .label {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 4px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-mute);
     font-weight: 400;
   }
-  .rule {
-    width: 40px;
-    height: 1px;
-    background: var(--text);
-    margin: 0 auto;
-  }
-
-  /* NAV */
-  nav {
-    padding: 28px 40px 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
+  .accent { color: var(--accent); }
+  .dot-live {
     display: inline-block;
-    font-family: var(--serif);
-    font-size: 22px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--text);
-    margin-bottom: 14px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(178, 94, 63, 0.5);
+    animation: pulse 2.4s infinite;
+    vertical-align: middle;
+    margin-right: 8px;
   }
-  .nav-links {
-    list-style: none;
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(178, 94, 63, 0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(178, 94, 63, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(178, 94, 63, 0); }
+  }
+
+  /* ─── NAV ─── */
+  nav.site-nav {
+    position: sticky; top: 0; z-index: 50;
+    padding: 14px 32px;
     display: flex;
-    justify-content: center;
-    gap: 36px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .nav-links a {
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 3px;
+  .nav-left { display: flex; align-items: center; gap: 14px; }
+  .nav-logo {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .nav-stamp {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
     text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13.5px; color: var(--text-soft); font-weight: 450; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
     color: var(--text-soft);
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-
-  /* CONTAINER */
-  .container {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 40px;
+    text-transform: uppercase;
   }
 
-  section {
-    padding: 140px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  section:last-of-type { border-bottom: none; }
-
-  /* HERO */
+  /* ─── HERO — PIVOT THESIS ─── */
   .hero {
-    padding: 140px 40px 140px;
-    border-bottom: 1px solid var(--border);
-    max-width: 1180px;
+    padding: 64px 32px 56px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 80px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 56px;
+    align-items: end;
+    min-height: 64vh;
+  }
+  .hero-stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    display: flex;
+    gap: 18px;
     align-items: center;
   }
-  .hero-content {
-    text-align: left;
+  .hero-stamp .bar {
+    flex: 0 0 32px;
+    height: 1px;
+    background: var(--text-mute);
+  }
+  .hero-thesis {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .hero-line-1, .hero-line-2 {
+    font-weight: 700;
+    font-size: clamp(36px, 5.4vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--text);
+  }
+  .hero-line-1 {
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+  .hero-line-1 strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+  .hero-line-2 {
+    color: var(--text);
+    position: relative;
+    padding-left: 0;
+  }
+  .hero-line-2 .arrow {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .hero-line-2 .accent { color: var(--accent); font-weight: 700; }
+  .hero-en {
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: var(--text-soft);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    padding-left: 16px;
+    border-left: 1px solid var(--border);
+  }
+  .hero-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 40px;
+    align-items: baseline;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-meta-cell .label { display: block; margin-bottom: 6px; }
+  .hero-meta-cell .val {
+    font-size: 14.5px;
+    color: var(--text);
+    font-weight: 450;
   }
   .hero-portrait {
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    overflow: hidden;
+    align-self: end;
     justify-self: end;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--bg-subtle);
     position: relative;
   }
   .hero-portrait img {
@@ -126,1008 +220,1393 @@
     object-fit: cover;
     object-position: 50% 28%;
     display: block;
+    filter: grayscale(0.05) contrast(1.02);
   }
-  .hero-eyebrow {
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+  .hero-portrait-cap {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: var(--bg);
+    padding: 5px 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
     color: var(--text-mute);
-    margin-bottom: 36px;
-  }
-  .hero-name {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(56px, 7vw, 88px);
-    line-height: 1.05;
-    letter-spacing: -1px;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .hero-name .ko {
-    display: block;
-    font-family: var(--serif-ko);
-    font-weight: 300;
-    margin-bottom: 6px;
-  }
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
-  }
-  .hero-blurb {
-    font-family: var(--serif-ko);
-    font-size: clamp(22px, 2.6vw, 30px);
-    line-height: 1.55;
-    color: var(--text);
-    max-width: 540px;
-    margin: 40px 0 0;
-    font-weight: 400;
-    letter-spacing: -0.3px;
-  }
-  .hero-meta {
-    margin-top: 56px;
-    display: flex;
-    gap: 36px;
-    flex-wrap: wrap;
-  }
-  .hero-meta a {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: var(--text-soft);
-    transition: color 0.2s;
-  }
-  .hero-meta a:hover { color: var(--accent); font-style: italic; }
-
-  /* SECTION HEADER */
-  .section-head {
-    text-align: center;
-    margin-bottom: 100px;
-  }
-  .section-eyebrow {
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--text-mute);
-    margin-bottom: 28px;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    color: var(--text);
-  }
-  .section-title .ko {
-    font-family: var(--serif-ko);
-    font-weight: 300;
-  }
-  .section-title em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
   }
 
-  /* STORY */
-  .story-text {
-    max-width: 640px;
+  /* ─── TOC ─── */
+  .toc {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    background: var(--bg);
+  }
+  .toc-inner {
+    max-width: 1280px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-mute);
   }
-  .story-text p {
-    font-family: var(--serif-ko);
-    font-size: 17px;
-    line-height: 2;
-    color: var(--text);
-    margin-bottom: 32px;
-    font-weight: 400;
-  }
-  .story-text p:first-child {
-    font-family: var(--serif-ko);
-    font-size: 22px;
-    line-height: 1.7;
-    text-align: center;
-    color: var(--text);
-    margin-bottom: 64px;
-    font-weight: 400;
-  }
-  .story-quote {
-    margin: 64px 0;
-    padding: 56px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-    font-family: var(--serif-ko);
-    font-size: 22px;
-    font-style: italic;
-    line-height: 1.7;
-    color: var(--text);
-    font-weight: 300;
-  }
+  .toc-inner a { display: inline-flex; gap: 8px; }
+  .toc-inner a:hover { color: var(--text); }
+  .toc-inner .num { color: var(--accent); }
+  .toc-inner .sep { opacity: 0.4; }
 
-  /* CAPABILITIES */
-  .caps {
+  /* ─── METRICS — OPERATOR METRICS ─── */
+  .metrics {
+    padding: 64px 32px 56px;
+    max-width: 1280px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    border-left: 1px solid var(--border);
-  }
-  .cap {
-    padding: 56px 48px;
-    border-right: 1px solid var(--border);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
     border-bottom: 1px solid var(--border);
   }
-  .cap-num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 28px;
-    color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 28px;
-    line-height: 1;
-    font-weight: 400;
-    display: inline-block;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-    min-width: 64px;
+  .metric .label { display: block; margin-bottom: 14px; font-size: 10.5px; }
+  .metric-num {
+    font-weight: 600;
+    font-size: clamp(48px, 5.6vw, 76px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 14px;
+    font-feature-settings: "ss01", "tnum";
   }
-  .cap-num sup {
-    font-size: 0.55em;
-    vertical-align: 0.7em;
-    margin-right: 3px;
-    font-style: italic;
+  .metric-num .unit {
+    font-size: 0.32em;
+    color: var(--text-mute);
+    font-weight: 450;
+    margin-left: 6px;
     letter-spacing: 0;
+    text-transform: uppercase;
+    font-family: var(--mono);
   }
-  .cap-title {
-    font-family: var(--serif-ko);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.3;
-    color: var(--text);
-    margin-bottom: 6px;
+  .metric-num .arrow {
+    color: var(--accent);
+    margin: 0 6px;
+    font-weight: 500;
+    font-size: 0.65em;
   }
-  .cap-en {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--text-mute);
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
-  }
-  .cap-desc {
-    font-family: var(--serif-ko);
-    font-size: 15px;
-    line-height: 1.85;
+  .metric-desc {
+    font-size: 13px;
     color: var(--text-soft);
-    margin-bottom: 16px;
+    line-height: 1.55;
+    max-width: 240px;
   }
-  .cap-tags {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 1.5px;
+
+  /* ─── SECTION SHELL ─── */
+  .sec {
+    padding: 72px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-head {
+    max-width: 1280px;
+    margin: 0 auto 48px;
+    display: grid;
+    grid-template-columns: 1fr 2.4fr;
+    gap: 40px;
+    align-items: end;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-head-left {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+  .sec-head-left .num { color: var(--accent); }
+  .sec-title {
+    font-weight: 600;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--text);
+  }
+  .sec-title .soft { color: var(--text-mute); font-weight: 400; }
+
+  /* ─── WORK GROUP DIVIDER ─── */
+  .work-group {
+    max-width: 1280px;
+    margin: 0 auto 48px;
+  }
+  .work-group:last-child { margin-bottom: 0; }
+  .work-group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .work-group-title {
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .work-group-title .id {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .work-group-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
     color: var(--text-mute);
     text-transform: uppercase;
   }
 
-  /* CAREER */
-  .career-list {
-    border-top: 1px solid var(--border);
-  }
-  .career-entry {
+  /* ─── WORK GRID ─── */
+  .work-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 60px;
-    padding: 60px 0;
-    border-bottom: 1px solid var(--border);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(240px, auto);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
-  .career-period {
-    font-family: var(--serif);
-    font-size: 14px;
-    color: var(--text-mute);
-    letter-spacing: 1.5px;
-    padding-top: 4px;
-  }
-  .career-company {
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 6px;
-    letter-spacing: -0.3px;
-  }
-  .career-role {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-mute);
-    margin-bottom: 28px;
-  }
-  .career-lede {
-    font-family: var(--serif-ko);
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--text);
-    margin-bottom: 24px;
-    max-width: 600px;
-  }
-  .career-bullets {
-    list-style: none;
-    max-width: 600px;
-  }
-  .career-bullets li {
-    font-family: var(--serif-ko);
-    font-size: 14.5px;
-    line-height: 1.85;
-    color: var(--text-soft);
-    padding: 4px 0 4px 24px;
+  .work-card {
+    background: var(--bg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: background .25s;
     position: relative;
   }
-  .career-bullets li::before {
+  .work-card:hover { background: var(--bg-subtle); }
+  .work-id {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+  .work-id .accent { color: var(--accent); }
+  .work-stat {
+    font-weight: 600;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--text);
+    margin: 4px 0 8px;
+    font-feature-settings: "tnum";
+  }
+  .work-stat .unit {
+    font-size: 0.32em;
+    color: var(--text-mute);
+    font-weight: 450;
+    margin-left: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: var(--mono);
+  }
+  .work-stat .arrow {
+    color: var(--accent);
+    margin: 0 6px;
+    font-size: 0.7em;
+    font-weight: 500;
+  }
+  .work-title {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.3;
+    color: var(--text);
+    letter-spacing: -0.015em;
+  }
+  .work-desc {
+    font-size: 13.5px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  .work-desc strong { color: var(--text); font-weight: 600; }
+  .work-foot {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .work-tags {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+  .work-arrow {
+    font-size: 13px;
+    color: var(--text);
+    transition: transform .25s;
+  }
+  .work-card:hover .work-arrow { transform: translateX(4px); color: var(--accent); }
+  .work-card.feature {
+    grid-column: span 2;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  .feature-img {
+    background: var(--bg-subtle);
+    overflow: hidden;
+    min-height: 280px;
+  }
+  .feature-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform .8s ease;
+  }
+  .work-card.feature:hover .feature-img img { transform: scale(1.02); }
+  .feature-body {
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .feature-body .work-title { font-size: 22px; }
+  .feature-body .work-stat { font-size: clamp(40px, 4.5vw, 60px); }
+  .work-card.feature.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .work-card.with-img {
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 160px 1fr;
+  }
+  .work-card.with-img .work-img {
+    background: var(--bg-subtle);
+    overflow: hidden;
+  }
+  .work-card.with-img .work-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .work-card.with-img .body {
+    padding: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* placeholder for future work asset */
+  .work-card .placeholder-note {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: var(--bg-subtle);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* ─── K-BEAUTY FILES ─── */
+  .kb-files {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .kb-files-list {
+    border-top: 1px solid var(--border);
+  }
+  .kb-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1.6fr 140px;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+    transition: background .25s, padding-left .3s;
+    cursor: pointer;
+  }
+  .kb-row:hover {
+    background: var(--bg-subtle);
+    padding-left: 16px;
+  }
+  .kb-row .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .kb-row .brand {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.15;
+  }
+  .kb-row .brand .ko {
+    font-weight: 500;
+    color: var(--text-soft);
+    margin-left: 6px;
+    font-size: 0.85em;
+  }
+  .kb-row .topic {
+    font-size: 14.5px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  .kb-row .topic strong { color: var(--text); font-weight: 500; }
+  .kb-row .meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .kb-row .meta .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform .3s;
+  }
+  .kb-row:hover .meta .arrow { transform: translateX(4px); color: var(--accent); }
+  .kb-cta {
+    margin-top: 40px;
+    text-align: center;
+  }
+  .kb-cta a {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    border: 1px solid var(--text);
+    padding: 14px 32px;
+    transition: background .25s, color .25s;
+  }
+  .kb-cta a:hover { background: var(--text); color: var(--bg); }
+
+  /* ─── MANIFESTO STRIP ─── */
+  .manifesto {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    padding: 88px 32px;
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .manifesto-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2.4fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .manifesto-aside {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--dark-mute);
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .manifesto-aside .accent {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .manifesto-quote {
+    font-weight: 600;
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--dark-text);
+    margin-bottom: 28px;
+  }
+  .manifesto-quote .accent { color: var(--accent); font-weight: 600; }
+  .manifesto-cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--dark-mute);
+    text-transform: uppercase;
+  }
+  .manifesto-cite::before { content: '— '; }
+
+  /* ─── CAPABILITIES ─── */
+  .caps-list { max-width: 1280px; margin: 0 auto; }
+  .cap-row {
+    display: grid;
+    grid-template-columns: 80px 1.4fr 2fr 1.6fr;
+    gap: 40px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+  .cap-row:last-child { border-bottom: 1px solid var(--border); }
+  .cap-id {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+    padding-top: 8px;
+  }
+  .cap-headline {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .cap-en {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+  }
+  .cap-info p {
+    font-size: 14.5px;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+  .cap-info p strong { color: var(--text); font-weight: 600; }
+  .cap-proof {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.65;
+    padding: 14px 18px;
+    background: var(--bg-subtle);
+    border-radius: 2px;
+  }
+  .cap-proof .pl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ─── EXPERIENCE / CAREER ─── */
+  .career-list { max-width: 1280px; margin: 0 auto; }
+  .career-row {
+    display: grid;
+    grid-template-columns: 130px 1.5fr 2fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+  .career-row.feature {
+    padding: 48px 0 56px;
+    background: linear-gradient(to right, var(--bg-subtle) 0%, transparent 80%);
+    margin-left: -32px;
+    padding-left: 32px;
+    margin-right: -32px;
+    padding-right: 32px;
+  }
+  .career-row:last-child { border-bottom: 1px solid var(--border); }
+  .career-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-mute);
+    padding-top: 4px;
+  }
+  .career-period .latest {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 9.5px;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .career-co {
+    font-weight: 600;
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .career-role {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .career-bizh {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  .career-detail .lede {
+    font-size: 14.5px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .career-detail ul { list-style: none; padding: 0; margin-bottom: 18px; }
+  .career-detail li {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-soft);
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+  .career-detail li::before {
     content: '—';
     position: absolute;
     left: 0;
     color: var(--accent);
   }
-  .career-bullets strong {
-    color: var(--text);
-    font-weight: 500;
-  }
+  .career-detail li strong { color: var(--text); font-weight: 600; }
 
-  /* FEATURES (PROJECTS) */
-  .features {
-    border-top: 1px solid var(--border);
-  }
-  .feature {
-    display: grid;
-    grid-template-columns: 80px 1fr 200px;
-    gap: 40px;
-    padding: 48px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: baseline;
-  }
-  .feature-num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 24px;
-    color: var(--text-mute);
-    font-weight: 400;
-  }
-  .feature-body h3 {
-    font-family: var(--serif-ko);
-    font-size: 22px;
+  /* skill accumulation arc */
+  .career-learned {
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: var(--bg-subtle);
+    border-left: 2px solid var(--accent);
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
     font-weight: 500;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 10px;
   }
-  .feature-body p {
-    font-family: var(--serif-ko);
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--text-soft);
-    max-width: 520px;
-  }
-  .feature-tag {
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-mute);
-    text-align: right;
-  }
-  a.feature-tag {
-    color: var(--text);
-    border-bottom: 1px solid var(--text);
-    padding-bottom: 3px;
-    display: inline-block;
-    align-self: start;
-    justify-self: end;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  a.feature-tag:hover {
+  .career-learned::before {
+    content: '→ ';
     color: var(--accent);
-    border-color: var(--accent);
-    font-style: italic;
-  }
-  .feature-media {
-    display: flex;
-    gap: 16px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
-  .cap-thumb {
-    display: block;
-    width: 132px;
-    aspect-ratio: 9 / 16;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    background: var(--bg);
-    transition: opacity 0.25s, transform 0.25s;
-  }
-  .cap-thumb:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
-  }
-  .cap-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .feature-photo {
-    display: block;
-    flex: 1 1 240px;
-    max-width: 320px;
-    min-width: 0;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    background: var(--bg);
-    margin: 0;
-  }
-  .feature-photo img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-  }
-  .feature-photo-caption {
-    margin-top: 10px;
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-mute);
-  }
-  .feature-certs {
-    display: flex;
-    gap: 28px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
-  .cert-badge {
-    display: flex;
-    flex-direction: column;
-    max-width: 180px;
-  }
-  .cert-badge img {
-    width: 180px;
-    height: auto;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    margin-bottom: 10px;
-    display: block;
-  }
-  .cert-name {
-    font-family: var(--serif-ko);
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 2px;
-  }
-  .cert-meta {
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-mute);
+    font-weight: 600;
   }
 
-  /* INDEX (Education + Certs) */
-  .index-grid {
+  /* ─── ABOUT (PIVOT STORY) ─── */
+  .about-grid {
+    max-width: 1280px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr 2.4fr;
+    gap: 64px;
+  }
+  .about-aside {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .about-aside p { margin-bottom: 16px; }
+  .about-aside p span { color: var(--text); }
+  .about-body { max-width: 720px; }
+  .about-body .lede {
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.45;
+    letter-spacing: -0.018em;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .about-body p {
+    font-size: 15.5px;
+    color: var(--text-soft);
+    line-height: 1.78;
+    margin-bottom: 18px;
+  }
+
+  /* ─── INDEX ─── */
+  .index-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
   }
   .index-block h3 {
-    font-family: var(--serif);
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 4px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-mute);
-    margin-bottom: 32px;
+    margin-bottom: 18px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
     font-weight: 400;
   }
-  .index-item {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
+  .index-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .index-item:last-child { border-bottom: none; }
-  .index-name {
-    font-family: var(--serif-ko);
-    font-size: 17px;
+  .index-row:last-child { border-bottom: none; }
+  .index-row .name {
+    font-size: 14.5px;
     font-weight: 500;
     color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .index-row .name .award { color: var(--accent); font-weight: 500; }
+  .index-row .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin-bottom: 4px;
   }
-  .index-detail {
-    font-family: var(--serif-ko);
+  .index-row .desc {
     font-size: 13px;
-    color: var(--text-mute);
-    line-height: 1.7;
-  }
-  .index-period {
-    font-family: var(--serif);
-    color: var(--text-mute);
-    letter-spacing: 1px;
-  }
-  .index-cert {
-    display: inline-block;
-    margin-top: 14px;
-    width: 96px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    background: var(--bg);
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .index-cert:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
-  }
-  .index-cert img {
-    width: 100%;
-    height: auto;
-    display: block;
+    color: var(--text-soft);
+    line-height: 1.55;
   }
 
-  /* SKILLS */
-  .skills {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
+  /* ─── NOW / EDITOR ─── */
+  .now {
+    padding: 80px 32px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-subtle);
   }
-  .skills h3 {
-    font-family: var(--serif);
+  .now-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2.4fr;
+    gap: 64px;
+  }
+  .now-aside {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--text-mute);
-    margin-bottom: 32px;
-    font-weight: 400;
+    text-transform: uppercase;
   }
-  .skills-list {
+  .now-aside .stamp { color: var(--accent); margin-bottom: 12px; display: inline-block; }
+  .now-list { list-style: none; }
+  .now-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 80px;
-  }
-  .skill-row {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 16px;
-    padding: 14px 0;
+    grid-template-columns: 130px 1fr;
+    gap: 32px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--border);
     align-items: baseline;
   }
-  .skill-row .label {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+  .now-row:first-child { border-top: 1px solid var(--border); }
+  .now-row .lab {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
     color: var(--text-mute);
+    text-transform: uppercase;
   }
-  .skill-row .value {
-    font-family: var(--serif-ko);
-    font-size: 15px;
+  .now-row .v {
+    font-size: 15.5px;
     color: var(--text);
+    line-height: 1.55;
   }
 
-  /* ARCHIVE NOTE (Insight) */
-  .archive-note {
-    text-align: center;
-    padding: 140px 40px;
-    border-bottom: 1px solid var(--border);
+  /* ─── CONTACT (DARK) ─── */
+  .contact {
+    padding: 120px 32px 96px;
+    background: var(--dark-bg);
+    color: var(--dark-text);
   }
-  .archive-note .eyebrow {
-    margin-bottom: 36px;
+  .contact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: end;
   }
-  .archive-note h2 {
-    font-family: var(--serif-ko);
-    font-size: clamp(28px, 3.4vw, 42px);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--text);
-    margin-bottom: 32px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: -0.3px;
+  .contact-left .label { margin-bottom: 24px; display: block; color: var(--dark-mute); }
+  .contact-left h2 {
+    font-weight: 700;
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--dark-text);
   }
-  .archive-note h2 em {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
+  .contact-left h2 .accent { color: var(--accent); font-weight: 700; }
+  .contact-right { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .contact-line {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--dark-border);
   }
-  .archive-note p {
-    font-family: var(--serif-ko);
-    font-size: 17px;
-    color: var(--text);
-    margin-bottom: 56px;
-    line-height: 1.9;
-  }
-  .archive-cta {
-    font-family: var(--serif);
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 3px;
+  .contact-line .lab {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--dark-mute);
     text-transform: uppercase;
-    color: var(--text);
-    border-bottom: 1px solid var(--text);
-    padding-bottom: 4px;
-    transition: color 0.2s, border-color 0.2s;
   }
-  .archive-cta:hover {
+  .contact-line a {
+    font-size: 18px;
+    color: var(--dark-text);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .contact-line a:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
   }
-
-  /* CONTACT */
-  .contact {
-    text-align: center;
-    padding: 160px 40px;
-  }
-  .contact h2 {
-    font-family: var(--serif-ko);
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 300;
-    color: var(--text);
-    margin-bottom: 28px;
-    line-height: 1.15;
-  }
-  .contact p {
-    font-family: var(--serif-ko);
-    font-size: 18px;
-    color: var(--text);
-    margin-bottom: 56px;
-    line-height: 1.95;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-  .contact-links a {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--text);
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-  }
-  .contact-links a:hover {
-    color: var(--accent);
-    font-style: italic;
+  .contact + footer {
+    background: var(--dark-bg);
+    color: var(--text-soft);
+    border-top: 1px solid var(--dark-border);
   }
 
-  /* FOOTER */
+  /* ─── FOOTER ─── */
   footer {
-    padding: 32px 40px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 2px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--text-mute);
+    flex-wrap: wrap;
+    gap: 16px;
   }
-  footer span { display: inline-block; margin: 0 12px; }
 
-  /* RESPONSIVE */
-  @media (max-width: 880px) {
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .work-grid { grid-template-columns: 1fr 1fr; }
+    .work-card.feature, .work-card.feature.split {
+      grid-column: span 2;
+      grid-template-columns: 1fr;
+    }
+    .index-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    nav.site-nav { padding: 12px 20px; }
+    .nav-links, .nav-stamp { display: none; }
     .hero {
       grid-template-columns: 1fr;
+      padding: 48px 20px 48px;
       gap: 48px;
-      text-align: center;
-      justify-items: center;
+      min-height: auto;
     }
-    .hero-content { text-align: center; }
-    .hero-blurb { margin-left: auto; margin-right: auto; }
-    .hero-meta { justify-content: center; }
-    .hero-portrait {
-      order: -1;
-      width: 240px;
-      height: 240px;
-      justify-self: center;
+    .hero-portrait { max-width: 100%; aspect-ratio: 4 / 3; }
+    .toc { padding: 14px 20px; }
+    .toc-inner { gap: 4px 20px; font-size: 10px; }
+    .metrics { grid-template-columns: 1fr 1fr; gap: 36px 24px; padding: 48px 20px 36px; }
+    .sec { padding: 64px 20px; }
+    .sec-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card.feature, .work-card.feature.split { grid-column: span 1; }
+    .feature-img { min-height: 200px; }
+    .feature-body { padding: 24px; }
+    .kb-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 24px 0;
     }
-    .caps { grid-template-columns: 1fr; }
-    .career-entry { grid-template-columns: 1fr; gap: 24px; }
-    .feature { grid-template-columns: 60px 1fr; gap: 24px; }
-    .feature-tag { grid-column: 2; text-align: left; padding-top: 6px; }
-    .index-grid { grid-template-columns: 1fr; gap: 56px; }
-    .skills-list { grid-template-columns: 1fr; gap: 6px; }
-  }
-  @media (max-width: 640px) {
-    nav { padding: 20px 20px 14px; }
-    .nav-links { gap: 22px; }
-    .container { padding: 0 24px; }
-    .hero { padding: 100px 24px 80px; }
-    .hero-portrait { width: 200px; height: 200px; }
-    section { padding: 100px 0; }
-    .archive-note { padding: 100px 24px; }
-    .contact { padding: 120px 24px; }
-    .cap { padding: 40px 28px; }
-    .section-head { margin-bottom: 64px; }
-    footer span { display: block; margin: 4px 0; }
+    .kb-row:hover { padding-left: 0; }
+    .kb-row .meta { text-align: left; }
+    .cap-row { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
+    .cap-id { padding-top: 0; }
+    .career-row { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+    .career-row.feature { margin: 0 -20px; padding: 32px 20px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .index-grid { grid-template-columns: 1fr; gap: 36px; }
+    .now { padding: 56px 20px; }
+    .now-inner { grid-template-columns: 1fr; gap: 32px; }
+    .now-row { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
+    .manifesto { padding: 56px 20px; }
+    .manifesto-inner { grid-template-columns: 1fr; gap: 24px; }
+    .contact { padding: 80px 20px 56px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact-line { grid-template-columns: 1fr; gap: 4px; }
+    footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
   }
 </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">Zeze Choi</a>
+<!-- ─── NAV ─────────────────────────────────────── -->
+<nav class="site-nav">
+  <div class="nav-left">
+    <a href="#top" class="nav-logo">Zeze Choi</a>
+    <span class="nav-stamp">— Portfolio · Ed. 02 / 2025</span>
+  </div>
   <ul class="nav-links">
-    <li><a href="#story">Story</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#kbeauty">K-Beauty Files</a></li>
     <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#career">Career</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#career">Experience</a></li>
+    <li><a href="#about">About</a></li>
   </ul>
+  <div class="nav-status"><span class="dot-live"></span>Open for K-Beauty Roles</div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Global Beauty Brand Communicator</div>
-    <h1 class="hero-name">
-      <span class="ko">최지예</span>
-      <em>Zeze Choi</em>
-    </h1>
-    <p class="hero-blurb">
-      소비자의 언어로 뷰티를 읽고,<br>
-      브랜드의 언어로 다시 씁니다.
+<!-- ─── HERO — PIVOT THESIS ─────────────────────── -->
+<section class="hero" id="top">
+  <div>
+    <div class="hero-stamp">
+      <span class="bar"></span>
+      <span>Premium Brand Operator · Italian Luxury → K-Beauty</span>
+      <span>·</span>
+      <span>Seoul, KR</span>
+    </div>
+
+    <div class="hero-thesis">
+      <h1 class="hero-line-1">
+        7년간 한국과 세계 사이를<br>
+        <strong>운영했습니다.</strong>
+      </h1>
+      <h1 class="hero-line-2">
+        <span class="arrow">→</span> 다음은,<br>
+        <span class="accent">한국 뷰티</span>를 세계로.
+      </h1>
+    </div>
+
+    <p class="hero-en">
+      Seven years operating between Korea and the world — including six Italian luxury interior brands at premium tier. Next chapter: bringing K-beauty to global markets, with the operator's eye for what travels and what gets lost in translation.
     </p>
-    <div class="hero-meta">
-      <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
-      <a href="https://www.instagram.com/zeze_beautynote/">@zeze_beautynote</a>
+
+    <div class="hero-meta-row">
+      <div class="hero-meta-cell">
+        <span class="label">Currently</span>
+        <span class="val">K-뷰티 글로벌 / 브랜드 오퍼레이션 포지션 탐색 중</span>
+      </div>
+      <div class="hero-meta-cell">
+        <span class="label">Languages</span>
+        <span class="val">English (Business) · 한국어</span>
+      </div>
+      <div class="hero-meta-cell">
+        <span class="label">Lived in</span>
+        <span class="val">Seoul · Sydney · Taipei</span>
+      </div>
     </div>
   </div>
+
   <div class="hero-portrait">
-    <img src="profile.jpg" alt="Zeze Choi">
+    <img src="profile.jpg" alt="Zeze Choi · 최지예">
+    <span class="hero-portrait-cap">최지예 · ZC / 2025</span>
   </div>
 </section>
 
-<!-- STORY -->
-<section id="story">
-  <div class="container">
-    <header class="section-head">
-      <div class="section-eyebrow">Story</div>
-      <h2 class="section-title"><span class="ko">나의 이야기</span></h2>
-    </header>
+<!-- ─── TOC ─────────────────────────────────────── -->
+<div class="toc">
+  <div class="toc-inner">
+    <a href="#work"><span class="num">01</span> Selected Work</a>
+    <span class="sep">·</span>
+    <a href="#kbeauty"><span class="num">02</span> K-Beauty Files</a>
+    <span class="sep">·</span>
+    <a href="#capabilities"><span class="num">03</span> Capabilities</a>
+    <span class="sep">·</span>
+    <a href="#career"><span class="num">04</span> Experience</a>
+    <span class="sep">·</span>
+    <a href="#about"><span class="num">05</span> About</a>
+    <span class="sep">·</span>
+    <a href="#index"><span class="num">06</span> Index</a>
+    <span class="sep">·</span>
+    <a href="#contact"><span class="num">07</span> Contact</a>
+  </div>
+</div>
 
-    <div class="story-text">
-      <p>저는 나를 더 빛나게 해주는 것에 끌리는 사람입니다.</p>
+<!-- ─── OPERATOR METRICS ────────────────────────── -->
+<section class="metrics">
+  <div class="metric">
+    <span class="label">Operating Scope</span>
+    <div class="metric-num">6<span class="unit">brands</span></div>
+    <p class="metric-desc">이태리 럭셔리 인테리어 6개 브랜드의 한국 시장 단독 책임.</p>
+  </div>
+  <div class="metric">
+    <span class="label">Cross-Continental</span>
+    <div class="metric-num">2<span class="unit">continents</span></div>
+    <p class="metric-desc">유럽 본사 ↔ 한국 사이 운영 흐름 직접 설계.</p>
+  </div>
+  <div class="metric">
+    <span class="label">From Zero</span>
+    <div class="metric-num">0<span class="arrow">→</span>6<span class="unit">markets</span></div>
+    <p class="metric-desc">제로에서 거래선 발굴해 글로벌 영업 기반 구축.</p>
+  </div>
+  <div class="metric">
+    <span class="label">Beauty Depth</span>
+    <div class="metric-num">5+<span class="unit">years</span></div>
+    <p class="metric-desc">마케터 시선으로 뷰티 산업을 깊이 추적.</p>
+  </div>
+</section>
 
-      <p>퍼스널컬러를 배우면서 처음으로 나에게 맞는 색을 찾았고, 그 순간부터 뷰티가 다르게 보이기 시작했습니다. 가을뮤트라는 걸 안 순간부터 색조화장품이 새롭게 보였고, MAC VIP가 될 만큼 빠져들었습니다. 친구들이 화장품을 살 때마다 저에게 물어보기 시작했고, 그 사람들이 달라지는 걸 보면서 이게 단순한 취미가 아니라는 걸 알았습니다.</p>
-
-      <p>2020년, 퍼스널컬러 강사가 되고 싶어서 교육을 이수했습니다. 현실적인 이유로 포기했지만 뷰티에 대한 마음은 사라지지 않았습니다. 2021년에는 블로그와 인스타그램을 뷰티 콘텐츠로 채웠고, IT 기업에서 B2B 마케터로 일하며 브랜드가 시장과 소통하는 방식을 배웠습니다.</p>
-
-      <p>예민피부라 성분을 직접 공부했고, 나에게 맞는 브랜드를 하나하나 찾아냈습니다. 화장품 전시회와 강연을 빠짐없이 다니면서 업계를 계속 들여다봤습니다.</p>
-
-      <blockquote class="story-quote">
-        뷰티는 제가 한 번 포기했던 꿈입니다.<br>
-        하지만 글로벌 브랜드를 운영하며 쌓은 경험이<br>
-        오히려 이 꿈을 더 단단하게 만들었습니다.
-      </blockquote>
-
-      <p>유럽 프리미엄 브랜드 6개를 운영하며 브랜드 아이덴티티를 지키는 것이 얼마나 중요한지 알았고, 6개국 바이어·유럽 본사와 직접 소통하며 글로벌 브랜드 언어를 배웠습니다. 이제는 K-뷰티가 글로벌 파트너와 소통하는 그 언어를 만드는 사람이 되고 싶습니다.</p>
+<!-- ─── 01 SELECTED WORK ────────────────────────── -->
+<section class="sec" id="work">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">01</span>
+      <span>Selected Work</span>
     </div>
+    <h2 class="sec-title">실제 한 일과 <span class="soft">스스로 만든 일.</span></h2>
   </div>
-</section>
 
-<!-- CAPABILITIES -->
-<section id="capabilities">
-  <div class="container">
-    <header class="section-head">
-      <div class="section-eyebrow">Capabilities</div>
-      <h2 class="section-title"><span class="ko">핵심 역량</span></h2>
-    </header>
+  <div class="work-grid">
 
-    <div class="caps">
-      <div class="cap">
-        <div class="cap-num">N<sup>o</sup> I</div>
-        <div class="cap-title">글로벌 커뮤니케이션</div>
-        <div class="cap-en">Global Communication</div>
-        <p class="cap-desc">6개국 바이어 및 유럽 본사와 직접 소통한 경험. 문화가 다른 파트너와 신뢰를 쌓고 브랜드 메시지를 현지 언어로 전달합니다.</p>
-        <div class="cap-tags">English Business · 6 Markets</div>
+    <!-- OW001 - T&S Trading (Featured) -->
+    <div class="work-card feature split">
+      <div class="feature-img" style="background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--text-mute);text-transform:uppercase;text-align:center;line-height:1.7;">
+          [ 패키징·라벨 가이드 캡처 ]<br>
+          여기에 본인 작업물 이미지 추가<br>
+          (NDA 시 redact 처리 OK)
+        </span>
       </div>
-
-      <div class="cap">
-        <div class="cap-num">N<sup>o</sup> II</div>
-        <div class="cap-title">뷰티 인사이트</div>
-        <div class="cap-en">Beauty Insight</div>
-        <p class="cap-desc">퍼스널컬러 컨설턴트 이수, 성분 기반 스킨케어 큐레이션, 뷰티 전시회·강연 꾸준히 참여. 소비자로서 뷰티를 깊이 이해합니다.</p>
-        <div class="cap-tags">Personal Color · Ingredients · Clean Beauty</div>
-      </div>
-
-      <div class="cap">
-        <div class="cap-num">N<sup>o</sup> III</div>
-        <div class="cap-title">브랜드 스토리텔링</div>
-        <div class="cap-en">Brand Storytelling</div>
-        <p class="cap-desc">마케팅은 소통, 브랜딩은 관계. 브랜드의 감성적 가치를 언어로 설계하고 실행합니다. 마케팅 기획자 양성과정 이수.</p>
-        <div class="cap-tags">STP · SNS · PR</div>
-      </div>
-
-      <div class="cap">
-        <div class="cap-num">N<sup>o</sup> IV</div>
-        <div class="cap-title">AI 활용 실행력</div>
-        <div class="cap-en">AI-Powered Execution</div>
-        <p class="cap-desc">Claude Code로 웹 포트폴리오 직접 구축. 뷰티 브랜드 리서치 자동화 시스템 운영. 도구를 만드는 마케터.</p>
-        <div class="cap-tags">Claude Code · Automation · AI Content</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CAREER -->
-<section id="career">
-  <div class="container">
-    <header class="section-head">
-      <div class="section-eyebrow">Career</div>
-      <h2 class="section-title"><span class="ko">경력</span></h2>
-    </header>
-
-    <div class="career-list">
-
-      <article class="career-entry">
-        <div class="career-period">2023 — 2025</div>
-        <div>
-          <h3 class="career-company">T&amp;S Trading</h3>
-          <div class="career-role">무역부 대리</div>
-          <p class="career-lede">이탈리아 프리미엄 인테리어 브랜드 수입·운영. 유럽 본사 6개 브랜드의 아이덴티티를 한국 시장에서 유지하며 운영 프로세스를 설계했습니다.</p>
-          <ul class="career-bullets">
-            <li>유럽 본사 <strong>6개 브랜드</strong>의 한국 커뮤니케이션을 단독 총괄, 시장별 메시지 일관성 유지</li>
-            <li>본사–한국 간 운영 프로세스를 새로 설계해 피드백·의사결정 흐름 단축</li>
-            <li>브랜드별 패키징·라벨 가이드를 통합 관리 체계로 정비, 출시 단계 사양 오류 사전 차단</li>
-            <li>납기 캘린더와 일정 자동화 시스템을 직접 구축해 부서 운영 리듬 안정화</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="career-entry">
-        <div class="career-period">2021 — 2022</div>
-        <div>
-          <h3 class="career-company">Mondrian AI</h3>
-          <div class="career-role">마케팅·영업팀 주임</div>
-          <p class="career-lede">IT 스타트업의 B2B 마케터로 브랜드 커뮤니케이션 전략을 기획하고 실행했습니다. 채널 리뉴얼부터 해외 파트너 발굴까지 주도했습니다.</p>
-          <ul class="career-bullets">
-            <li>브랜드 <strong>톤앤매너 가이드</strong>를 처음부터 설계하고 전 채널 리뉴얼을 주도, 일관된 브랜드 인상 정착</li>
-            <li>SNS·홈페이지 Owned Media를 직접 운영하며 콘텐츠 발행 사이클 안정화</li>
-            <li>PR 언론활동과 내외부 행사를 기획·운영해 스타트업 외부 노출 채널 확장</li>
-            <li>해외 파트너 발굴과 정부지원 수출사업 제안서 작성으로 글로벌 진출 기반 마련</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="career-entry">
-        <div class="career-period">2017 — 2020</div>
-        <div>
-          <h3 class="career-company">Saturn Bath</h3>
-          <div class="career-role">해외영업부 주임</div>
-          <p class="career-lede">글로벌 바이어 발굴부터 계약까지 전 과정을 담당. 브랜드 스토리 중심의 제안으로 6개국 신규 거래선을 확보했습니다.</p>
-          <ul class="career-bullets">
-            <li>글로벌 바이어 발굴부터 계약 클로징까지 전 사이클을 담당, <strong>6개국</strong> 신규 거래선 확보</li>
-            <li>회사 <strong>영문 브랜드 제안서</strong>를 처음부터 제작·주도해 영업 자료를 표준화</li>
-            <li>심천 국제 공업 디자인전시회 등 해외 전시회 현장에서 바이어 상담 진행</li>
-            <li>인도·베트남·인도네시아·미얀마 신흥 시장 거래선과 직접 협상 진행</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS / FEATURES -->
-<section id="projects">
-  <div class="container">
-    <header class="section-head">
-      <div class="section-eyebrow">Projects · Activities</div>
-      <h2 class="section-title">프로젝트 · 활동</h2>
-    </header>
-
-    <div class="features">
-      <article class="feature">
-        <div class="feature-num">01</div>
-        <div class="feature-body">
-          <h3>AI 화장품 영상 제작</h3>
-          <p>AI 툴로 뷰티 콘텐츠 직접 제작. 브랜드 계정에서 샤라웃을 받으며 콘텐츠 퀄리티를 시장에서 검증받았습니다.</p>
-
-          <div class="feature-media">
-            <a href="https://www.threads.com/@zeze__choi_/post/DXmLguTESpp" target="_blank" rel="noopener" class="cap-thumb" aria-label="브랜드 샤라웃 1"><img src="cap1.jpg" alt="kared.kr 브랜드 샤라웃 1"></a>
-            <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="cap-thumb" aria-label="브랜드 샤라웃 2"><img src="cap2.jpg" alt="kared.kr 브랜드 샤라웃 2"></a>
-          </div>
-
-          <div class="feature-certs">
-            <div class="cert-badge">
-              <img src="certi1.png" alt="뷰티·패션 AI 영상 챌린지 수료증">
-              <span class="cert-name">수료증 — 뷰티 · 패션 AI 영상 챌린지</span>
-              <span class="cert-meta">Selfish Club · 2026.04</span>
-            </div>
-            <div class="cert-badge">
-              <img src="certi2.png" alt="우수상">
-              <span class="cert-name">우수상 — 뷰티 · 패션 AI 영상 챌린지</span>
-              <span class="cert-meta">Selfish Club · 2026.04</span>
-            </div>
-          </div>
-        </div>
-        <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="feature-tag">Watch on Instagram →</a>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">02</div>
-        <div class="feature-body">
-          <h3>퍼스널컬러 컨설턴트</h3>
-          <p>이미지호 퍼스널컬러 컨설턴트 훈련 프로그램 이수. 색과 이미지로 사람들을 더 빛나게 만드는 경험을 쌓았습니다.</p>
-
-          <div class="feature-media">
-            <figure class="feature-photo">
-              <img src="color1.jpg" alt="퍼스널컬러 컨설팅 현장 1">
-            </figure>
-            <figure class="feature-photo">
-              <img src="color2.jpg" alt="퍼스널컬러 드레이핑 현장">
-            </figure>
-          </div>
-          <div class="feature-photo-caption">퍼스널컬러 컨설팅 현장 · Image HO 훈련 프로그램</div>
-        </div>
-        <div class="feature-tag">자격 이수</div>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">03</div>
-        <div class="feature-body">
-          <h3>뷰티 브랜드 리서치 아카이브</h3>
-          <p>글로벌 뷰티 브랜드의 시장 전략을 마케터 관점으로 분석. Claude Code로 자동화 시스템 구축하여 운영 중입니다.</p>
-        </div>
-        <div class="feature-tag">Claude Code</div>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">04</div>
-        <div class="feature-body">
-          <h3>롯데홈쇼핑 MD 상품기획</h3>
-          <p>상생일자리 프로그램 참여. 생활가전 상품기획 발표에서 우수발표팀 3등을 수상했습니다.</p>
-
-          <div class="feature-media">
-            <figure class="feature-photo">
-              <img src="lotte.jpg" alt="2021 롯데홈쇼핑 잡페스티벌 우수발표팀 3등 수상">
-            </figure>
-          </div>
-          <div class="feature-photo-caption">2021 Lotte Homeshopping Job Festival · 상생일자리 프로그램</div>
-        </div>
-        <div class="feature-tag">우수발표팀 3등</div>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">05</div>
-        <div class="feature-body">
-          <h3>하나투어 투어챌린저 10기</h3>
-          <p>라오스 현지 시장조사, 타겟팅, 여행상품 기획·발표. 실제 현지 시장을 조사하고 마케팅 전략을 수립한 경험.</p>
-
-          <div class="feature-media">
-            <figure class="feature-photo">
-              <img src="tour.png" alt="하나투어 투어챌린저 10기 단체 사진">
-            </figure>
-          </div>
-          <div class="feature-photo-caption">하나투어 투어챌린저 10기 · Dream Book Zone</div>
-        </div>
-        <div class="feature-tag">시장조사 · 기획</div>
-      </article>
-
-      <article class="feature">
-        <div class="feature-num">06</div>
-        <div class="feature-body">
-          <h3>마케터 커뮤니티 활동</h3>
-          <p>청년마케터 정기모임, 힙한 마케터의 비밀 5기, 힙한 주니어의 비밀 1기 활동. 매달 마케팅 인사이트를 발견하고 기록했습니다.</p>
-        </div>
-        <div class="feature-tag">지속 활동</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- INDEX -->
-<section id="education">
-  <div class="container">
-    <header class="section-head">
-      <div class="section-eyebrow">Index</div>
-      <h2 class="section-title"><span class="ko">학력 · 자격</span></h2>
-    </header>
-
-    <div class="index-grid">
-      <div class="index-block">
-        <h3>Education</h3>
-        <div class="index-item">
-          <div class="index-name">안양대학교</div>
-          <div class="index-detail"><span class="index-period">2013 — 2017</span> · 관광영어통역 졸업<br>4년 장학생 · 학점 4.0/4.5</div>
-        </div>
-        <div class="index-item">
-          <div class="index-name">대만 명전대학교</div>
-          <div class="index-detail"><span class="index-period">2015 — 2016</span> · 교환학생</div>
-        </div>
-        <div class="index-item">
-          <div class="index-name">Bankstown Grammar School</div>
-          <div class="index-detail"><span class="index-period">2007 — 2010</span> · 호주 고등학교 졸업<br>논술 쓰기 State 3등</div>
-        </div>
-      </div>
-
-      <div class="index-block">
-        <h3>Certifications</h3>
-        <div class="index-item">
-          <div class="index-name">퍼스널컬러 컨설턴트</div>
-          <div class="index-detail">이미지호 훈련 프로그램 이수 · 2020.11</div>
-          <a href="certi3.jpg" target="_blank" rel="noopener" class="index-cert" aria-label="수료증 보기">
-            <img src="certi3.jpg" alt="퍼스널컬러 컨설턴트 수료증">
-          </a>
-        </div>
-        <div class="index-item">
-          <div class="index-name">마케팅 기획자 양성과정</div>
-          <div class="index-detail">STP · 4P 전략, SNS · 브랜딩 마케팅</div>
-        </div>
-        <div class="index-item">
-          <div class="index-name">맞춤형화장품 자격증</div>
-          <div class="index-detail">준비 중</div>
+      <div class="feature-body">
+        <span class="work-id"><span class="accent">OW001</span> · T&S Trading · 2023—2025</span>
+        <div class="work-stat">6<span class="unit">brands operated</span></div>
+        <h3 class="work-title">이태리 럭셔리 인테리어 6개 브랜드 한국 운영 — 통합 가이드 체계 구축</h3>
+        <p class="work-desc">이태리 본사 6개 브랜드의 한국 커뮤니케이션 단독 총괄. 패키징·라벨 가이드를 통합 관리 체계로 정비, <strong>출시 단계 사양 오류 사전 차단</strong>.</p>
+        <div class="work-foot">
+          <span class="work-tags">Brand Localization · Italian↔KR Operations</span>
         </div>
       </div>
     </div>
 
-    <div class="skills">
-      <h3>Inventory · 스킬 · 툴</h3>
-      <div class="skills-list">
-        <div class="skill-row">
-          <span class="label">Language</span>
-          <span class="value">English (Business) · 한국어</span>
-        </div>
-        <div class="skill-row">
-          <span class="label">Beauty</span>
-          <span class="value">퍼스널컬러 · 성분 분석 · 클린뷰티</span>
-        </div>
-        <div class="skill-row">
-          <span class="label">Marketing</span>
-          <span class="value">브랜드 전략 · SNS 운영 · 콘텐츠 기획</span>
-        </div>
-        <div class="skill-row">
-          <span class="label">Tools · AI</span>
-          <span class="value">Claude Code · Notion · Figma · Canva</span>
+    <!-- OW003 - Saturn Bath -->
+    <div class="work-card">
+      <span class="work-id"><span class="accent">OW003</span> · Saturn Bath · 2017—2020</span>
+      <div class="work-stat">0<span class="arrow">→</span>6<span class="unit">markets</span></div>
+      <h3 class="work-title">제로에서 6개국 거래선 발굴 — 글로벌 B2B 영업</h3>
+      <p class="work-desc">백지에서 글로벌 바이어 발굴부터 계약 클로징까지 전 사이클. <strong>영문 브랜드 제안서 표준화</strong>. 인도·베트남·인도네시아·미얀마 신흥 시장 직접 협상.</p>
+      <div class="work-foot">
+        <span class="work-tags">Global B2B · Cross-Cultural</span>
+      </div>
+    </div>
+
+    <!-- SI001 - AI Video (Featured) -->
+    <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="work-card feature split">
+      <div class="feature-img">
+        <img src="cap1.jpg" alt="AI 화장품 영상 — kared.kr 브랜드 샤라웃">
+      </div>
+      <div class="feature-body">
+        <span class="work-id"><span class="accent">SI001</span> · Featured · 2026.04</span>
+        <div class="work-stat">2x<span class="unit">brand shoutouts</span></div>
+        <h3 class="work-title">AI 화장품 영상 — 시장 검증 + 외부 우수상</h3>
+        <p class="work-desc">AI 툴로 직접 제작한 뷰티 영상이 실제 브랜드 계정에서 샤라웃을 받으며 시장 검증. <strong>Selfish Club 뷰티·패션 AI 영상 챌린지 우수상</strong>.</p>
+        <div class="work-foot">
+          <span class="work-tags">Selfish Club · AI Video · Award</span>
+          <span class="work-arrow">Watch on Instagram →</span>
         </div>
       </div>
+    </a>
+
+    <!-- SI002 - Research Archive -->
+    <div class="work-card">
+      <span class="work-id"><span class="accent">SI002</span> · Continuous · 2024—</span>
+      <div class="work-stat">∞<span class="unit">running</span></div>
+      <h3 class="work-title">K-Beauty Files 리서치 아카이브</h3>
+      <p class="work-desc">매주 한 인디 클린 뷰티 브랜드의 "첫 문장" 을 마케터 시선으로 추적. <strong>Claude Code 로 리서치 자동화</strong> 시스템 직접 구축·운영.</p>
+      <div class="work-foot">
+        <span class="work-tags">Claude Code · Notion · Automation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 02 K-BEAUTY FILES ───────────────────────── -->
+<section class="sec warm" id="kbeauty">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">02</span>
+      <span>K-Beauty Files · POV</span>
+    </div>
+    <h2 class="sec-title">매주 한 인디 클린 뷰티 브랜드의<br><span class="soft">"첫 문장" 을 추적합니다.</span></h2>
+  </div>
+
+  <div class="kb-files">
+    <ul class="kb-files-list" style="list-style:none;padding:0;margin:0">
+
+      <li class="kb-row">
+        <span class="num">vol.1</span>
+        <div class="brand">KARED<span class="ko">케어드</span></div>
+        <div class="topic"><strong>"유통이 브랜드의 첫 메시지다"</strong> — 약국 입점이 카피보다 먼저 말한 한 줄.</div>
+        <span class="meta">Published<span class="arrow">→</span></span>
+      </li>
+
+      <li class="kb-row">
+        <span class="num">vol.2</span>
+        <div class="brand">HYAAH<span class="ko">히야</span></div>
+        <div class="topic"><strong>"카테고리 확장이 곧 브랜드 철학이다"</strong> — 음식·침구로 확장하는 라이프스타일 재정의.</div>
+        <span class="meta">Published<span class="arrow">→</span></span>
+      </li>
+
+      <li class="kb-row">
+        <span class="num">vol.3</span>
+        <div class="brand">[ 인디 클린 뷰티 — TBD ]</div>
+        <div class="topic"><strong>"성분이 첫 문장이다"</strong> — 제품이 말하기 전에 INCI 가 먼저 한 약속.</div>
+        <span class="meta">In Pipeline<span class="arrow">→</span></span>
+      </li>
+
+      <li class="kb-row">
+        <span class="num">vol.4</span>
+        <div class="brand">[ 인디 클린 뷰티 — TBD ]</div>
+        <div class="topic"><strong>"창업자의 한 마디가 첫 문장이다"</strong> — 작은 브랜드일수록 사람의 신념이 곧 제품.</div>
+        <span class="meta">In Pipeline<span class="arrow">→</span></span>
+      </li>
+
+      <li class="kb-row">
+        <span class="num">vol.5</span>
+        <div class="brand">[ 인디 클린 뷰티 — TBD ]</div>
+        <div class="topic"><strong>"영문 카피가 첫 문장이다"</strong> — 글로벌 진출의 진짜 시작점은 통역이 아닌 톤의 결정.</div>
+        <span class="meta">In Pipeline<span class="arrow">→</span></span>
+      </li>
+
+    </ul>
+
+    <div class="kb-cta">
+      <a href="archive.html">Read the Full Archive →</a>
     </div>
   </div>
 </section>
 
-<!-- ARCHIVE NOTE -->
-<section class="archive-note">
-  <div class="eyebrow">Insight Archive</div>
-  <h2>브랜드를<br><em>마케터의 시선</em>으로 읽습니다</h2>
-  <p>매주 브랜드의 전략을 분석하고 기록합니다.</p>
-  <a href="archive.html" class="archive-cta">Read Archive</a>
+<!-- ─── MANIFESTO STRIP ─────────────────────────── -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <aside class="manifesto-aside">
+      <span class="accent">— Manifesto</span>
+      운영자의 시선으로<br>브랜드를 본다는 것.
+    </aside>
+    <div>
+      <p class="manifesto-quote">
+        브랜드는 카피로 만들어지지 않습니다.<br>
+        브랜드는 <span class="accent">매일의 운영 결정</span>으로 만들어집니다.
+      </p>
+      <p class="manifesto-cite">유럽 본사가 보낸 가이드를 한국 시장에 옮기는 매일이, 마케팅이었습니다.</p>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ─── 03 CAPABILITIES ─────────────────────────── -->
+<section class="sec" id="capabilities">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">03</span>
+      <span>Capabilities</span>
+    </div>
+    <h2 class="sec-title">다른 마케터에게 없는 <span class="soft">네 가지 교차점.</span></h2>
+  </div>
+
+  <div class="caps-list">
+
+    <div class="cap-row">
+      <span class="cap-id">CP01</span>
+      <div>
+        <div class="cap-headline">Cross-Cultural Operating</div>
+        <span class="cap-en">Italian HQ ↔ KR Brand Operations</span>
+      </div>
+      <div class="cap-info">
+        <p>이태리 본사와 한국 시장 사이의 럭셔리 브랜드 운영을 <strong>직접 해본 사람</strong>. 본사가 무엇을 지키고 싶어하는지, 한국 시장이 무엇을 요구하는지를 양쪽 언어로 조율한 경험.</p>
+      </div>
+      <div class="cap-proof">
+        <span class="pl">Proof</span>
+        T&S Trading · 6 brands · 2년 단독 책임. 본사 의사결정 흐름 재설계.
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <span class="cap-id">CP02</span>
+      <div>
+        <div class="cap-headline">Localization at Premium Tier</div>
+        <span class="cap-en">Premium Brand Translation</span>
+      </div>
+      <div class="cap-info">
+        <p>럭셔리 톤을 <strong>잃지 않으면서 시장에 옮기는 법</strong>을 안다. 패키징·라벨·카피·매장 응대까지 일관성을 유지하는 통합 가이드 운영 경험.</p>
+      </div>
+      <div class="cap-proof">
+        <span class="pl">Proof</span>
+        패키징·라벨 통합 가이드 체계 구축. 출시 단계 사양 오류 0건.
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <span class="cap-id">CP03</span>
+      <div>
+        <div class="cap-headline">Beauty Insider Perspective</div>
+        <span class="cap-en">Consumer + Curator Lens</span>
+      </div>
+      <div class="cap-info">
+        <p>마케터 직장 없이도 <strong>5년간 산업을 추적해온 깊이</strong>. 소비자로서의 감각과 큐레이터로서의 분석을 동시에 가진 시선.</p>
+      </div>
+      <div class="cap-proof">
+        <span class="pl">Proof</span>
+        퍼스널컬러 컨설턴트 자격 · 성분 리터러시 · K-Beauty Files 매주 발행.
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <span class="cap-id">CP04</span>
+      <div>
+        <div class="cap-headline">AI-Native Marketer</div>
+        <span class="cap-en">Builder, not just User</span>
+      </div>
+      <div class="cap-info">
+        <p>AI 도구를 <strong>쓰는 사람이 아니라 만드는 사람</strong>. 리서치 자동화 시스템과 이 포트폴리오 모두 본인이 직접 구축.</p>
+      </div>
+      <div class="cap-proof">
+        <span class="pl">Proof</span>
+        AI 영상 챌린지 우수상 · Claude Code 자동화 아카이브 · 이 사이트 직접 구축.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 04 EXPERIENCE — SKILL ARC ───────────────── -->
+<section class="sec" id="career">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">04</span>
+      <span>Experience · 2017—2025</span>
+    </div>
+    <h2 class="sec-title">직장의 나열이 아니라, <span class="soft">스킬의 누적 곡선.</span></h2>
+  </div>
+
+  <div class="career-list">
+
+    <article class="career-row feature">
+      <div class="career-period">
+        <div class="latest">LATEST</div>
+        2023 — 2025
+      </div>
+      <div>
+        <h3 class="career-co">T&amp;S Trading</h3>
+        <div class="career-role">무역부 대리 · Italian Premium Interior</div>
+        <p class="career-bizh">이태리 럭셔리 인테리어 6개 브랜드 한국 운영. 본사 ↔ 한국 사이의 운영을 새로 설계.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li>이태리 본사 <strong>6개 브랜드</strong> 한국 커뮤니케이션 단독 총괄</li>
+          <li>본사–한국 운영 프로세스 재설계로 의사결정 흐름 단축</li>
+          <li>패키징·라벨 가이드 통합 관리 체계로 정비, 출시 사양 오류 사전 차단</li>
+          <li>납기 캘린더·일정 자동화 시스템 직접 구축</li>
+        </ul>
+        <div class="career-learned">이태리 럭셔리 브랜드 아이덴티티를 한국 시장으로 옮기는 법을 배웠습니다.</div>
+      </div>
+    </article>
+
+    <article class="career-row">
+      <div class="career-period">2021 — 2022</div>
+      <div>
+        <h3 class="career-co">Mondrian AI</h3>
+        <div class="career-role">마케팅·영업팀 주임 · IT Startup</div>
+        <p class="career-bizh">B2B 마케터로 브랜드 음성을 처음부터 정의. 채널 리뉴얼·PR·해외 파트너 발굴 주도.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li><strong>톤앤매너 가이드</strong>를 처음부터 설계, 전 채널 리뉴얼 주도</li>
+          <li>SNS·홈페이지 Owned Media 운영, 콘텐츠 발행 사이클 안정화</li>
+          <li>PR 언론활동·내외부 행사 기획·운영</li>
+          <li>해외 파트너 발굴 + 정부지원 수출사업 제안서 작성</li>
+        </ul>
+        <div class="career-learned">브랜드의 목소리를 백지에서 만드는 법을 배웠습니다.</div>
+      </div>
+    </article>
+
+    <article class="career-row">
+      <div class="career-period">2017 — 2020</div>
+      <div>
+        <h3 class="career-co">Saturn Bath</h3>
+        <div class="career-role">해외영업부 주임 · Global B2B</div>
+        <p class="career-bizh">백지에서 6개국 거래선 발굴. 영문 제안서 표준화로 글로벌 영업 기반 구축.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li>글로벌 바이어 발굴부터 계약 클로징까지 전 사이클, <strong>6개국 신규 거래선 확보</strong></li>
+          <li>회사 영문 브랜드 제안서 처음부터 제작·표준화</li>
+          <li>심천 국제 공업 디자인전시회 등 해외 전시회 현장 상담</li>
+          <li>인도·베트남·인도네시아·미얀마 신흥 시장 직접 협상</li>
+        </ul>
+        <div class="career-learned">백지에서 글로벌 B2B 관계를 만드는 법을 배웠습니다.</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ─── 05 ABOUT — PIVOT STORY ──────────────────── -->
+<section class="sec warm" id="about">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">05</span>
+      <span>About — A Long Pivot</span>
+    </div>
+    <h2 class="sec-title">한 번 포기했던 꿈이,<br><span class="soft">6년의 운영 경험과 만났습니다.</span></h2>
+  </div>
+
+  <div class="about-grid">
+    <aside class="about-aside">
+      <p>Born in <span>Korea</span></p>
+      <p>Schooled in <span>Australia</span> · 2007—2010</p>
+      <p>Studied in <span>Taiwan</span> · 2015—2016</p>
+      <p>Working from <span>Seoul</span> · since 2017</p>
+      <p style="margin-top:32px;color:var(--accent)">Personal Color · Autumn Mute</p>
+    </aside>
+
+    <div class="about-body">
+      <p class="lede">2020년 퍼스널컬러 강사가 되고 싶어 교육을 이수했지만, 현실적인 이유로 포기했습니다.</p>
+
+      <p>대신 B2B 마케터로 일했고, 이태리 럭셔리 인테리어 브랜드를 한국에서 운영하는 사람이 되었습니다. 본사가 보낸 한 줄을 시장이 받는 한 줄로 옮기는 매일의 결정 — <strong>이 결정이 곧 마케팅이라는 걸 책이 아닌 운영으로 배웠습니다.</strong> 7년이 지난 지금, 그 우회가 우연이 아니었다는 걸 압니다.</p>
+
+      <p>그동안 뷰티는 멈춘 적이 없었습니다. 퍼스널컬러 자격, 성분 공부, 매주 K-뷰티 분석. 이제 두 길이 만났습니다 — <strong>이태리 럭셔리 운영 경험 + 5년의 K-뷰티 깊이 + AI 실행력.</strong> 이 교차점이 저의 다음 자리입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 INDEX ────────────────────────────────── -->
+<section class="sec" id="index">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="num">06</span>
+      <span>Index — Education · Certs · Tools</span>
+    </div>
+    <h2 class="sec-title">학력 · 자격 <span class="soft">· 인벤토리.</span></h2>
+  </div>
+
+  <div class="index-grid">
+
+    <div class="index-block">
+      <h3>Education</h3>
+      <div class="index-row">
+        <div class="name">안양대학교 · 관광영어통역</div>
+        <div class="meta">2013 — 2017</div>
+        <div class="desc">4년 장학생 · 학점 4.0/4.5</div>
+      </div>
+      <div class="index-row">
+        <div class="name">대만 명전대학교</div>
+        <div class="meta">2015 — 2016 · Exchange</div>
+      </div>
+      <div class="index-row">
+        <div class="name">Bankstown Grammar School (호주)</div>
+        <div class="meta">2007 — 2010</div>
+        <div class="desc">논술 쓰기 State 3등</div>
+      </div>
+    </div>
+
+    <div class="index-block">
+      <h3>Certifications · Recognition</h3>
+      <div class="index-row">
+        <div class="name">뷰티·패션 AI 영상 챌린지 — <span class="award">우수상</span></div>
+        <div class="meta">Selfish Club · 2026.04</div>
+      </div>
+      <div class="index-row">
+        <div class="name">롯데홈쇼핑 잡페스티벌 — <span class="award">우수발표 3등</span></div>
+        <div class="meta">2021 · MD 상품기획</div>
+      </div>
+      <div class="index-row">
+        <div class="name">퍼스널컬러 컨설턴트</div>
+        <div class="meta">Image HO · 2020.11</div>
+      </div>
+      <div class="index-row">
+        <div class="name">마케팅 기획자 양성과정</div>
+        <div class="meta">STP · 4P · SNS · 브랜딩</div>
+      </div>
+      <div class="index-row">
+        <div class="name">맞춤형화장품 자격증</div>
+        <div class="meta">In Progress</div>
+      </div>
+    </div>
+
+    <div class="index-block">
+      <h3>Inventory</h3>
+      <div class="index-row">
+        <div class="name">Language</div>
+        <div class="desc">English (Business) · 한국어</div>
+      </div>
+      <div class="index-row">
+        <div class="name">Beauty</div>
+        <div class="desc">퍼스널컬러 · 성분 분석 · 클린뷰티</div>
+      </div>
+      <div class="index-row">
+        <div class="name">Operations</div>
+        <div class="desc">브랜드 가이드 · 채널 운영 · 자동화 워크플로우</div>
+      </div>
+      <div class="index-row">
+        <div class="name">Tools / AI</div>
+        <div class="desc">Claude Code · Notion · Figma · Canva</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 07 CONTACT ──────────────────────────────── -->
 <section class="contact" id="contact">
-  <h2>함께 만듭니다</h2>
-  <p>뷰티 글로벌 커뮤니케이션에 관심 있는 팀이라면<br>언제든지 연락주세요.</p>
-  <div class="contact-links">
-    <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
-    <a href="https://www.instagram.com/zeze_beautynote/">@zeze_beautynote</a>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <span class="label">— 07 / Contact</span>
+      <h2>다음 챕터를<br><span class="accent">함께 쓸 팀</span>을 찾습니다.</h2>
+      <p style="margin-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-mute);line-height:1.85">
+        Currently · K-Beauty 글로벌 포지션 탐색 중<br>
+        Building · K-Beauty Files weekly · Claude Code 자동화<br>
+        Reading · Aesop: The Book — 럭셔리 운영 사례
+      </p>
+    </div>
+    <div class="contact-right">
+      <div class="contact-line">
+        <span class="lab">Email</span>
+        <a href="mailto:iamzezechoi@gmail.com">iamzezechoi@gmail.com</a>
+      </div>
+      <div class="contact-line">
+        <span class="lab">Instagram</span>
+        <a href="https://www.instagram.com/zeze_beautynote/" target="_blank" rel="noopener">@zeze_beautynote</a>
+      </div>
+      <div class="contact-line">
+        <span class="lab">Archive</span>
+        <a href="archive.html">K-Beauty Files →</a>
+      </div>
+      <div class="contact-line">
+        <span class="lab">Located</span>
+        <a style="cursor:default;border:none">Seoul, South Korea</a>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- ─── FOOTER ──────────────────────────────────── -->
 <footer>
-  <span>© 2025 Zeze Choi</span>
-  <span>·</span>
-  <span>Global Beauty Brand Communicator</span>
+  <span>© 2025 최지예 Zeze Choi · Premium Brand Operator</span>
+  <span>Last updated 2025.05.07 · Edition 02</span>
 </footer>
 
 </body>
