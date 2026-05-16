@@ -34,6 +34,12 @@
     .dot { display:inline-block; width:6px; height:6px; border-radius:9999px; margin-right:6px; vertical-align:middle; }
     .empty-card { background:#fff; border:1px dashed #C8B998; border-radius:10px; padding:40px 28px; }
     .num { font-variant-numeric: tabular-nums; color:#bdbdbd; width:32px; flex-shrink:0; }
+    a.row-link { display:block; color:inherit; text-decoration:none; margin: 0 -10px; padding: 0 10px; border-radius:6px; transition: background .12s ease; }
+    a.row-link:hover { background:#EDE6D6; }
+    .filter-chip { cursor: pointer; user-select: none; transition: opacity .12s ease, box-shadow .12s ease; }
+    .filter-chip[aria-pressed="false"] { opacity: .35; }
+    .filter-chip:hover { opacity: 1; }
+    .filter-chip.is-active { box-shadow: 0 0 0 1px currentColor inset; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -77,15 +83,18 @@
         <span class="text-xs meta text-ink-500" id="cat-summary">7 ready · 0 received</span>
       </div>
       <div class="flex flex-wrap gap-2" id="cat-chips">
-        <span class="chip" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석 <span class="meta opacity-60" data-cat-count="브랜드 분석"></span></span>
-        <span class="chip" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드 <span class="meta opacity-60" data-cat-count="글로벌 트렌드"></span></span>
-        <span class="chip" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트 <span class="meta opacity-60" data-cat-count="강연 노트"></span></span>
-        <span class="chip" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리 <span class="meta opacity-60" data-cat-count="카피 라이브러리"></span></span>
-        <span class="chip" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치 <span class="meta opacity-60" data-cat-count="패키지 리서치"></span></span>
-        <span class="chip" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영 <span class="meta opacity-60" data-cat-count="채널 운영"></span></span>
-        <span class="chip" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업 <span class="meta opacity-60" data-cat-count="크로스 산업"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="브랜드 분석" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석 <span class="meta opacity-60" data-cat-count="브랜드 분석"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="글로벌 트렌드" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드 <span class="meta opacity-60" data-cat-count="글로벌 트렌드"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="강연 노트" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트 <span class="meta opacity-60" data-cat-count="강연 노트"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="카피 라이브러리" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리 <span class="meta opacity-60" data-cat-count="카피 라이브러리"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="패키지 리서치" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치 <span class="meta opacity-60" data-cat-count="패키지 리서치"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="채널 운영" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영 <span class="meta opacity-60" data-cat-count="채널 운영"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="크로스 산업" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업 <span class="meta opacity-60" data-cat-count="크로스 산업"></span></span>
       </div>
-      <p class="text-xs meta text-ink-500 mt-4">인풋이 들어오면 자동으로 이 중 하나로 분류됩니다.</p>
+      <div class="flex items-center justify-between mt-4">
+        <p class="text-xs meta text-ink-500">칩을 눌러 필터링 · 인풋이 들어오면 자동 분류됩니다.</p>
+        <button id="reset-filter" type="button" class="text-xs meta text-ink-500 hover:text-ink-900 hidden">전체 보기 ↻</button>
+      </div>
     </section>
 
     <!-- Series — placeholder (Phase 2: link to insta posts) -->
@@ -174,14 +183,81 @@
     function renderRow(row, num) {
       const hex = CAT_HEX[row.category] || '#897866';
       return `
-        <li class="flex items-baseline gap-4 py-3.5">
-          <span class="num meta text-sm">${String(num).padStart(2,'0')}</span>
-          <span class="chip" style="background:${hex}1A;color:${hex};">${esc(row.category || '미분류')}</span>
-          <span class="flex-1 truncate">${esc(row.title || '(제목 없음)')}</span>
-          <span class="text-sm meta text-ink-500">${fmtDate(row.created_at)}</span>
+        <li>
+          <a href="../detail/?id=${encodeURIComponent(row.id)}" class="row-link">
+            <div class="flex items-baseline gap-4 py-3.5">
+              <span class="num meta text-sm">${String(num).padStart(2,'0')}</span>
+              <span class="chip" style="background:${hex}1A;color:${hex};">${esc(row.category || '미분류')}</span>
+              <span class="flex-1 truncate">${esc(row.title || '(제목 없음)')}</span>
+              <span class="text-sm meta text-ink-500">${fmtDate(row.created_at)}</span>
+            </div>
+          </a>
         </li>
       `;
     }
+
+    let allRows = [];
+    const activeCats = new Set();
+    let filterMode = 'all'; // 'all' (모든 칩 활성) | 'subset' (선택된 카테고리만)
+
+    function renderList() {
+      const list = document.getElementById('all-list');
+      const allCountEl = document.getElementById('all-count');
+      if (!allRows.length) return;
+
+      const filtered = filterMode === 'all'
+        ? allRows
+        : allRows.filter(r => activeCats.has(r.category));
+
+      list.innerHTML = filtered.map((r, i) => renderRow(r, filtered.length - i)).join('');
+
+      if (filterMode === 'all') {
+        allCountEl.textContent = `${allRows.length} items · latest first`;
+      } else {
+        allCountEl.textContent = `${filtered.length} / ${allRows.length} items · filtered`;
+      }
+    }
+
+    function updateChipStates() {
+      document.querySelectorAll('.filter-chip').forEach(el => {
+        const c = el.getAttribute('data-cat');
+        const isOn = filterMode === 'all' || activeCats.has(c);
+        el.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+        el.classList.toggle('is-active', filterMode === 'subset' && activeCats.has(c));
+      });
+      document.getElementById('reset-filter').classList.toggle('hidden', filterMode === 'all');
+    }
+
+    function toggleCategory(cat) {
+      if (filterMode === 'all') {
+        // 첫 칩 클릭 → subset 모드로 전환, 클릭한 카테고리만 활성
+        filterMode = 'subset';
+        activeCats.clear();
+        activeCats.add(cat);
+      } else {
+        if (activeCats.has(cat)) activeCats.delete(cat);
+        else activeCats.add(cat);
+        if (activeCats.size === 0) filterMode = 'all';
+      }
+      updateChipStates();
+      renderList();
+    }
+
+    function resetFilter() {
+      filterMode = 'all';
+      activeCats.clear();
+      updateChipStates();
+      renderList();
+    }
+
+    document.querySelectorAll('.filter-chip').forEach(el => {
+      const cat = el.getAttribute('data-cat');
+      el.addEventListener('click', () => toggleCategory(cat));
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCategory(cat); }
+      });
+    });
+    document.getElementById('reset-filter').addEventListener('click', resetFilter);
 
     (async () => {
       try {
@@ -191,6 +267,8 @@
           .order('created_at', { ascending: false });
         if (error) { console.warn('insights fetch error', error); return; }
         if (!data || data.length === 0) return; // 빈 상태 유지
+
+        allRows = data;
 
         // header meta + category chip counts
         document.getElementById('insights-meta').textContent = `${data.length} items · 카드뉴스 소재가 필요할 때 여기서 꺼낸다.`;
@@ -208,11 +286,8 @@
 
         // All insights list
         document.getElementById('empty-state').classList.add('hidden');
-        const dataState = document.getElementById('data-state');
-        const list = document.getElementById('all-list');
-        list.innerHTML = data.map((r, i) => renderRow(r, data.length - i)).join('');
-        document.getElementById('all-count').textContent = `${data.length} items · latest first`;
-        dataState.classList.remove('hidden');
+        document.getElementById('data-state').classList.remove('hidden');
+        renderList();
       } catch (e) {
         console.warn('insights fetch failed', e);
       }
