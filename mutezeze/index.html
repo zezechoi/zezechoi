@@ -31,19 +31,20 @@
     .dot { display:inline-block; width:8px; height:8px; border-radius:9999px; vertical-align:middle; }
     .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
     .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
+    .status-chip { display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:9999px; font-size:11px; font-weight:500; background:#FAF6ED; border:1px solid #E2D7BF; color:#897866; }
+    .status-chip .pulse { width:6px; height:6px; border-radius:9999px; background:#D6A53D; animation:pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% {opacity:.3} 50% {opacity:1} }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
 
-  <!-- Top meta bar -->
   <div class="max-w-3xl mx-auto px-6 pt-8">
     <div class="flex items-center justify-between text-sm meta text-ink-500">
       <span>Mutezeze OS</span>
-      <span>Edition 01 · 2026.05</span>
+      <span>Edition 01 · Day 1</span>
     </div>
   </div>
 
-  <!-- Nav -->
   <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
     <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
       <li><a href="./index.html" class="text-dustyRose underline underline-offset-4">Home</a></li>
@@ -55,7 +56,6 @@
     </ul>
   </nav>
 
-  <!-- Page header -->
   <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
     <div class="border-l-4 border-dustyRose pl-4">
       <p class="text-sm meta text-dustyRose mb-3">Personal insight system</p>
@@ -67,12 +67,14 @@
       A personal OS for capturing, tagging, and re-using what I learn —
       from beauty summits, brand teardowns, and field notes.
     </p>
+    <div class="mt-6">
+      <span class="status-chip"><span class="pulse"></span>Building from zero · started 2026.05.16</span>
+    </div>
   </header>
 
-  <!-- Cards -->
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
 
-    <!-- Pipeline card -->
+    <!-- Pipeline -->
     <section class="card">
       <div class="label mb-6">Three-Layer Pipeline</div>
       <div class="space-y-5">
@@ -94,41 +96,41 @@
       </div>
     </section>
 
-    <!-- At a glance card -->
+    <!-- At a glance — empty/starting state -->
     <section class="card">
       <div class="flex items-baseline justify-between mb-6">
         <div class="label">At a glance</div>
-        <span class="text-xs meta text-ink-500">Last synced · 3 min ago</span>
+        <span class="text-xs meta text-ink-500">Last synced · not yet</span>
       </div>
       <div class="grid grid-cols-3 gap-6 max-w-md mb-7">
         <div>
-          <div class="text-3xl meta">142</div>
+          <div class="text-3xl meta text-ink-300">—</div>
           <div class="text-sm text-ink-500 mt-1">insights</div>
         </div>
         <div>
-          <div class="text-3xl meta">38</div>
+          <div class="text-3xl meta text-ink-300">—</div>
           <div class="text-sm text-ink-500 mt-1">brands</div>
         </div>
         <div>
           <div class="text-3xl meta">7</div>
-          <div class="text-sm text-ink-500 mt-1">categories</div>
+          <div class="text-sm text-ink-500 mt-1">categories ready</div>
         </div>
       </div>
       <div class="border-t border-creamBorder/60 pt-6">
-        <div class="label mb-4">By category</div>
-        <ul class="space-y-2.5">
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-wine mr-3"></span>브랜드 분석</span><span class="meta text-ink-500">42</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-petrol mr-3"></span>글로벌 트렌드</span><span class="meta text-ink-500">31</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-mustard mr-3"></span>강연 노트</span><span class="meta text-ink-500">24</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-plum mr-3"></span>카피 라이브러리</span><span class="meta text-ink-500">18</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-camel mr-3"></span>패키지 리서치</span><span class="meta text-ink-500">15</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-teal mr-3"></span>채널 운영</span><span class="meta text-ink-500">8</span></li>
-          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-moss mr-3"></span>크로스 산업</span><span class="meta text-ink-500">4</span></li>
+        <div class="label mb-4">7 categories ready to receive</div>
+        <ul class="grid grid-cols-2 gap-y-2 gap-x-6">
+          <li class="flex items-center text-sm"><span class="dot bg-wine mr-3"></span>브랜드 분석</li>
+          <li class="flex items-center text-sm"><span class="dot bg-petrol mr-3"></span>글로벌 트렌드</li>
+          <li class="flex items-center text-sm"><span class="dot bg-mustard mr-3"></span>강연 노트</li>
+          <li class="flex items-center text-sm"><span class="dot bg-plum mr-3"></span>카피 라이브러리</li>
+          <li class="flex items-center text-sm"><span class="dot bg-camel mr-3"></span>패키지 리서치</li>
+          <li class="flex items-center text-sm"><span class="dot bg-teal mr-3"></span>채널 운영</li>
+          <li class="flex items-center text-sm"><span class="dot bg-moss mr-3"></span>크로스 산업</li>
         </ul>
       </div>
     </section>
 
-    <!-- Jump in card -->
+    <!-- Jump in -->
     <section class="card">
       <div class="label mb-6">Jump in</div>
       <ul class="space-y-3">
@@ -153,7 +155,6 @@
 
   </div>
 
-  <!-- Footer -->
   <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
     <div class="flex justify-between text-sm meta text-ink-500">
       <span>Mutezeze OS</span>

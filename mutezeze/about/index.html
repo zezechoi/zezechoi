@@ -30,12 +30,13 @@
     .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
     .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
     .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
-    .stack-pill { display:inline-block; padding:4px 10px; border:1px solid #E2D7BF; background:#FAF6ED; border-radius:6px; font-size:12px; }
+    .group-label { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#9C7B57; font-weight:600; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border:1px solid #E2D7BF; background:#FAF6ED; border-radius:8px; font-size:13px; font-weight:500; }
+    .badge .bdot { width:8px; height:8px; border-radius:9999px; flex-shrink:0; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
 
-  <!-- Top meta bar -->
   <div class="max-w-3xl mx-auto px-6 pt-8">
     <div class="flex items-center justify-between text-sm meta text-ink-500">
       <span>Mutezeze OS</span>
@@ -43,7 +44,6 @@
     </div>
   </div>
 
-  <!-- Nav -->
   <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
     <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
       <li><a href="../index.html" class="hover:text-dustyRose">Home</a></li>
@@ -55,7 +55,6 @@
     </ul>
   </nav>
 
-  <!-- Page header -->
   <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
     <div class="border-l-4 border-forest pl-4">
       <p class="text-sm meta text-forest mb-3">About — How it works</p>
@@ -65,10 +64,9 @@
     </div>
   </header>
 
-  <!-- Cards -->
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
 
-    <!-- Why card -->
+    <!-- Why -->
     <section class="card">
       <div class="label mb-5">Why</div>
       <div class="space-y-5 text-ink-700 leading-relaxed">
@@ -81,7 +79,7 @@
       </blockquote>
     </section>
 
-    <!-- Pipeline card -->
+    <!-- Pipeline -->
     <section class="card">
       <div class="label mb-6">Pipeline</div>
       <ol class="space-y-5">
@@ -116,19 +114,40 @@
       </ol>
     </section>
 
-    <!-- Stack + Made by card -->
+    <!-- Stack — grouped badges -->
     <section class="card">
-      <div class="label mb-5">Stack</div>
-      <div class="flex flex-wrap gap-2 mb-8">
-        <span class="stack-pill">Telegram Bot</span>
-        <span class="stack-pill">Claude Code</span>
-        <span class="stack-pill">Supabase</span>
-        <span class="stack-pill">Astro</span>
-        <span class="stack-pill">Tailwind CSS</span>
-        <span class="stack-pill">GitHub Pages</span>
+      <div class="label mb-6">Stack</div>
+
+      <div class="space-y-7">
+        <div>
+          <div class="group-label mb-3">Inbound · 들어오는 길</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge"><span class="bdot bg-mustard"></span>Telegram Bot</span>
+            <span class="badge"><span class="bdot bg-petrol"></span>Claude Code</span>
+          </div>
+          <p class="text-xs meta text-ink-500 mt-3">메시지 수신 · 자동 분류·태그·요약</p>
+        </div>
+
+        <div>
+          <div class="group-label mb-3">Storage · 쌓이는 곳</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge"><span class="bdot bg-dustyRose"></span>Supabase</span>
+          </div>
+          <p class="text-xs meta text-ink-500 mt-3">PostgreSQL · Row-level security · REST API</p>
+        </div>
+
+        <div>
+          <div class="group-label mb-3">Output · 보여지는 면</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge"><span class="bdot bg-forest"></span>Astro</span>
+            <span class="badge"><span class="bdot bg-camel"></span>Tailwind CSS</span>
+            <span class="badge"><span class="bdot bg-taupe"></span>GitHub Pages</span>
+          </div>
+          <p class="text-xs meta text-ink-500 mt-3">정적 빌드 · 디자인 시스템 · 무료 호스팅</p>
+        </div>
       </div>
 
-      <div class="border-t border-creamBorder/60 pt-6">
+      <div class="border-t border-creamBorder/60 pt-6 mt-8">
         <div class="label mb-4">Made by</div>
         <p class="text-ink-700 leading-relaxed">
           <strong>zezechoi</strong> — 7년차 해외영업·마케터.<br />
@@ -144,7 +163,6 @@
 
   </div>
 
-  <!-- Footer -->
   <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
     <div class="flex justify-between text-sm meta text-ink-500">
       <span>Mutezeze OS</span>
