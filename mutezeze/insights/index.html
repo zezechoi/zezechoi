@@ -45,6 +45,12 @@
     .group-chip:hover { border-color:#C8B998; background:#FAF6EC; }
     .group-chip.is-active { background:#3F6F86; color:#fff; border-color:#3F6F86; }
     .group-chip.is-active .count { background:rgba(255,255,255,.18); color:#fff; }
+    .pov-card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:28px 24px; box-shadow:0 1px 0 rgba(120,95,50,.04); border-left:4px solid #9F6463; }
+    .pov-quote { font-size:15px; line-height:1.7; color:#3a3a3a; padding:10px 0; border-bottom:1px solid #EDE6D6; word-break: keep-all; }
+    .pov-quote:last-child { border-bottom:0; }
+    .pov-quote::before { content:'"'; color:#C8B998; font-size:18px; margin-right:6px; vertical-align:-2px; }
+    .kw-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:9999px; font-size:13px; font-weight:500; background:#F4EFE6; color:#3a3a3a; }
+    .kw-chip .kw-count { font-size:11px; color:#6b6b6b; font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -80,6 +86,28 @@
   </header>
 
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <!-- 제제의 시선 — 운영자 commentary -->
+    <section class="pov-card">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="label" style="color:#9F6463;">제제의 시선</div>
+        <span class="text-xs meta text-ink-500">운영자 commentary</span>
+      </div>
+
+      <div class="mb-6">
+        <div class="text-xs meta text-ink-500 mb-3" style="letter-spacing:.08em;">한 줄 모음</div>
+        <ul id="oneliners-list" class="space-y-1">
+          <li class="text-sm text-ink-500 italic">아직 모인 한 줄이 없습니다. 텔레그램에 짧은 한 줄을 던지면 여기에 쌓입니다.</li>
+        </ul>
+      </div>
+
+      <div class="pt-5 border-t border-creamBorder/60">
+        <div class="text-xs meta text-ink-500 mb-3" style="letter-spacing:.08em;">반복 키워드</div>
+        <div id="keyword-chips" class="flex flex-wrap gap-2">
+          <span class="text-sm text-ink-500 italic">계산 중…</span>
+        </div>
+      </div>
+    </section>
 
     <!-- Categories card -->
     <section class="card">
@@ -288,10 +316,33 @@
     }
 
     // 이벤트 태그 판별: 4자리 연도(20XX)가 포함되면 이벤트로 간주.
-    // 일반 카테고리성 태그("강연", "뷰티서밋", "USP")는 연도가 없어 제외됨.
-    // 정식 이벤트명("Beauty BM Intelligence Summit 2026", "CES 2026" 등)만 통과.
+    // 일반 카테고리성 태그("강연", "USP")는 연도가 없어 제외됨.
+    // "BBIS2026", "BBIS 2026", "CES2026" 등 공백 유무 모두 매칭하도록 단어 경계 미사용.
     function isEventTag(tag) {
-      return /\b20\d{2}\b/.test(tag);
+      return /20\d{2}/.test(tag);
+    }
+
+    function renderRecurringKeywords(rows) {
+      const tagCount = new Map();
+      for (const r of rows) {
+        if (!Array.isArray(r.tags)) continue;
+        for (const t of r.tags) {
+          if (!t || isEventTag(t)) continue; // 이벤트 태그(BBIS2026 등)는 별도 Groups에서 다룸
+          tagCount.set(t, (tagCount.get(t) || 0) + 1);
+        }
+      }
+      const sorted = [...tagCount.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .slice(0, 12);
+
+      const wrap = document.getElementById('keyword-chips');
+      if (sorted.length === 0) {
+        wrap.innerHTML = '<span class="text-sm text-ink-500 italic">키워드가 아직 모이지 않았습니다.</span>';
+        return;
+      }
+      wrap.innerHTML = sorted.map(([tag, n]) => `
+        <span class="kw-chip">${esc(tag)}${n > 1 ? `<span class="kw-count">${n}</span>` : ''}</span>
+      `).join('');
     }
 
     function renderGroupChips(rows) {
@@ -341,6 +392,9 @@
         allRows = data;
 
         document.getElementById('insights-meta').textContent = '카드뉴스 소재가 필요할 때 여기서 꺼낸다.';
+
+        // 제제의 시선 — 반복 키워드
+        renderRecurringKeywords(data);
 
         // Groups
         renderGroupChips(data);
