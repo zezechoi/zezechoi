@@ -28,7 +28,9 @@
   <style>
     body { font-feature-settings:'ss01','ss02'; }
     .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
-    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
+    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+    a.card-link { display:block; color:inherit; text-decoration:none; }
+    a.card-link:hover .card { border-color:#C8B998; box-shadow:0 4px 14px rgba(120,95,50,.08); transform: translateY(-1px); }
     .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
     .chip { display:inline-block; padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; }
     .empty-card { background:#fff; border:1px dashed #C8B998; border-radius:10px; padding:40px 28px; }
@@ -146,23 +148,25 @@
 
     function renderCard(row) {
       const hex = CAT_HEX[row.category] || '#897866';
-      const sourceStr = row.link ? `source · <a href="${esc(row.link)}" class="hover:underline">${esc(row.link.replace(/^https?:\/\//,'').slice(0,40))}</a>` : '';
+      const sourceStr = row.link ? `source · ${esc(row.link.replace(/^https?:\/\//,'').slice(0,40))}` : '';
       const tagsStr = (row.tags?.length) ? `tags · ${row.tags.map(esc).join(' · ')}` : '';
       const metaLine = [sourceStr, tagsStr].filter(Boolean).join(' &nbsp;·&nbsp; ');
 
       return `
-        <article class="card">
-          <div class="flex items-center gap-3 text-sm meta text-ink-500 mb-3">
-            <span>${fmtTime(row.created_at)}</span>
-            <span>·</span>
-            <span class="chip" style="background:${hex}1A;color:${hex};">${esc(row.category || '미분류')}</span>
-          </div>
-          <div class="border-l-2 pl-4" style="border-color:${hex};">
-            <h3 class="text-lg font-medium leading-snug">${esc(row.title || '(제목 없음)')}</h3>
-            ${row.insight ? `<p class="mt-2 text-ink-700 leading-relaxed">${esc(row.insight)}</p>` : ''}
-          </div>
-          ${metaLine ? `<div class="mt-4 pt-4 border-t border-creamBorder/60 text-sm meta text-ink-500">${metaLine}</div>` : ''}
-        </article>
+        <a href="../detail/?id=${encodeURIComponent(row.id)}" class="card-link">
+          <article class="card">
+            <div class="flex items-center gap-3 text-sm meta text-ink-500 mb-3">
+              <span>${fmtTime(row.created_at)}</span>
+              <span>·</span>
+              <span class="chip" style="background:${hex}1A;color:${hex};">${esc(row.category || '미분류')}</span>
+            </div>
+            <div class="border-l-2 pl-4" style="border-color:${hex};">
+              <h3 class="text-lg font-medium leading-snug">${esc(row.title || '(제목 없음)')}</h3>
+              ${row.insight ? `<p class="mt-2 text-ink-700 leading-relaxed line-clamp-3">${esc(row.insight)}</p>` : ''}
+            </div>
+            ${metaLine ? `<div class="mt-4 pt-4 border-t border-creamBorder/60 text-sm meta text-ink-500">${metaLine}</div>` : ''}
+          </article>
+        </a>
       `;
     }
 
