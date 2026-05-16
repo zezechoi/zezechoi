@@ -322,6 +322,19 @@
       return /20\d{2}/.test(tag);
     }
 
+    function renderOneliners(rows) {
+      const list = document.getElementById('oneliners-list');
+      const items = rows.filter(r => Array.isArray(r.tags) && r.tags.includes('나의한줄'));
+      if (items.length === 0) {
+        list.innerHTML = '<li class="text-sm text-ink-500 italic">아직 모인 한 줄이 없습니다. 텔레그램에 짧은 한 줄을 던지면서 태그 "나의한줄"을 붙이면 여기에 쌓입니다.</li>';
+        return;
+      }
+      list.innerHTML = items.map(r => {
+        const text = (r.insight || r.title || '').trim();
+        return `<li class="pov-quote"><a href="../detail/?id=${encodeURIComponent(r.id)}" class="hover:underline" style="color:inherit; text-decoration:none;">${esc(text)}</a></li>`;
+      }).join('');
+    }
+
     function renderRecurringKeywords(rows) {
       const tagCount = new Map();
       for (const r of rows) {
@@ -393,7 +406,8 @@
 
         document.getElementById('insights-meta').textContent = '카드뉴스 소재가 필요할 때 여기서 꺼낸다.';
 
-        // 제제의 시선 — 반복 키워드
+        // 제제의 시선 — 한 줄 모음 + 반복 키워드
+        renderOneliners(data);
         renderRecurringKeywords(data);
 
         // Groups
