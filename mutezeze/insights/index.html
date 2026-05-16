@@ -83,18 +83,17 @@
 
     <!-- Categories card -->
     <section class="card">
-      <div class="flex items-baseline justify-between mb-5">
+      <div class="mb-5">
         <div class="label">Categories</div>
-        <span class="text-xs meta text-ink-500" id="cat-summary">7 ready · 0 received</span>
       </div>
       <div class="flex flex-wrap gap-2" id="cat-chips">
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="브랜드 분석" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석 <span class="meta opacity-60" data-cat-count="브랜드 분석"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="글로벌 트렌드" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드 <span class="meta opacity-60" data-cat-count="글로벌 트렌드"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="강연 노트" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트 <span class="meta opacity-60" data-cat-count="강연 노트"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="카피 라이브러리" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리 <span class="meta opacity-60" data-cat-count="카피 라이브러리"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="패키지 리서치" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치 <span class="meta opacity-60" data-cat-count="패키지 리서치"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="채널 운영" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영 <span class="meta opacity-60" data-cat-count="채널 운영"></span></span>
-        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="크로스 산업" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업 <span class="meta opacity-60" data-cat-count="크로스 산업"></span></span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="브랜드 분석" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="글로벌 트렌드" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="강연 노트" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="카피 라이브러리" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="패키지 리서치" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="채널 운영" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영</span>
+        <span class="chip filter-chip" role="button" tabindex="0" aria-pressed="true" data-cat="크로스 산업" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업</span>
       </div>
       <div class="flex items-center justify-between mt-4">
         <p class="text-xs meta text-ink-500">칩을 눌러 필터링 · 인풋이 들어오면 자동 분류됩니다.</p>
@@ -341,19 +340,7 @@
 
         allRows = data;
 
-        // header meta + category chip counts
-        document.getElementById('insights-meta').textContent = `${data.length} items · 카드뉴스 소재가 필요할 때 여기서 꺼낸다.`;
-
-        const catCount = {};
-        data.forEach(r => { if (r.category) catCount[r.category] = (catCount[r.category]||0) + 1; });
-
-        const total = data.length;
-        document.getElementById('cat-summary').textContent = `7 ready · ${total} received`;
-
-        document.querySelectorAll('[data-cat-count]').forEach(el => {
-          const c = el.getAttribute('data-cat-count');
-          if (catCount[c]) el.textContent = catCount[c];
-        });
+        document.getElementById('insights-meta').textContent = '카드뉴스 소재가 필요할 때 여기서 꺼낸다.';
 
         // Groups
         renderGroupChips(data);
