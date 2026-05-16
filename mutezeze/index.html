@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mutezeze OS — Home</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard Variable','Pretendard','system-ui','sans-serif'] },
+          colors: {
+            cream:'#F4EFE6', creamBorder:'#E2D7BF', creamMuted:'#EDE6D6',
+            rose:'#C76784', dustyRose:'#9F6463', wine:'#B5454C', coral:'#D77C56',
+            mustard:'#D6A53D', sand:'#C9AC6F', taupe:'#897866', camel:'#9C7B57',
+            olive:'#8C8754', moss:'#587749', forest:'#4F5E4D', teal:'#6E9696',
+            slate:'#5E7691', petrol:'#3F6F86', plum:'#946683', purple:'#715378',
+            ink:{900:'#111111',700:'#3a3a3a',500:'#6b6b6b',300:'#bdbdbd'},
+            paper:{50:'#fafafa',100:'#f3f3f3',200:'#e8e8e8'}
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-feature-settings:'ss01','ss02'; }
+    .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+    .dot { display:inline-block; width:8px; height:8px; border-radius:9999px; vertical-align:middle; }
+    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
+    .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
+  </style>
+</head>
+<body class="bg-cream text-ink-900 font-sans antialiased">
+
+  <!-- Top meta bar -->
+  <div class="max-w-3xl mx-auto px-6 pt-8">
+    <div class="flex items-center justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>Edition 01 · 2026.05</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
+      <li><a href="./index.html" class="text-dustyRose underline underline-offset-4">Home</a></li>
+      <li><a href="./today/index.html" class="hover:text-mustard">Today</a></li>
+      <li><a href="./insights/index.html" class="hover:text-petrol">Insights</a></li>
+      <li><a href="./diary/index.html" class="hover:text-plum">Diary</a></li>
+      <li><a href="./about/index.html" class="hover:text-forest">About</a></li>
+      <li><a href="./index/index.html" class="hover:text-wine">Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page header -->
+  <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+    <div class="border-l-4 border-dustyRose pl-4">
+      <p class="text-sm meta text-dustyRose mb-3">Personal insight system</p>
+      <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
+        사진첩에 묻힌 인사이트,<br />카드뉴스로 자라난다.
+      </h1>
+    </div>
+    <p class="mt-6 text-ink-700 leading-relaxed max-w-xl">
+      A personal OS for capturing, tagging, and re-using what I learn —
+      from beauty summits, brand teardowns, and field notes.
+    </p>
+  </header>
+
+  <!-- Cards -->
+  <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <!-- Pipeline card -->
+    <section class="card">
+      <div class="label mb-6">Three-Layer Pipeline</div>
+      <div class="space-y-5">
+        <div class="border-l-2 border-mustard pl-5">
+          <div class="text-sm meta text-mustard mb-1">01 · Capture</div>
+          <h3 class="font-medium">캡쳐·링크·노트를 텔레그램으로 던진다</h3>
+          <p class="text-sm text-ink-500 mt-1">Telegram bot · 자동 수신 · 즉시 보관</p>
+        </div>
+        <div class="border-l-2 border-petrol pl-5">
+          <div class="text-sm meta text-petrol mb-1">02 · Refine</div>
+          <h3 class="font-medium">Claude가 카테고리·태그·요약을 붙인다</h3>
+          <p class="text-sm text-ink-500 mt-1">Auto-tagging · Summarize · Categorize</p>
+        </div>
+        <div class="border-l-2 border-dustyRose pl-5">
+          <div class="text-sm meta text-dustyRose mb-1">03 · Surface</div>
+          <h3 class="font-medium">이 사이트에서 검색·인용·재사용</h3>
+          <p class="text-sm text-ink-500 mt-1">Insights · Diary · Index</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- At a glance card -->
+    <section class="card">
+      <div class="flex items-baseline justify-between mb-6">
+        <div class="label">At a glance</div>
+        <span class="text-xs meta text-ink-500">Last synced · 3 min ago</span>
+      </div>
+      <div class="grid grid-cols-3 gap-6 max-w-md mb-7">
+        <div>
+          <div class="text-3xl meta">142</div>
+          <div class="text-sm text-ink-500 mt-1">insights</div>
+        </div>
+        <div>
+          <div class="text-3xl meta">38</div>
+          <div class="text-sm text-ink-500 mt-1">brands</div>
+        </div>
+        <div>
+          <div class="text-3xl meta">7</div>
+          <div class="text-sm text-ink-500 mt-1">categories</div>
+        </div>
+      </div>
+      <div class="border-t border-creamBorder/60 pt-6">
+        <div class="label mb-4">By category</div>
+        <ul class="space-y-2.5">
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-wine mr-3"></span>브랜드 분석</span><span class="meta text-ink-500">42</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-petrol mr-3"></span>글로벌 트렌드</span><span class="meta text-ink-500">31</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-mustard mr-3"></span>강연 노트</span><span class="meta text-ink-500">24</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-plum mr-3"></span>카피 라이브러리</span><span class="meta text-ink-500">18</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-camel mr-3"></span>패키지 리서치</span><span class="meta text-ink-500">15</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-teal mr-3"></span>채널 운영</span><span class="meta text-ink-500">8</span></li>
+          <li class="flex items-center justify-between text-sm"><span><span class="dot bg-moss mr-3"></span>크로스 산업</span><span class="meta text-ink-500">4</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Jump in card -->
+    <section class="card">
+      <div class="label mb-6">Jump in</div>
+      <ul class="space-y-3">
+        <li><a href="./today/index.html" class="group flex items-baseline justify-between hover:text-mustard">
+          <span>오늘 들어온 인풋 보기</span>
+          <span class="meta text-ink-500 group-hover:text-mustard text-sm">Today →</span>
+        </a></li>
+        <li><a href="./insights/index.html" class="group flex items-baseline justify-between hover:text-petrol">
+          <span>전체 인사이트 라이브러리</span>
+          <span class="meta text-ink-500 group-hover:text-petrol text-sm">Insights →</span>
+        </a></li>
+        <li><a href="./diary/index.html" class="group flex items-baseline justify-between hover:text-plum">
+          <span>저장한 인스타 게시물</span>
+          <span class="meta text-ink-500 group-hover:text-plum text-sm">Diary →</span>
+        </a></li>
+        <li><a href="./about/index.html" class="group flex items-baseline justify-between hover:text-forest">
+          <span>이 OS가 어떻게 작동하는지</span>
+          <span class="meta text-ink-500 group-hover:text-forest text-sm">About →</span>
+        </a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
+    <div class="flex justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>zezechoi.github.io/mutezeze</span>
+    </div>
+  </footer>
+
+</body>
+</html>

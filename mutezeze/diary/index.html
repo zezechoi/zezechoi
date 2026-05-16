@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mutezeze OS — Diary</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard Variable','Pretendard','system-ui','sans-serif'] },
+          colors: {
+            cream:'#F4EFE6', creamBorder:'#E2D7BF', creamMuted:'#EDE6D6',
+            rose:'#C76784', dustyRose:'#9F6463', wine:'#B5454C', coral:'#D77C56',
+            mustard:'#D6A53D', sand:'#C9AC6F', taupe:'#897866', camel:'#9C7B57',
+            olive:'#8C8754', moss:'#587749', forest:'#4F5E4D', teal:'#6E9696',
+            slate:'#5E7691', petrol:'#3F6F86', plum:'#946683', purple:'#715378',
+            ink:{900:'#111111',700:'#3a3a3a',500:'#6b6b6b',300:'#bdbdbd'},
+            paper:{50:'#fafafa',100:'#f3f3f3',200:'#e8e8e8'}
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-feature-settings:'ss01','ss02'; }
+    .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
+    .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
+  </style>
+</head>
+<body class="bg-cream text-ink-900 font-sans antialiased">
+
+  <!-- Top meta bar -->
+  <div class="max-w-3xl mx-auto px-6 pt-8">
+    <div class="flex items-center justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>Edition 01 · 2026.05</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
+      <li><a href="../index.html" class="hover:text-dustyRose">Home</a></li>
+      <li><a href="../today/index.html" class="hover:text-mustard">Today</a></li>
+      <li><a href="../insights/index.html" class="hover:text-petrol">Insights</a></li>
+      <li><a href="./index.html" class="text-plum underline underline-offset-4">Diary</a></li>
+      <li><a href="../about/index.html" class="hover:text-forest">About</a></li>
+      <li><a href="../index/index.html" class="hover:text-wine">Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page header -->
+  <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+    <div class="border-l-4 border-plum pl-4">
+      <p class="text-sm meta text-plum mb-3">Insta diary</p>
+      <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
+        다시 꺼내 읽는 게시물.
+      </h1>
+      <p class="mt-4 text-ink-700">28 saved · 인스타에서 모은 카피와 장면들.</p>
+    </div>
+  </header>
+
+  <!-- Diary cards -->
+  <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <article class="card">
+      <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+        <span>@hiya_official</span>
+        <span>2026.05.12</span>
+      </div>
+      <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">
+        데일리는 약속이 아니라, <strong>의식이어야 한다.</strong>
+      </blockquote>
+      <div class="mt-5 pt-5 border-t border-creamBorder/60">
+        <p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>'ritual'이 'routine'을 대체하는 흐름. 카드뉴스 04편 후보 카피.</p>
+        <p class="mt-2 text-sm meta text-ink-500">tags · 히야 · 카피 · 의식화</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+        <span>@panel_seoul</span>
+        <span>2026.05.05</span>
+      </div>
+      <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">
+        PDP 첫 화면 — 제품이 아닌, <strong>결과 사진</strong>.<br />
+        Before/After 없이, 그냥 '회복된 피부'.
+      </blockquote>
+      <div class="mt-5 pt-5 border-t border-creamBorder/60">
+        <p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>시각 자산이 카피보다 먼저 온다. 04편 분석 각도 후보.</p>
+        <p class="mt-2 text-sm meta text-ink-500">tags · 파넬 · 시각자산 · PDP</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+        <span>@careve_official</span>
+        <span>2026.04.28</span>
+      </div>
+      <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">
+        영문 워드마크 옆에 한글 병기.<br />
+        <strong>국내 자신감 + 일본 시장 의식.</strong>
+      </blockquote>
+      <div class="mt-5 pt-5 border-t border-creamBorder/60">
+        <p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>리브랜딩 신호. 패키지 리서치 카테고리로 이관 가능.</p>
+        <p class="mt-2 text-sm meta text-ink-500">tags · 케어드 · 리브랜딩 · 일본</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+        <span>@torriden_official</span>
+        <span>2026.04.21</span>
+      </div>
+      <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">
+        "성분이 아니라 <strong>회복의 속도</strong>를 약속한다."
+      </blockquote>
+      <div class="mt-5 pt-5 border-t border-creamBorder/60">
+        <p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>약속의 단위가 '성분'에서 '시간'으로. 글로벌 진출 카피 후보.</p>
+        <p class="mt-2 text-sm meta text-ink-500">tags · 토리든 · 카피 · 회복</p>
+      </div>
+    </article>
+
+    <!-- View all -->
+    <a href="#" class="group flex items-baseline justify-between pt-2 hover:text-plum">
+      <span class="text-sm">전체 28개 보기</span>
+      <span class="text-sm meta text-ink-500 group-hover:text-plum">Older →</span>
+    </a>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
+    <div class="flex justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>zezechoi.github.io/mutezeze</span>
+    </div>
+  </footer>
+
+</body>
+</html>

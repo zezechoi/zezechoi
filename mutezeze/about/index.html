@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mutezeze OS — About</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard Variable','Pretendard','system-ui','sans-serif'] },
+          colors: {
+            cream:'#F4EFE6', creamBorder:'#E2D7BF', creamMuted:'#EDE6D6',
+            rose:'#C76784', dustyRose:'#9F6463', wine:'#B5454C', coral:'#D77C56',
+            mustard:'#D6A53D', sand:'#C9AC6F', taupe:'#897866', camel:'#9C7B57',
+            olive:'#8C8754', moss:'#587749', forest:'#4F5E4D', teal:'#6E9696',
+            slate:'#5E7691', petrol:'#3F6F86', plum:'#946683', purple:'#715378',
+            ink:{900:'#111111',700:'#3a3a3a',500:'#6b6b6b',300:'#bdbdbd'},
+            paper:{50:'#fafafa',100:'#f3f3f3',200:'#e8e8e8'}
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-feature-settings:'ss01','ss02'; }
+    .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
+    .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
+    .stack-pill { display:inline-block; padding:4px 10px; border:1px solid #E2D7BF; background:#FAF6ED; border-radius:6px; font-size:12px; }
+  </style>
+</head>
+<body class="bg-cream text-ink-900 font-sans antialiased">
+
+  <!-- Top meta bar -->
+  <div class="max-w-3xl mx-auto px-6 pt-8">
+    <div class="flex items-center justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>Edition 01 · 2026.05</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
+      <li><a href="../index.html" class="hover:text-dustyRose">Home</a></li>
+      <li><a href="../today/index.html" class="hover:text-mustard">Today</a></li>
+      <li><a href="../insights/index.html" class="hover:text-petrol">Insights</a></li>
+      <li><a href="../diary/index.html" class="hover:text-plum">Diary</a></li>
+      <li><a href="./index.html" class="text-forest underline underline-offset-4">About</a></li>
+      <li><a href="../index/index.html" class="hover:text-wine">Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page header -->
+  <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+    <div class="border-l-4 border-forest pl-4">
+      <p class="text-sm meta text-forest mb-3">About — How it works</p>
+      <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
+        왜 만들었고, 어떻게 굴러가는가.
+      </h1>
+    </div>
+  </header>
+
+  <!-- Cards -->
+  <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <!-- Why card -->
+    <section class="card">
+      <div class="label mb-5">Why</div>
+      <div class="space-y-5 text-ink-700 leading-relaxed">
+        <p>Mutezeze OS는 마케터 한 명을 위한 인사이트 운영체제다.</p>
+        <p>뷰티서밋·필드노트·인스타에서 모은 자료가 사진첩에서 썩지 않고,
+           카드뉴스·브리핑·면접 자료로 다시 살아나는 구조.</p>
+      </div>
+      <blockquote class="mt-8 pl-5 border-l-2 border-forest text-xl leading-relaxed">
+        기록은 자산이 아니다. <strong>꺼내쓸 수 있어야</strong> 자산이 된다.
+      </blockquote>
+    </section>
+
+    <!-- Pipeline card -->
+    <section class="card">
+      <div class="label mb-6">Pipeline</div>
+      <ol class="space-y-5">
+        <li class="flex items-start gap-5">
+          <span class="meta text-sm text-ink-300 w-8 flex-shrink-0 pt-0.5">01</span>
+          <div>
+            <h3 class="font-medium">Telegram으로 캡쳐·링크·노트를 던진다</h3>
+            <p class="text-sm text-ink-500 mt-1">손에 들고 있는 채널 그대로. 새 앱을 깔지 않는다.</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-5">
+          <span class="meta text-sm text-ink-300 w-8 flex-shrink-0 pt-0.5">02</span>
+          <div>
+            <h3 class="font-medium">Claude가 카테고리·태그·요약을 자동으로 붙인다</h3>
+            <p class="text-sm text-ink-500 mt-1">7개 카테고리 + 자유 태그. 입력자는 메모만, 정리는 OS가.</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-5">
+          <span class="meta text-sm text-ink-300 w-8 flex-shrink-0 pt-0.5">03</span>
+          <div>
+            <h3 class="font-medium">Supabase에 정렬되어 저장된다</h3>
+            <p class="text-sm text-ink-500 mt-1">검색 가능한 구조. 한 곳에 쌓인다.</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-5">
+          <span class="meta text-sm text-ink-300 w-8 flex-shrink-0 pt-0.5">04</span>
+          <div>
+            <h3 class="font-medium">이 페이지에서 검색·인용·재사용한다</h3>
+            <p class="text-sm text-ink-500 mt-1">카드뉴스 만들 때, 면접 준비할 때, 다시 꺼낸다.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Stack + Made by card -->
+    <section class="card">
+      <div class="label mb-5">Stack</div>
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="stack-pill">Telegram Bot</span>
+        <span class="stack-pill">Claude Code</span>
+        <span class="stack-pill">Supabase</span>
+        <span class="stack-pill">Astro</span>
+        <span class="stack-pill">Tailwind CSS</span>
+        <span class="stack-pill">GitHub Pages</span>
+      </div>
+
+      <div class="border-t border-creamBorder/60 pt-6">
+        <div class="label mb-4">Made by</div>
+        <p class="text-ink-700 leading-relaxed">
+          <strong>zezechoi</strong> — 7년차 해외영업·마케터.<br />
+          뷰티 중소기업 글로벌 마케팅 포지션 준비 중.<br />
+          Portfolio · <a href="https://zezechoi.github.io" class="underline underline-offset-4 hover:text-forest">zezechoi.github.io</a>
+        </p>
+        <p class="mt-6 text-sm meta text-ink-500">
+          Built by zezechoi × Claude · 2026 · Edition 01<br />
+          Last updated 2026.05.16
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
+    <div class="flex justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>zezechoi.github.io/mutezeze</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mutezeze OS — Index</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard Variable','Pretendard','system-ui','sans-serif'] },
+          colors: {
+            cream:'#F4EFE6', creamBorder:'#E2D7BF', creamMuted:'#EDE6D6',
+            rose:'#C76784', dustyRose:'#9F6463', wine:'#B5454C', coral:'#D77C56',
+            mustard:'#D6A53D', sand:'#C9AC6F', taupe:'#897866', camel:'#9C7B57',
+            olive:'#8C8754', moss:'#587749', forest:'#4F5E4D', teal:'#6E9696',
+            slate:'#5E7691', petrol:'#3F6F86', plum:'#946683', purple:'#715378',
+            ink:{900:'#111111',700:'#3a3a3a',500:'#6b6b6b',300:'#bdbdbd'},
+            paper:{50:'#fafafa',100:'#f3f3f3',200:'#e8e8e8'}
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-feature-settings:'ss01','ss02'; }
+    .meta { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+    .card { background:#fff; border:1px solid #E2D7BF; border-radius:10px; padding:24px; box-shadow:0 1px 0 rgba(120,95,50,.04); }
+    .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
+    .dot { display:inline-block; width:8px; height:8px; border-radius:9999px; vertical-align:middle; margin-right:10px; }
+  </style>
+</head>
+<body class="bg-cream text-ink-900 font-sans antialiased">
+
+  <!-- Top meta bar -->
+  <div class="max-w-3xl mx-auto px-6 pt-8">
+    <div class="flex items-center justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>Edition 01 · 2026.05</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="max-w-3xl mx-auto px-6 mt-4 pb-4 border-b border-creamBorder">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-700">
+      <li><a href="../index.html" class="hover:text-dustyRose">Home</a></li>
+      <li><a href="../today/index.html" class="hover:text-mustard">Today</a></li>
+      <li><a href="../insights/index.html" class="hover:text-petrol">Insights</a></li>
+      <li><a href="../diary/index.html" class="hover:text-plum">Diary</a></li>
+      <li><a href="../about/index.html" class="hover:text-forest">About</a></li>
+      <li><a href="./index.html" class="text-wine underline underline-offset-4">Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page header -->
+  <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+    <div class="border-l-4 border-wine pl-4">
+      <p class="text-sm meta text-wine mb-3">Index</p>
+      <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
+        한눈에 보는 색인.
+      </h1>
+      <p class="mt-4 text-ink-700">카테고리와 태그로 빠르게 탐색.</p>
+    </div>
+  </header>
+
+  <!-- Cards -->
+  <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <!-- Categories + Tags card (2-column) -->
+    <section class="card">
+      <div class="grid md:grid-cols-2 gap-10">
+
+        <div>
+          <div class="label mb-5">By category</div>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-wine">
+                <span class="dot bg-wine"></span>브랜드 분석
+              </a>
+              <span class="meta text-ink-500">42</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-petrol">
+                <span class="dot bg-petrol"></span>글로벌 트렌드
+              </a>
+              <span class="meta text-ink-500">31</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-mustard">
+                <span class="dot bg-mustard"></span>강연 노트
+              </a>
+              <span class="meta text-ink-500">24</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-plum">
+                <span class="dot bg-plum"></span>카피 라이브러리
+              </a>
+              <span class="meta text-ink-500">18</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-camel">
+                <span class="dot bg-camel"></span>패키지 리서치
+              </a>
+              <span class="meta text-ink-500">15</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="../insights/index.html" class="flex items-center hover:text-teal">
+                <span class="dot bg-teal"></span>채널 운영
+              </a>
+              <span class="meta text-ink-500">8</span>
+            </li>
+            <li class="flex items-center justify-between pb-1">
+              <a href="../insights/index.html" class="flex items-center hover:text-moss">
+                <span class="dot bg-moss"></span>크로스 산업
+              </a>
+              <span class="meta text-ink-500">4</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="label mb-5">Top tags</div>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-wine">#K뷰티</a>
+              <span class="meta text-ink-500">38</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-petrol">#글로벌 마케팅</a>
+              <span class="meta text-ink-500">29</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-wine">#브랜딩</a>
+              <span class="meta text-ink-500">26</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-plum">#카피</a>
+              <span class="meta text-ink-500">22</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-wine">#히야</a>
+              <span class="meta text-ink-500">11</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
+              <a href="#" class="hover:text-wine">#파넬</a>
+              <span class="meta text-ink-500">9</span>
+            </li>
+            <li class="flex items-center justify-between pb-1">
+              <a href="#" class="hover:text-wine">#케어드</a>
+              <span class="meta text-ink-500">7</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Latest additions card -->
+    <section class="card">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="label">Latest additions</div>
+        <span class="text-xs meta text-ink-500">last 24h · 4 added</span>
+      </div>
+      <ul class="space-y-2.5 text-sm">
+        <li class="flex items-baseline justify-between">
+          <span><span class="meta text-ink-500 mr-2">강연 노트 ·</span>로컬 브랜드의 글로벌 진출</span>
+          <span class="meta text-ink-500">2026.05.16</span>
+        </li>
+        <li class="flex items-baseline justify-between">
+          <span><span class="meta text-ink-500 mr-2">브랜드 분석 ·</span>파넬 카피 시프트</span>
+          <span class="meta text-ink-500">2026.05.16</span>
+        </li>
+        <li class="flex items-baseline justify-between">
+          <span><span class="meta text-ink-500 mr-2">글로벌 트렌드 ·</span>동남아 매스티지 진입</span>
+          <span class="meta text-ink-500">2026.05.16</span>
+        </li>
+        <li class="flex items-baseline justify-between">
+          <span><span class="meta text-ink-500 mr-2">카피 라이브러리 ·</span>@careve_official 워드마크</span>
+          <span class="meta text-ink-500">2026.05.16</span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-creamBorder">
+    <div class="flex justify-between text-sm meta text-ink-500">
+      <span>Mutezeze OS</span>
+      <span>zezechoi.github.io/mutezeze</span>
+    </div>
+  </footer>
+
+</body>
+</html>
