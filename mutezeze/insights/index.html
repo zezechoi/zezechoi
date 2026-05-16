@@ -40,6 +40,11 @@
     .filter-chip[aria-pressed="false"] { opacity: .35; }
     .filter-chip:hover { opacity: 1; }
     .filter-chip.is-active { box-shadow: 0 0 0 1px currentColor inset; }
+    .group-chip { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:9999px; font-size:12px; font-weight:500; background:#FFFFFF; border:1px solid #E2D7BF; color:#3a3a3a; cursor:pointer; user-select:none; transition: background .12s ease, border-color .12s ease; }
+    .group-chip .count { font-variant-numeric: tabular-nums; color:#6b6b6b; font-size:11px; background:#F4EFE6; padding:0 6px; border-radius:9999px; }
+    .group-chip:hover { border-color:#C8B998; background:#FAF6EC; }
+    .group-chip.is-active { background:#3F6F86; color:#fff; border-color:#3F6F86; }
+    .group-chip.is-active .count { background:rgba(255,255,255,.18); color:#fff; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -129,6 +134,15 @@
       </ul>
     </section>
 
+    <!-- Groups — multi-item tags (events/topics) -->
+    <section class="card hidden" id="groups-section">
+      <div class="flex items-baseline justify-between mb-3">
+        <div class="label">Groups</div>
+        <span class="text-xs meta text-ink-500">2건 이상 묶이는 태그 · 같은 이벤트/주제</span>
+      </div>
+      <div class="flex flex-wrap gap-2" id="group-chips"></div>
+    </section>
+
     <!-- All insights — data state -->
     <section class="card hidden" id="data-state">
       <div class="flex items-baseline justify-between mb-5">
@@ -199,22 +213,28 @@
     let allRows = [];
     const activeCats = new Set();
     let filterMode = 'all'; // 'all' (모든 칩 활성) | 'subset' (선택된 카테고리만)
+    const activeGroups = new Set(); // 선택된 그룹 태그
 
     function renderList() {
       const list = document.getElementById('all-list');
       const allCountEl = document.getElementById('all-count');
       if (!allRows.length) return;
 
-      const filtered = filterMode === 'all'
-        ? allRows
-        : allRows.filter(r => activeCats.has(r.category));
+      let filtered = allRows;
+      if (filterMode === 'subset') {
+        filtered = filtered.filter(r => activeCats.has(r.category));
+      }
+      if (activeGroups.size > 0) {
+        filtered = filtered.filter(r => Array.isArray(r.tags) && r.tags.some(t => activeGroups.has(t)));
+      }
 
       list.innerHTML = filtered.map((r, i) => renderRow(r, filtered.length - i)).join('');
 
-      if (filterMode === 'all') {
-        allCountEl.textContent = `${allRows.length} items · latest first`;
-      } else {
+      const isFiltered = filterMode === 'subset' || activeGroups.size > 0;
+      if (isFiltered) {
         allCountEl.textContent = `${filtered.length} / ${allRows.length} items · filtered`;
+      } else {
+        allCountEl.textContent = `${allRows.length} items · latest first`;
       }
     }
 
@@ -259,6 +279,50 @@
     });
     document.getElementById('reset-filter').addEventListener('click', resetFilter);
 
+    function toggleGroup(tag) {
+      if (activeGroups.has(tag)) activeGroups.delete(tag);
+      else activeGroups.add(tag);
+      document.querySelectorAll('.group-chip').forEach(el => {
+        el.classList.toggle('is-active', activeGroups.has(el.getAttribute('data-tag')));
+      });
+      renderList();
+    }
+
+    function renderGroupChips(rows) {
+      const tagCount = new Map();
+      for (const r of rows) {
+        if (!Array.isArray(r.tags)) continue;
+        for (const t of r.tags) {
+          if (!t) continue;
+          tagCount.set(t, (tagCount.get(t) || 0) + 1);
+        }
+      }
+      const groups = [...tagCount.entries()]
+        .filter(([, n]) => n >= 2)
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+      const wrap = document.getElementById('group-chips');
+      const section = document.getElementById('groups-section');
+      if (groups.length === 0) {
+        section.classList.add('hidden');
+        return;
+      }
+      wrap.innerHTML = groups.map(([tag, n]) => `
+        <span class="group-chip" role="button" tabindex="0" data-tag="${esc(tag)}">
+          ${esc(tag)} <span class="count">${n}</span>
+        </span>
+      `).join('');
+      section.classList.remove('hidden');
+
+      wrap.querySelectorAll('.group-chip').forEach(el => {
+        const tag = el.getAttribute('data-tag');
+        el.addEventListener('click', () => toggleGroup(tag));
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleGroup(tag); }
+        });
+      });
+    }
+
     (async () => {
       try {
         const { data, error } = await sb
@@ -283,6 +347,9 @@
           const c = el.getAttribute('data-cat-count');
           if (catCount[c]) el.textContent = catCount[c];
         });
+
+        // Groups
+        renderGroupChips(data);
 
         // All insights list
         document.getElementById('empty-state').classList.add('hidden');
