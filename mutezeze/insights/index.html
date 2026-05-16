@@ -288,12 +288,19 @@
       renderList();
     }
 
+    // 이벤트 태그 판별: 4자리 연도(20XX)가 포함되면 이벤트로 간주.
+    // 일반 카테고리성 태그("강연", "뷰티서밋", "USP")는 연도가 없어 제외됨.
+    // 정식 이벤트명("Beauty BM Intelligence Summit 2026", "CES 2026" 등)만 통과.
+    function isEventTag(tag) {
+      return /\b20\d{2}\b/.test(tag);
+    }
+
     function renderGroupChips(rows) {
       const tagCount = new Map();
       for (const r of rows) {
         if (!Array.isArray(r.tags)) continue;
         for (const t of r.tags) {
-          if (!t) continue;
+          if (!t || !isEventTag(t)) continue;
           tagCount.set(t, (tagCount.get(t) || 0) + 1);
         }
       }
