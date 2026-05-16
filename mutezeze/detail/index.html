@@ -31,7 +31,14 @@
     .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
     .chip { display:inline-block; padding:3px 10px; border-radius:9999px; font-size:12px; font-weight:500; }
     .tag { display:inline-block; padding:4px 10px; border-radius:6px; font-size:13px; background:#EDE6D6; color:#3a3a3a; }
-    .body-text { white-space: pre-wrap; line-height: 1.85; word-break: keep-all; }
+    .body-text { white-space: pre-wrap; line-height: 1.9; word-break: keep-all; }
+    .intro-para { font-size:17px; line-height:1.85; color:#3a3a3a; margin-bottom:32px; white-space: pre-wrap; word-break: keep-all; }
+    .num-block { display:flex; gap:20px; padding:24px 0; border-top:1px solid #EDE6D6; }
+    .num-block:first-of-type { border-top-color:#E2D7BF; }
+    .num-badge { flex-shrink:0; width:36px; height:36px; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:600; background:#F4EFE6; color:#3a3a3a; font-variant-numeric: tabular-nums; }
+    .num-headline { font-size:18px; font-weight:600; line-height:1.55; color:#111; margin-bottom:8px; word-break: keep-all; }
+    .num-body { font-size:15px; line-height:1.9; color:#3a3a3a; white-space: pre-wrap; word-break: keep-all; }
+    .closing-para { font-size:17px; line-height:1.85; color:#3a3a3a; margin-top:28px; padding-top:24px; border-top:1px solid #E2D7BF; white-space: pre-wrap; word-break: keep-all; font-weight:500; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -72,7 +79,7 @@
 
       <h1 id="d-title" class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight border-l-4 pl-4"></h1>
 
-      <div id="d-body" class="mt-10 text-ink-700 body-text"></div>
+      <div id="d-body" class="mt-12"></div>
 
       <div id="d-link-wrap" class="mt-8 hidden">
         <div class="label mb-2">Source</div>
@@ -124,6 +131,110 @@
 
     function setText(id, text) { document.getElementById(id).textContent = text; }
 
+    const NUM_MARKERS = '①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳';
+    const NUM_RE = new RegExp(`[${NUM_MARKERS}]`);
+    const NUM_GLOBAL = new RegExp(`[${NUM_MARKERS}]`, 'g');
+
+    function splitHeadlineBody(blockText) {
+      // 우선순위 separator: 줄바꿈 > " — " > " → " > ": " > ". "
+      // 길이 80자 이내 헤드라인만 인정
+      const tries = ['\n', ' — ', ' → ', ': ', '. '];
+      for (const sep of tries) {
+        const i = blockText.indexOf(sep);
+        if (i !== -1 && i > 0 && i < 80) {
+          return {
+            headline: blockText.slice(0, i).trim().replace(/[.,]$/, ''),
+            body: blockText.slice(i + sep.length).trim()
+          };
+        }
+      }
+      // 짧으면 헤드라인만, 길면 헤드라인 + 본문 분리 못함
+      return { headline: blockText.trim(), body: '' };
+    }
+
+    function parseInsightSegments(text) {
+      if (!text || !NUM_RE.test(text)) return null;
+
+      const segments = [];
+      const positions = [];
+      let m;
+      NUM_GLOBAL.lastIndex = 0;
+      while ((m = NUM_GLOBAL.exec(text)) !== null) {
+        positions.push({ marker: m[0], idx: m.index });
+      }
+
+      // 첫 마커 이전 = intro
+      if (positions[0].idx > 0) {
+        const intro = text.slice(0, positions[0].idx).trim();
+        if (intro) segments.push({ type: 'intro', text: intro });
+      }
+
+      // 각 마커 블록
+      for (let i = 0; i < positions.length; i++) {
+        const start = positions[i].idx + positions[i].marker.length;
+        const end = (i + 1 < positions.length) ? positions[i + 1].idx : text.length;
+        let blockText = text.slice(start, end).trim();
+
+        // 다음 블록이 없고 마지막 줄에 "결론:" 같은 closing이 보이면 분리
+        let closing = '';
+        if (i === positions.length - 1) {
+          const lines = blockText.split(/\n+/);
+          if (lines.length > 1) {
+            const lastLine = lines[lines.length - 1].trim();
+            if (/^(결론|정리|Takeaway|takeaway|TAKEAWAY|결과|wrap|Wrap|WRAP)/.test(lastLine)) {
+              closing = lastLine;
+              blockText = lines.slice(0, -1).join('\n').trim();
+            }
+          }
+        }
+
+        segments.push({ type: 'numbered', marker: positions[i].marker, text: blockText });
+
+        if (closing) segments.push({ type: 'closing', text: closing });
+      }
+
+      return segments;
+    }
+
+    function renderBody(insight) {
+      const container = document.getElementById('d-body');
+      if (!insight) { container.textContent = ''; return; }
+
+      const segments = parseInsightSegments(insight);
+      if (!segments) {
+        // 번호 마커 없음 → 그냥 pre-wrap 단락
+        container.className = 'mt-12 body-text text-ink-700';
+        container.textContent = insight;
+        return;
+      }
+
+      container.className = 'mt-12';
+      const html = segments.map(seg => {
+        if (seg.type === 'intro') {
+          return `<p class="intro-para">${escapeHtml(seg.text)}</p>`;
+        }
+        if (seg.type === 'closing') {
+          return `<p class="closing-para">${escapeHtml(seg.text)}</p>`;
+        }
+        // numbered
+        const { headline, body } = splitHeadlineBody(seg.text);
+        return `
+          <div class="num-block">
+            <div class="num-badge">${escapeHtml(seg.marker)}</div>
+            <div class="flex-1 min-w-0">
+              <div class="num-headline">${escapeHtml(headline)}</div>
+              ${body ? `<div class="num-body">${escapeHtml(body)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+      container.innerHTML = html;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
     function showNotFound(reason) {
       console.warn('detail not found', reason);
       document.getElementById('loading').classList.add('hidden');
@@ -153,7 +264,7 @@
 
       document.title = `${data.title || '인사이트'} — Mutezeze OS`;
 
-      setText('d-body', data.insight || '');
+      renderBody(data.insight || '');
 
       if (data.link) {
         document.getElementById('d-link-wrap').classList.remove('hidden');
