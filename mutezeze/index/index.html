@@ -68,61 +68,56 @@
 
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
 
-    <!-- Categories (ready) -->
+    <!-- Categories -->
     <section class="card">
       <div class="flex items-baseline justify-between mb-5">
         <div class="label">By category</div>
-        <span class="text-xs meta text-ink-500">7 ready</span>
+        <span class="text-xs meta text-ink-500" id="cat-summary">7 ready</span>
       </div>
       <ul class="space-y-3">
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-wine">
-            <span class="dot bg-wine"></span>브랜드 분석
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-wine"><span class="dot bg-wine"></span>브랜드 분석</a>
+          <span class="meta text-ink-300" data-cat-count="브랜드 분석">—</span>
         </li>
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-petrol">
-            <span class="dot bg-petrol"></span>글로벌 트렌드
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-petrol"><span class="dot bg-petrol"></span>글로벌 트렌드</a>
+          <span class="meta text-ink-300" data-cat-count="글로벌 트렌드">—</span>
         </li>
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-mustard">
-            <span class="dot bg-mustard"></span>강연 노트
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-mustard"><span class="dot bg-mustard"></span>강연 노트</a>
+          <span class="meta text-ink-300" data-cat-count="강연 노트">—</span>
         </li>
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-plum">
-            <span class="dot bg-plum"></span>카피 라이브러리
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-plum"><span class="dot bg-plum"></span>카피 라이브러리</a>
+          <span class="meta text-ink-300" data-cat-count="카피 라이브러리">—</span>
         </li>
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-camel">
-            <span class="dot bg-camel"></span>패키지 리서치
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-camel"><span class="dot bg-camel"></span>패키지 리서치</a>
+          <span class="meta text-ink-300" data-cat-count="패키지 리서치">—</span>
         </li>
         <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5">
-          <a href="../insights/index.html" class="flex items-center hover:text-teal">
-            <span class="dot bg-teal"></span>채널 운영
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-teal"><span class="dot bg-teal"></span>채널 운영</a>
+          <span class="meta text-ink-300" data-cat-count="채널 운영">—</span>
         </li>
         <li class="flex items-center justify-between pb-1">
-          <a href="../insights/index.html" class="flex items-center hover:text-moss">
-            <span class="dot bg-moss"></span>크로스 산업
-          </a>
-          <span class="meta text-ink-300">—</span>
+          <a href="../insights/index.html" class="flex items-center hover:text-moss"><span class="dot bg-moss"></span>크로스 산업</a>
+          <span class="meta text-ink-300" data-cat-count="크로스 산업">—</span>
         </li>
       </ul>
-      <p class="text-xs meta text-ink-500 mt-5">카운트는 인풋이 들어오면 채워집니다.</p>
+      <p class="text-xs meta text-ink-500 mt-5" id="cat-note">카운트는 인풋이 들어오면 채워집니다.</p>
     </section>
 
-    <!-- Tags — empty state -->
-    <section class="empty-card text-center">
+    <!-- Tags - data state -->
+    <section class="card hidden" id="tags-data">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="label">Top tags</div>
+        <span class="text-xs meta text-ink-500" id="tags-summary"></span>
+      </div>
+      <ul class="space-y-3" id="tags-list"></ul>
+    </section>
+
+    <!-- Tags - empty state -->
+    <section class="empty-card text-center" id="tags-empty">
       <div class="label mb-3 text-wine">Tags coming</div>
       <p class="text-ink-700 leading-relaxed max-w-md mx-auto">
         태그는 인풋이 들어오면서 자동으로 만들어집니다.<br />
@@ -138,6 +133,64 @@
       <span>zezechoi.github.io/mutezeze</span>
     </div>
   </footer>
+
+  <!-- ===== Supabase live data ===== -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://nnvubbnlxekudqaeiehw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5udnViYm5seGVrdWRxYWVpZWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk4MjMsImV4cCI6MjA5NDIzNTgyM30.ZE-KGcBdTwweceCHHB8omWHWzapErRNe3rwY-RxKmaQ';
+
+    const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    (async () => {
+      try {
+        const { data, error } = await sb
+          .from('contents')
+          .select('category, tags');
+        if (error) { console.warn('index fetch error', error); return; }
+        if (!data || data.length === 0) return;
+
+        // Category counts
+        const catCount = {};
+        const tagCount = {};
+        data.forEach(r => {
+          if (r.category) catCount[r.category] = (catCount[r.category]||0) + 1;
+          (r.tags || []).forEach(t => { tagCount[t] = (tagCount[t]||0) + 1; });
+        });
+
+        document.getElementById('cat-summary').textContent = `7 ready · ${data.length} received`;
+        document.getElementById('cat-note').textContent = `${data.length} insights · 카테고리별 카운트`;
+        document.querySelectorAll('[data-cat-count]').forEach(el => {
+          const c = el.getAttribute('data-cat-count');
+          if (catCount[c]) {
+            el.textContent = catCount[c];
+            el.classList.remove('text-ink-300');
+            el.classList.add('text-ink-500');
+          }
+        });
+
+        // Top tags
+        const sortedTags = Object.entries(tagCount).sort((a,b) => b[1] - a[1]);
+        if (sortedTags.length > 0) {
+          document.getElementById('tags-empty').classList.add('hidden');
+          const tagsData = document.getElementById('tags-data');
+          document.getElementById('tags-summary').textContent = `${sortedTags.length} tags · top 10`;
+          document.getElementById('tags-list').innerHTML = sortedTags.slice(0, 10).map(([tag, count]) => `
+            <li class="flex items-center justify-between border-b border-creamBorder/60 pb-2.5 last:border-0">
+              <a href="../insights/index.html" class="hover:text-wine">#${esc(tag)}</a>
+              <span class="meta text-ink-500">${count}</span>
+            </li>
+          `).join('');
+          tagsData.classList.remove('hidden');
+        }
+      } catch (e) {
+        console.warn('index fetch failed', e);
+      }
+    })();
+  </script>
 
 </body>
 </html>

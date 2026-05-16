@@ -98,20 +98,20 @@
       </div>
     </section>
 
-    <!-- At a glance — empty/starting state -->
+    <!-- At a glance — live data -->
     <section class="card">
       <div class="flex items-baseline justify-between mb-6">
         <div class="label">At a glance</div>
-        <span class="text-xs meta text-ink-500">Last synced · not yet</span>
+        <span class="text-xs meta text-ink-500" id="last-synced">Last synced · not yet</span>
       </div>
       <div class="grid grid-cols-3 gap-6 max-w-md mb-7">
         <div>
-          <div class="text-3xl meta text-ink-300">—</div>
+          <div class="text-3xl meta text-ink-300" id="count-insights">—</div>
           <div class="text-sm text-ink-500 mt-1">insights</div>
         </div>
         <div>
-          <div class="text-3xl meta text-ink-300">—</div>
-          <div class="text-sm text-ink-500 mt-1">brands</div>
+          <div class="text-3xl meta text-ink-300" id="count-tags">—</div>
+          <div class="text-sm text-ink-500 mt-1">tags</div>
         </div>
         <div>
           <div class="text-3xl meta">7</div>
@@ -121,13 +121,34 @@
       <div class="border-t border-creamBorder/60 pt-6">
         <div class="label mb-4">7 categories ready to receive</div>
         <ul class="grid grid-cols-2 gap-y-2 gap-x-6">
-          <li class="flex items-center text-sm"><span class="dot bg-wine mr-3"></span>브랜드 분석</li>
-          <li class="flex items-center text-sm"><span class="dot bg-petrol mr-3"></span>글로벌 트렌드</li>
-          <li class="flex items-center text-sm"><span class="dot bg-mustard mr-3"></span>강연 노트</li>
-          <li class="flex items-center text-sm"><span class="dot bg-plum mr-3"></span>카피 라이브러리</li>
-          <li class="flex items-center text-sm"><span class="dot bg-camel mr-3"></span>패키지 리서치</li>
-          <li class="flex items-center text-sm"><span class="dot bg-teal mr-3"></span>채널 운영</li>
-          <li class="flex items-center text-sm"><span class="dot bg-moss mr-3"></span>크로스 산업</li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-wine mr-3"></span>브랜드 분석</span>
+            <span class="meta text-ink-300" data-cat-count="브랜드 분석">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-petrol mr-3"></span>글로벌 트렌드</span>
+            <span class="meta text-ink-300" data-cat-count="글로벌 트렌드">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-mustard mr-3"></span>강연 노트</span>
+            <span class="meta text-ink-300" data-cat-count="강연 노트">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-plum mr-3"></span>카피 라이브러리</span>
+            <span class="meta text-ink-300" data-cat-count="카피 라이브러리">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-camel mr-3"></span>패키지 리서치</span>
+            <span class="meta text-ink-300" data-cat-count="패키지 리서치">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-teal mr-3"></span>채널 운영</span>
+            <span class="meta text-ink-300" data-cat-count="채널 운영">—</span>
+          </li>
+          <li class="flex items-center justify-between text-sm">
+            <span><span class="dot bg-moss mr-3"></span>크로스 산업</span>
+            <span class="meta text-ink-300" data-cat-count="크로스 산업">—</span>
+          </li>
         </ul>
       </div>
     </section>
@@ -163,6 +184,69 @@
       <span>zezechoi.github.io/mutezeze</span>
     </div>
   </footer>
+
+  <!-- ===== Supabase live data ===== -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://nnvubbnlxekudqaeiehw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5udnViYm5seGVrdWRxYWVpZWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk4MjMsImV4cCI6MjA5NDIzNTgyM30.ZE-KGcBdTwweceCHHB8omWHWzapErRNe3rwY-RxKmaQ';
+
+    const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    function timeAgo(iso) {
+      const sec = Math.floor((new Date() - new Date(iso)) / 1000);
+      if (sec < 60) return 'just now';
+      const m = Math.floor(sec/60); if (m < 60) return `${m} min ago`;
+      const h = Math.floor(m/60);   if (h < 24) return `${h} hours ago`;
+      return `${Math.floor(h/24)} days ago`;
+    }
+
+    function setLive(el, value) {
+      el.textContent = value;
+      el.classList.remove('text-ink-300');
+    }
+
+    (async () => {
+      try {
+        const { data: rows, error } = await sb
+          .from('contents')
+          .select('tags, category, created_at')
+          .order('created_at', { ascending: false });
+        if (error) { console.warn('supabase error', error); return; }
+        if (!rows || rows.length === 0) return; // 빈 상태 유지
+
+        // total insights
+        setLive(document.getElementById('count-insights'), rows.length);
+
+        // distinct tags
+        const tagSet = new Set();
+        const catCount = {};
+        rows.forEach(r => {
+          (r.tags || []).forEach(t => tagSet.add(t));
+          if (r.category) catCount[r.category] = (catCount[r.category]||0) + 1;
+        });
+        if (tagSet.size > 0) setLive(document.getElementById('count-tags'), tagSet.size);
+
+        // per-category counts
+        document.querySelectorAll('[data-cat-count]').forEach(el => {
+          const cat = el.getAttribute('data-cat-count');
+          if (catCount[cat]) {
+            el.textContent = catCount[cat];
+            el.classList.remove('text-ink-300');
+            el.classList.add('text-ink-500');
+          }
+        });
+
+        // last synced
+        if (rows[0]?.created_at) {
+          document.getElementById('last-synced').textContent = `Last synced · ${timeAgo(rows[0].created_at)}`;
+        }
+      } catch (e) {
+        console.warn('home fetch failed', e);
+      }
+    })();
+  </script>
 
 </body>
 </html>

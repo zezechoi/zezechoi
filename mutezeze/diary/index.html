@@ -62,78 +62,81 @@
       <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
         다시 꺼내 읽는 게시물.
       </h1>
-      <p class="mt-4 text-ink-700">준비 중 · 인스타에서 모을 카피와 장면들.</p>
+      <p class="mt-4 text-ink-700" id="diary-meta">준비 중 · 인스타에서 모을 카피와 장면들.</p>
     </div>
   </header>
 
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
 
-    <!-- Empty state — primary message -->
-    <section class="empty-card text-center">
-      <div class="label mb-4 text-plum">Coming soon</div>
-      <h2 class="text-xl font-medium mb-3">아직 저장된 인스타 게시물이 없어요.</h2>
-      <p class="text-ink-700 leading-relaxed max-w-md mx-auto">
-        인스타에서 마음에 드는 카피·장면·시각자산이 보이면,
-        URL이나 캡쳐를 봇에게 던지세요. 자동으로 여기에 인용 형태로 쌓입니다.
-      </p>
-    </section>
+    <!-- Data state (filled by JS) -->
+    <div id="data-state" class="space-y-5 hidden"></div>
 
-    <!-- How -->
-    <section class="card">
-      <div class="label mb-6">How it works</div>
-      <ol class="space-y-5">
-        <li class="flex items-start gap-4">
-          <span class="step-num">1</span>
-          <div>
-            <h3 class="font-medium">인스타에서 마음에 드는 게시물 발견</h3>
-            <p class="text-sm text-ink-500 mt-1">예: 카피, 패키지, 톤이 좋은 PDP, 분석할 만한 브랜드</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="step-num">2</span>
-          <div>
-            <h3 class="font-medium">URL 또는 캡쳐 + 짧은 메모를 봇에게 전송</h3>
-            <p class="text-sm text-ink-500 mt-1">"이 카피 좋다" 정도면 충분. 분석은 OS가.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="step-num">3</span>
-          <div>
-            <h3 class="font-medium">Claude가 작성자·날짜·핵심 카피·맥락을 추출</h3>
-            <p class="text-sm text-ink-500 mt-1">7개 카테고리 + 자유 태그로 자동 분류</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="step-num">4</span>
-          <div>
-            <h3 class="font-medium">여기 Diary에 인용 카드 형태로 쌓임</h3>
-            <p class="text-sm text-ink-500 mt-1">카드뉴스 만들 때 다시 꺼내 인용</p>
-          </div>
-        </li>
-      </ol>
-    </section>
+    <!-- Empty state (default) -->
+    <div id="empty-state" class="space-y-5">
+      <section class="empty-card text-center">
+        <div class="label mb-4 text-plum">Coming soon</div>
+        <h2 class="text-xl font-medium mb-3">아직 저장된 인스타 게시물이 없어요.</h2>
+        <p class="text-ink-700 leading-relaxed max-w-md mx-auto">
+          인스타에서 마음에 드는 카피·장면·시각자산이 보이면,
+          URL이나 캡쳐를 봇에게 던지세요. 자동으로 여기에 인용 형태로 쌓입니다.
+        </p>
+      </section>
 
-    <!-- Preview card -->
-    <section class="card">
-      <div class="label mb-5">What it'll look like</div>
-      <p class="text-sm text-ink-700 mb-6">저장된 게시물은 이런 카드로 보입니다.</p>
+      <section class="card">
+        <div class="label mb-6">How it works</div>
+        <ol class="space-y-5">
+          <li class="flex items-start gap-4">
+            <span class="step-num">1</span>
+            <div>
+              <h3 class="font-medium">인스타에서 마음에 드는 게시물 발견</h3>
+              <p class="text-sm text-ink-500 mt-1">예: 카피, 패키지, 톤이 좋은 PDP, 분석할 만한 브랜드</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="step-num">2</span>
+            <div>
+              <h3 class="font-medium">URL 또는 캡쳐 + 짧은 메모를 봇에게 전송</h3>
+              <p class="text-sm text-ink-500 mt-1">"이 카피 좋다" 정도면 충분. 분석은 OS가.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="step-num">3</span>
+            <div>
+              <h3 class="font-medium">Claude가 작성자·날짜·핵심 카피·맥락을 추출</h3>
+              <p class="text-sm text-ink-500 mt-1">7개 카테고리 + 자유 태그로 자동 분류</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="step-num">4</span>
+            <div>
+              <h3 class="font-medium">여기 Diary에 인용 카드 형태로 쌓임</h3>
+              <p class="text-sm text-ink-500 mt-1">카드뉴스 만들 때 다시 꺼내 인용</p>
+            </div>
+          </li>
+        </ol>
+      </section>
 
-      <article class="opacity-60">
-        <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
-          <span>@brand_account</span>
-          <span>YYYY.MM.DD</span>
-        </div>
-        <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-700">
-          인스타에서 발견한 핵심 카피가 여기에 인용됩니다.
-        </blockquote>
-        <div class="mt-5 pt-5 border-t border-creamBorder/60">
-          <p class="text-sm text-ink-500"><span class="meta">note · </span>본인이 남긴 메모와 활용 아이디어.</p>
-          <p class="mt-2 text-sm meta text-ink-500">tags · 자동 태그 · 추가 태그</p>
-        </div>
-      </article>
+      <section class="card">
+        <div class="label mb-5">What it'll look like</div>
+        <p class="text-sm text-ink-700 mb-6">저장된 게시물은 이런 카드로 보입니다.</p>
 
-      <p class="text-xs meta text-ink-500 mt-5 text-center">— preview only —</p>
-    </section>
+        <article class="opacity-60">
+          <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+            <span>@brand_account</span>
+            <span>YYYY.MM.DD</span>
+          </div>
+          <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-700">
+            인스타에서 발견한 핵심 카피가 여기에 인용됩니다.
+          </blockquote>
+          <div class="mt-5 pt-5 border-t border-creamBorder/60">
+            <p class="text-sm text-ink-500"><span class="meta">note · </span>본인이 남긴 메모와 활용 아이디어.</p>
+            <p class="mt-2 text-sm meta text-ink-500">tags · 자동 태그 · 추가 태그</p>
+          </div>
+        </article>
+
+        <p class="text-xs meta text-ink-500 mt-5 text-center">— preview only —</p>
+      </section>
+    </div>
 
     <a href="https://www.instagram.com/zeze_beautynote/" class="group flex items-baseline justify-between pt-2 hover:text-plum">
       <span class="text-sm">현재 운영 중인 인스타 보기</span>
@@ -148,6 +151,63 @@
       <span>zezechoi.github.io/mutezeze</span>
     </div>
   </footer>
+
+  <!-- ===== Supabase live data ===== -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://nnvubbnlxekudqaeiehw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5udnViYm5seGVrdWRxYWVpZWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk4MjMsImV4cCI6MjA5NDIzNTgyM30.ZE-KGcBdTwweceCHHB8omWHWzapErRNe3rwY-RxKmaQ';
+
+    const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function fmtDate(iso) {
+      if (!iso) return '';
+      const d = new Date(iso);
+      return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function renderCard(row) {
+      const author = row.author ? `@${row.author.replace(/^@/, '')}` : '@unknown';
+      const date = row.post_date ? fmtDate(row.post_date) : fmtDate(row.created_at);
+      const caption = row.caption || '(캡션 없음)';
+      const note = row.content ? `<p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>${esc(row.content)}</p>` : '';
+      const tagsLine = (row.emotion_tags?.length) ? `<p class="mt-2 text-sm meta text-ink-500">tags · ${row.emotion_tags.map(esc).join(' · ')}</p>` : '';
+      const postLink = row.post_url ? `<a href="${esc(row.post_url)}" class="hover:underline">${esc(author)}</a>` : esc(author);
+
+      return `
+        <article class="card">
+          <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
+            <span>${postLink}</span>
+            <span>${esc(date)}</span>
+          </div>
+          <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">${esc(caption)}</blockquote>
+          ${(note || tagsLine) ? `<div class="mt-5 pt-5 border-t border-creamBorder/60">${note}${tagsLine}</div>` : ''}
+        </article>
+      `;
+    }
+
+    (async () => {
+      try {
+        const { data, error } = await sb
+          .from('insta_diary')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (error) { console.warn('diary fetch error', error); return; }
+        if (!data || data.length === 0) return; // 빈 상태 유지
+
+        document.getElementById('diary-meta').textContent = `${data.length} saved · 인스타에서 모은 카피와 장면들.`;
+        document.getElementById('empty-state').classList.add('hidden');
+        const dataState = document.getElementById('data-state');
+        dataState.innerHTML = data.map(renderCard).join('');
+        dataState.classList.remove('hidden');
+      } catch (e) {
+        console.warn('diary fetch failed', e);
+      }
+    })();
+  </script>
 
 </body>
 </html>

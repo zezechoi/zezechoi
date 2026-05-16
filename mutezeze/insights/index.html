@@ -33,6 +33,7 @@
     .chip { display:inline-block; padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; }
     .dot { display:inline-block; width:6px; height:6px; border-radius:9999px; margin-right:6px; vertical-align:middle; }
     .empty-card { background:#fff; border:1px dashed #C8B998; border-radius:10px; padding:40px 28px; }
+    .num { font-variant-numeric: tabular-nums; color:#bdbdbd; width:32px; flex-shrink:0; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -63,31 +64,31 @@
       <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
         꺼내쓰는 인사이트.
       </h1>
-      <p class="mt-4 text-ink-700">쌓는 중 · 카드뉴스 소재가 필요할 때 여기서 꺼낸다.</p>
+      <p class="mt-4 text-ink-700" id="insights-meta">쌓는 중 · 카드뉴스 소재가 필요할 때 여기서 꺼낸다.</p>
     </div>
   </header>
 
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
 
-    <!-- Categories (ready to receive) -->
+    <!-- Categories card -->
     <section class="card">
       <div class="flex items-baseline justify-between mb-5">
         <div class="label">Categories</div>
-        <span class="text-xs meta text-ink-500">7 ready · 0 received</span>
+        <span class="text-xs meta text-ink-500" id="cat-summary">7 ready · 0 received</span>
       </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석</span>
-        <span class="chip" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드</span>
-        <span class="chip" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트</span>
-        <span class="chip" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리</span>
-        <span class="chip" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치</span>
-        <span class="chip" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영</span>
-        <span class="chip" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업</span>
+      <div class="flex flex-wrap gap-2" id="cat-chips">
+        <span class="chip" style="background:#B5454C1A;color:#B5454C;"><span class="dot" style="background:#B5454C"></span>브랜드 분석 <span class="meta opacity-60" data-cat-count="브랜드 분석"></span></span>
+        <span class="chip" style="background:#3F6F861A;color:#3F6F86;"><span class="dot" style="background:#3F6F86"></span>글로벌 트렌드 <span class="meta opacity-60" data-cat-count="글로벌 트렌드"></span></span>
+        <span class="chip" style="background:#D6A53D1A;color:#D6A53D;"><span class="dot" style="background:#D6A53D"></span>강연 노트 <span class="meta opacity-60" data-cat-count="강연 노트"></span></span>
+        <span class="chip" style="background:#9466831A;color:#946683;"><span class="dot" style="background:#946683"></span>카피 라이브러리 <span class="meta opacity-60" data-cat-count="카피 라이브러리"></span></span>
+        <span class="chip" style="background:#9C7B571A;color:#9C7B57;"><span class="dot" style="background:#9C7B57"></span>패키지 리서치 <span class="meta opacity-60" data-cat-count="패키지 리서치"></span></span>
+        <span class="chip" style="background:#6E96961A;color:#6E9696;"><span class="dot" style="background:#6E9696"></span>채널 운영 <span class="meta opacity-60" data-cat-count="채널 운영"></span></span>
+        <span class="chip" style="background:#5877491A;color:#587749;"><span class="dot" style="background:#587749"></span>크로스 산업 <span class="meta opacity-60" data-cat-count="크로스 산업"></span></span>
       </div>
       <p class="text-xs meta text-ink-500 mt-4">인풋이 들어오면 자동으로 이 중 하나로 분류됩니다.</p>
     </section>
 
-    <!-- Series — placeholder -->
+    <!-- Series — placeholder (Phase 2: link to insta posts) -->
     <section class="card">
       <div class="flex items-baseline justify-between mb-5">
         <div class="label">Series · 브랜드의 목소리를 듣다</div>
@@ -119,8 +120,17 @@
       </ul>
     </section>
 
+    <!-- All insights — data state -->
+    <section class="card hidden" id="data-state">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="label">All insights</div>
+        <span class="text-xs meta text-ink-500" id="all-count">latest first</span>
+      </div>
+      <ul class="divide-y divide-creamBorder/60" id="all-list"></ul>
+    </section>
+
     <!-- All insights — empty state -->
-    <section class="empty-card text-center">
+    <section class="empty-card text-center" id="empty-state">
       <div class="label mb-4 text-petrol">Awaiting first insight</div>
       <h2 class="text-xl font-medium mb-3">아직 라이브러리가 비어있어요.</h2>
       <p class="text-ink-700 leading-relaxed max-w-md mx-auto">
@@ -139,6 +149,75 @@
       <span>zezechoi.github.io/mutezeze</span>
     </div>
   </footer>
+
+  <!-- ===== Supabase live data ===== -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://nnvubbnlxekudqaeiehw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5udnViYm5seGVrdWRxYWVpZWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk4MjMsImV4cCI6MjA5NDIzNTgyM30.ZE-KGcBdTwweceCHHB8omWHWzapErRNe3rwY-RxKmaQ';
+
+    const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const CAT_HEX = {
+      '브랜드 분석':'#B5454C','글로벌 트렌드':'#3F6F86','강연 노트':'#D6A53D',
+      '카피 라이브러리':'#946683','패키지 리서치':'#9C7B57','채널 운영':'#6E9696','크로스 산업':'#587749'
+    };
+
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function fmtDate(iso) {
+      const d = new Date(iso);
+      return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function renderRow(row, num) {
+      const hex = CAT_HEX[row.category] || '#897866';
+      return `
+        <li class="flex items-baseline gap-4 py-3.5">
+          <span class="num meta text-sm">${String(num).padStart(2,'0')}</span>
+          <span class="chip" style="background:${hex}1A;color:${hex};">${esc(row.category || '미분류')}</span>
+          <span class="flex-1 truncate">${esc(row.title || '(제목 없음)')}</span>
+          <span class="text-sm meta text-ink-500">${fmtDate(row.created_at)}</span>
+        </li>
+      `;
+    }
+
+    (async () => {
+      try {
+        const { data, error } = await sb
+          .from('contents')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (error) { console.warn('insights fetch error', error); return; }
+        if (!data || data.length === 0) return; // 빈 상태 유지
+
+        // header meta + category chip counts
+        document.getElementById('insights-meta').textContent = `${data.length} items · 카드뉴스 소재가 필요할 때 여기서 꺼낸다.`;
+
+        const catCount = {};
+        data.forEach(r => { if (r.category) catCount[r.category] = (catCount[r.category]||0) + 1; });
+
+        const total = data.length;
+        document.getElementById('cat-summary').textContent = `7 ready · ${total} received`;
+
+        document.querySelectorAll('[data-cat-count]').forEach(el => {
+          const c = el.getAttribute('data-cat-count');
+          if (catCount[c]) el.textContent = catCount[c];
+        });
+
+        // All insights list
+        document.getElementById('empty-state').classList.add('hidden');
+        const dataState = document.getElementById('data-state');
+        const list = document.getElementById('all-list');
+        list.innerHTML = data.map((r, i) => renderRow(r, data.length - i)).join('');
+        document.getElementById('all-count').textContent = `${data.length} items · latest first`;
+        dataState.classList.remove('hidden');
+      } catch (e) {
+        console.warn('insights fetch failed', e);
+      }
+    })();
+  </script>
 
 </body>
 </html>
