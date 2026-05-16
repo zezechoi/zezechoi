@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mutezeze OS — Diary</title>
+  <title>Mutezeze OS — Content Library</title>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +32,10 @@
     .label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b6b6b; font-weight:500; }
     .empty-card { background:#fff; border:1px dashed #C8B998; border-radius:10px; padding:40px 28px; }
     .step-num { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:9999px; background:#946683; color:#fff; font-size:11px; font-weight:600; flex-shrink:0; }
+    .chip { display:inline-block; padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:500; }
+    .channel-row { display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px solid rgba(226,215,191,.6); }
+    .channel-row:last-child { border-bottom:0; }
+    .channel-icon { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600; font-size:12px; }
   </style>
 </head>
 <body class="bg-cream text-ink-900 font-sans antialiased">
@@ -50,7 +54,7 @@
       <li><a href="../index.html" class="hover:text-dustyRose">Home</a></li>
       <li><a href="../today/index.html" class="hover:text-mustard">Today</a></li>
       <li><a href="../insights/index.html" class="hover:text-petrol">Insights</a></li>
-      <li><a href="./index.html" class="text-plum underline underline-offset-4">Diary</a></li>
+      <li><a href="./index.html" class="text-plum underline underline-offset-4">Library</a></li>
       <li><a href="../about/index.html" class="hover:text-forest">About</a></li>
       <li><a href="../index/index.html" class="hover:text-wine">Index</a></li>
     </ul>
@@ -58,15 +62,50 @@
 
   <header class="max-w-3xl mx-auto px-6 pt-16 pb-10">
     <div class="border-l-4 border-plum pl-4">
-      <p class="text-sm meta text-plum mb-3">Insta diary</p>
+      <p class="text-sm meta text-plum mb-3">Content library</p>
       <h1 class="text-3xl md:text-4xl leading-tight font-semibold tracking-tight">
-        다시 꺼내 읽는 게시물.
+        다시 꺼내 쓰는 레퍼런스.
       </h1>
-      <p class="mt-4 text-ink-700" id="diary-meta">준비 중 · 인스타에서 모을 카피와 장면들.</p>
+      <p class="mt-4 text-ink-700" id="library-meta">준비 중 · 인스타·유튜브·블로그·링크를 한 곳에.</p>
     </div>
   </header>
 
   <div class="max-w-3xl mx-auto px-6 space-y-5 pb-16">
+
+    <!-- Channels card -->
+    <section class="card">
+      <div class="label mb-5">Channels</div>
+      <div>
+        <div class="channel-row">
+          <span class="channel-icon" style="background:#C767841A;color:#C76784;">IG</span>
+          <div>
+            <h3 class="font-medium">인스타그램</h3>
+            <p class="text-sm text-ink-500 mt-0.5">카피 · 패키지 · 브랜드 톤</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <span class="channel-icon" style="background:#B5454C1A;color:#B5454C;">YT</span>
+          <div>
+            <h3 class="font-medium">유튜브</h3>
+            <p class="text-sm text-ink-500 mt-0.5">강연 · 브랜드 영상 · 트렌드</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <span class="channel-icon" style="background:#3F6F861A;color:#3F6F86;">BL</span>
+          <div>
+            <h3 class="font-medium">블로그 / 아티클</h3>
+            <p class="text-sm text-ink-500 mt-0.5">뷰티 리포트 · 마케팅 인사이트</p>
+          </div>
+        </div>
+        <div class="channel-row">
+          <span class="channel-icon" style="background:#8978661A;color:#897866;">LK</span>
+          <div>
+            <h3 class="font-medium">기타 링크</h3>
+            <p class="text-sm text-ink-500 mt-0.5">웹사이트 · PDF · 그 외 URL</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Data state (filled by JS) -->
     <div id="data-state" class="space-y-5 hidden"></div>
@@ -75,10 +114,10 @@
     <div id="empty-state" class="space-y-5">
       <section class="empty-card text-center">
         <div class="label mb-4 text-plum">Coming soon</div>
-        <h2 class="text-xl font-medium mb-3">아직 저장된 인스타 게시물이 없어요.</h2>
+        <h2 class="text-xl font-medium mb-3">아직 저장된 레퍼런스가 없어요.</h2>
         <p class="text-ink-700 leading-relaxed max-w-md mx-auto">
-          인스타에서 마음에 드는 카피·장면·시각자산이 보이면,
-          URL이나 캡쳐를 봇에게 던지세요. 자동으로 여기에 인용 형태로 쌓입니다.
+          어떤 채널이든 좋아요 — 인스타 게시물, 유튜브 영상, 블로그 글, 그 외 어떤 URL이든
+          캡쳐와 함께 봇에게 던지면 여기에 인용 형태로 쌓입니다.
         </p>
       </section>
 
@@ -88,29 +127,29 @@
           <li class="flex items-start gap-4">
             <span class="step-num">1</span>
             <div>
-              <h3 class="font-medium">인스타에서 마음에 드는 게시물 발견</h3>
-              <p class="text-sm text-ink-500 mt-1">예: 카피, 패키지, 톤이 좋은 PDP, 분석할 만한 브랜드</p>
+              <h3 class="font-medium">어떤 채널이든 — 다시 보고 싶은 콘텐츠 발견</h3>
+              <p class="text-sm text-ink-500 mt-1">인스타·유튜브·블로그·웹사이트, 채널 가리지 않음</p>
             </div>
           </li>
           <li class="flex items-start gap-4">
             <span class="step-num">2</span>
             <div>
               <h3 class="font-medium">URL 또는 캡쳐 + 짧은 메모를 봇에게 전송</h3>
-              <p class="text-sm text-ink-500 mt-1">"이 카피 좋다" 정도면 충분. 분석은 OS가.</p>
+              <p class="text-sm text-ink-500 mt-1">"이 카피 좋다" "이 강연 핵심" 정도면 충분</p>
             </div>
           </li>
           <li class="flex items-start gap-4">
             <span class="step-num">3</span>
             <div>
-              <h3 class="font-medium">Claude가 작성자·날짜·핵심 카피·맥락을 추출</h3>
-              <p class="text-sm text-ink-500 mt-1">7개 카테고리 + 자유 태그로 자동 분류</p>
+              <h3 class="font-medium">Claude가 채널·작성자·날짜·핵심 인용·맥락을 추출</h3>
+              <p class="text-sm text-ink-500 mt-1">자동으로 채널 감지 + 자유 태그 분류</p>
             </div>
           </li>
           <li class="flex items-start gap-4">
             <span class="step-num">4</span>
             <div>
-              <h3 class="font-medium">여기 Diary에 인용 카드 형태로 쌓임</h3>
-              <p class="text-sm text-ink-500 mt-1">카드뉴스 만들 때 다시 꺼내 인용</p>
+              <h3 class="font-medium">여기 Library에 인용 카드 형태로 쌓임</h3>
+              <p class="text-sm text-ink-500 mt-1">카드뉴스·기획서·미팅에서 다시 꺼내 인용</p>
             </div>
           </li>
         </ol>
@@ -118,15 +157,18 @@
 
       <section class="card">
         <div class="label mb-5">What it'll look like</div>
-        <p class="text-sm text-ink-700 mb-6">저장된 게시물은 이런 카드로 보입니다.</p>
+        <p class="text-sm text-ink-700 mb-6">저장된 레퍼런스는 이런 카드로 보입니다.</p>
 
         <article class="opacity-60">
           <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
-            <span>@brand_account</span>
+            <span class="flex items-center gap-2">
+              <span class="chip" style="background:#C767841A;color:#C76784;">Instagram</span>
+              <span>@brand_account</span>
+            </span>
             <span>YYYY.MM.DD</span>
           </div>
           <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-700">
-            인스타에서 발견한 핵심 카피가 여기에 인용됩니다.
+            발견한 핵심 카피·문장·메시지가 여기에 인용됩니다.
           </blockquote>
           <div class="mt-5 pt-5 border-t border-creamBorder/60">
             <p class="text-sm text-ink-500"><span class="meta">note · </span>본인이 남긴 메모와 활용 아이디어.</p>
@@ -169,21 +211,39 @@
       return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
     }
 
+    function detectChannel(url) {
+      if (!url) return { label: 'Link', hex: '#897866' };
+      const u = url.toLowerCase();
+      if (u.includes('instagram.com')) return { label: 'Instagram', hex: '#C76784' };
+      if (u.includes('youtube.com') || u.includes('youtu.be')) return { label: 'YouTube', hex: '#B5454C' };
+      if (u.includes('medium.com') || u.includes('brunch.co.kr') || u.includes('tistory.com') ||
+          u.includes('blog.naver.com') || u.includes('velog.io') || u.includes('substack.com')) {
+        return { label: 'Blog', hex: '#3F6F86' };
+      }
+      return { label: 'Link', hex: '#897866' };
+    }
+
     function renderCard(row) {
-      const author = row.author ? `@${row.author.replace(/^@/, '')}` : '@unknown';
+      const channel = detectChannel(row.post_url);
+      const author = row.author ? `@${row.author.replace(/^@/, '')}` : '';
       const date = row.post_date ? fmtDate(row.post_date) : fmtDate(row.created_at);
-      const caption = row.caption || '(캡션 없음)';
+      const caption = row.caption || '(인용 없음)';
       const note = row.content ? `<p class="text-sm text-ink-700"><span class="meta text-ink-500">note · </span>${esc(row.content)}</p>` : '';
       const tagsLine = (row.emotion_tags?.length) ? `<p class="mt-2 text-sm meta text-ink-500">tags · ${row.emotion_tags.map(esc).join(' · ')}</p>` : '';
-      const postLink = row.post_url ? `<a href="${esc(row.post_url)}" class="hover:underline">${esc(author)}</a>` : esc(author);
+      const authorEl = author
+        ? (row.post_url ? `<a href="${esc(row.post_url)}" class="hover:underline">${esc(author)}</a>` : esc(author))
+        : (row.post_url ? `<a href="${esc(row.post_url)}" class="hover:underline">link →</a>` : '');
 
       return `
         <article class="card">
           <div class="flex items-baseline justify-between text-sm meta text-ink-500 mb-5">
-            <span>${postLink}</span>
+            <span class="flex items-center gap-2">
+              <span class="chip" style="background:${channel.hex}1A;color:${channel.hex};">${channel.label}</span>
+              ${authorEl}
+            </span>
             <span>${esc(date)}</span>
           </div>
-          <blockquote class="border-l-2 border-plum pl-5 text-lg leading-relaxed text-ink-900">${esc(caption)}</blockquote>
+          <blockquote class="border-l-2 pl-5 text-lg leading-relaxed text-ink-900" style="border-color:${channel.hex};">${esc(caption)}</blockquote>
           ${(note || tagsLine) ? `<div class="mt-5 pt-5 border-t border-creamBorder/60">${note}${tagsLine}</div>` : ''}
         </article>
       `;
@@ -195,16 +255,16 @@
           .from('insta_diary')
           .select('*')
           .order('created_at', { ascending: false });
-        if (error) { console.warn('diary fetch error', error); return; }
+        if (error) { console.warn('library fetch error', error); return; }
         if (!data || data.length === 0) return; // 빈 상태 유지
 
-        document.getElementById('diary-meta').textContent = `${data.length} saved · 인스타에서 모은 카피와 장면들.`;
+        document.getElementById('library-meta').textContent = `${data.length} saved · 인스타·유튜브·블로그·링크를 한 곳에.`;
         document.getElementById('empty-state').classList.add('hidden');
         const dataState = document.getElementById('data-state');
         dataState.innerHTML = data.map(renderCard).join('');
         dataState.classList.remove('hidden');
       } catch (e) {
-        console.warn('diary fetch failed', e);
+        console.warn('library fetch failed', e);
       }
     })();
   </script>
