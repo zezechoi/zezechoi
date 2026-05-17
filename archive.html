@@ -797,10 +797,10 @@
       <span class="cat-leader"></span>
       <span class="cat-count" data-count="strategy">00</span>
     </a>
-    <a href="#signal" class="cat-row" data-cat="signal">
-      <span class="cat-name">시장 신호 <span style="font-family:var(--mono);font-size:11px;color:var(--text-mute);letter-spacing:0.06em;text-transform:uppercase;margin-left:8px">Market Signal</span></span>
+    <a href="#research" class="cat-row" data-cat="research">
+      <span class="cat-name">시장 조사 <span style="font-family:var(--mono);font-size:11px;color:var(--text-mute);letter-spacing:0.06em;text-transform:uppercase;margin-left:8px">Market Research</span></span>
       <span class="cat-leader"></span>
-      <span class="cat-count" data-count="signal">00</span>
+      <span class="cat-count" data-count="research">00</span>
     </a>
   </div>
 </section>
@@ -815,12 +815,12 @@
   <div class="filters">
     <button class="filter active" data-filter="all">All</button>
     <button class="filter" data-filter="strategy">Strategy</button>
-    <button class="filter" data-filter="signal">Market Signal</button>
+    <button class="filter" data-filter="research">Market Research</button>
   </div>
 
   <div class="cards" id="cards">
 
-    <a href="https://www.instagram.com/p/DYZWVw4AROT/" target="_blank" rel="noopener" class="card" data-category="signal" data-brand="bm-summit-2026" data-date="2026-05-16">
+    <a href="https://www.instagram.com/p/DYZWVw4AROT/" target="_blank" rel="noopener" class="card" data-category="research" data-brand="bm-summit-2026" data-date="2026-05-16">
       <div class="card-date">2026.05.16</div>
       <div class="card-body">
         <span class="card-series">「현장 노트」 vol.1</span>
@@ -829,7 +829,7 @@
         <p>하루 종일 강연 들으면서 계속 같은 말이 나왔다. <strong>HERO 제품은 "기획이 아니라 발견"</strong>, 국내는 포화 — 글로벌로 가라. BM에서 운영자로 시선이 옮겨가는 분기점.</p>
         <span class="card-link">View on Instagram →</span>
       </div>
-      <div class="card-tag">Market Signal</div>
+      <div class="card-tag">Market Research</div>
     </a>
 
     <a href="https://www.instagram.com/p/DYRQNQigVwc/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="parnell" data-date="2026-05-13">
@@ -965,7 +965,7 @@
       const t = r.querySelector('.t');
       if (!t) return null;
       const text = t.textContent.toLowerCase();
-      if (text.includes('signal')) return 'global';
+      if (text.includes('research')) return 'global';
       if (text.includes('strategy')) return 'strategy';
       return null;
     }).filter(Boolean);
