@@ -820,6 +820,30 @@
 
   <div class="cards" id="cards">
 
+    <a href="https://www.instagram.com/p/DYySjIVAWgr/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="fromrier" data-date="2026-05-27">
+      <div class="card-date">2026.05.27</div>
+      <div class="card-body">
+        <span class="card-series">「브랜드의 첫 문장」 vol.5</span>
+        <div class="brand">FROMRIER<span class="ko">프롬리에</span></div>
+        <h3>배리어 프리가 첫 문장이다 — 점자로 시작한 의사결정.</h3>
+        <p>EGF·병풀 선앰플에 점자 각인, 매출 1% 기부. <strong>"제품을 만들지 않는다, 장벽을 없앤다"</strong> 는 의사결정 기준으로 접근성을 브랜드 철학으로 삼은 인디 브랜드.</p>
+        <span class="card-link">View on Instagram →</span>
+      </div>
+      <div class="card-tag">Strategy</div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DYl2QE0gT4u/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="torriden" data-date="2026-05-23">
+      <div class="card-date">2026.05.23</div>
+      <div class="card-body">
+        <span class="card-series">「브랜드의 첫 문장」 vol.4</span>
+        <div class="brand">TORRIDEN<span class="ko">토리든</span></div>
+        <h3>성분이 첫 문장이다 — 유행이 아니라 성분이었다.</h3>
+        <p>저분자 히알루론산이 표면이 아니라 속으로. <strong>"토리든은 유행이 아니었다, 성분이었다"</strong> 는 한 마디로 2024 올리브영 마스크팩 1위를 차지한 인디 브랜드의 결정.</p>
+        <span class="card-link">View on Instagram →</span>
+      </div>
+      <div class="card-tag">Strategy</div>
+    </a>
+
     <a href="https://www.instagram.com/p/DYZWVw4AROT/" target="_blank" rel="noopener" class="card" data-category="research" data-brand="bm-summit-2026" data-date="2026-05-16">
       <div class="card-date">2026.05.16</div>
       <div class="card-body">
@@ -882,18 +906,6 @@
 
   <div class="upcoming-list">
     <div class="upcoming-row">
-      <span class="seq">vol.4</span>
-      <span class="b">[ 인디 클린 뷰티 — TBD ]</span>
-      <span class="t" style="color:var(--text-mute);font-style:italic;">발행 시 공개</span>
-      <span class="when">2025 Q2</span>
-    </div>
-    <div class="upcoming-row">
-      <span class="seq">vol.5</span>
-      <span class="b">[ 인디 클린 뷰티 — TBD ]</span>
-      <span class="t" style="color:var(--text-mute);font-style:italic;">발행 시 공개</span>
-      <span class="when">2025 Q3</span>
-    </div>
-    <div class="upcoming-row">
       <span class="seq">vol.6</span>
       <span class="b">[ 인디 클린 뷰티 — TBD ]</span>
       <span class="t" style="color:var(--text-mute);font-style:italic;">발행 시 공개</span>
@@ -950,14 +962,19 @@
 
     const published = realCards.length;
     const pipeline = upcomingRows.length;
-    const totalPlanned = published + pipeline;
+
+    // 「브랜드의 첫 문장」 시리즈만 Edition 호수로 카운트 (현장 노트 등 다른 시리즈 제외)
+    const firstSentenceCards = [...realCards].filter(c => {
+      const series = c.querySelector('.card-series');
+      return series && series.textContent.includes('브랜드의 첫 문장');
+    });
 
     const pad = n => String(n).padStart(2, '0');
     const setStat = (key, val) => {
       const el = document.querySelector(`[data-stat="${key}"]`);
       if (el) el.textContent = pad(val);
     };
-    setStat('articles', published);
+    setStat('articles', firstSentenceCards.length);
     setStat('pipeline', pipeline);
 
     // 카테고리 카운트 — 발행된 글 + 파이프라인 모두 합산
@@ -965,7 +982,7 @@
       const t = r.querySelector('.t');
       if (!t) return null;
       const text = t.textContent.toLowerCase();
-      if (text.includes('research')) return 'global';
+      if (text.includes('research')) return 'research';
       if (text.includes('strategy')) return 'strategy';
       return null;
     }).filter(Boolean);
