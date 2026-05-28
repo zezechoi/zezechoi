@@ -763,23 +763,23 @@
   <div class="pulse-grid">
     <div class="pulse-stat">
       <span class="label-sm">Series</span>
-      <span class="pulse-num" style="font-size:clamp(28px, 3.4vw, 42px);line-height:1.1;letter-spacing:-0.025em">「첫 문장」</span>
-      <span class="pulse-sub">「브랜드의 첫 문장」 ongoing</span>
+      <span class="pulse-num" style="font-size:clamp(20px, 2.4vw, 28px);line-height:1.3;letter-spacing:-0.015em">「첫 문장」<br>「현장 노트」</span>
+      <span class="pulse-sub">2 series · ongoing</span>
     </div>
     <div class="pulse-stat">
       <span class="label-sm">Edition</span>
-      <span class="pulse-num">Vol. <span data-stat="articles">02</span></span>
-      <span class="pulse-sub">현재 발행 호수</span>
+      <span class="pulse-num">Vol. <span data-stat="articles">07</span></span>
+      <span class="pulse-sub">두 시리즈 누적 발행</span>
     </div>
     <div class="pulse-stat">
       <span class="label-sm">Pipeline</span>
-      <span class="pulse-num"><em>+</em><span data-stat="pipeline">05</span></span>
+      <span class="pulse-num"><em>+</em><span data-stat="pipeline">02</span></span>
       <span class="pulse-sub">발행 예정 (Q2—Q3)</span>
     </div>
     <div class="pulse-stat">
       <span class="label-sm">Cadence</span>
       <span class="pulse-num" style="font-size:clamp(32px, 3.8vw, 48px);line-height:1.1">Weekly</span>
-      <span class="pulse-sub">매주 한 브랜드 발행</span>
+      <span class="pulse-sub">매주 한 편 발행</span>
     </div>
   </div>
 </section>
@@ -962,8 +962,8 @@
 
 <!-- ─── FOOTER ──────────────────────────────────── -->
 <footer>
-  <span>© 2025 최지예 Zeze Choi · Insight Archive</span>
-  <span>Last updated 2025.05.07 · Vol. 01</span>
+  <span>© 2026 최지예 Zeze Choi · Insight Archive</span>
+  <span>Last updated 2026.05.28 · Vol. 01</span>
 </footer>
 
 <script>
@@ -975,18 +975,13 @@
     const published = realCards.length;
     const pipeline = upcomingRows.length;
 
-    // 「브랜드의 첫 문장」 시리즈만 Edition 호수로 카운트 (현장 노트 등 다른 시리즈 제외)
-    const firstSentenceCards = [...realCards].filter(c => {
-      const series = c.querySelector('.card-series');
-      return series && series.textContent.includes('브랜드의 첫 문장');
-    });
-
     const pad = n => String(n).padStart(2, '0');
     const setStat = (key, val) => {
       const el = document.querySelector(`[data-stat="${key}"]`);
       if (el) el.textContent = pad(val);
     };
-    setStat('articles', firstSentenceCards.length);
+    // Edition = 두 시리즈 (「첫 문장」 + 「현장 노트」) 누적 발행 수
+    setStat('articles', published);
     setStat('pipeline', pipeline);
 
     // 카테고리 카운트 — 발행된 글 + 파이프라인 모두 합산
