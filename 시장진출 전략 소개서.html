@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYAAH 글로벌 진출 전략</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<style>
+  :root{
+    --ink:#23201c;
+    --ink-soft:#675e54;
+    --paper:#f6f2ea;
+    --paper-2:#ece4d6;
+    --line:#dcd1c0;
+    --accent:#7c5a3a;
+    --accent-2:#a8784a;
+    --sage:#5f6b54;
+    --rose:#9c5f57;
+    --blue:#3f5a6b;
+    --white:#fffdf9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.78;font-weight:400;
+    letter-spacing:-.01em;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 18% 8%, #fff8 0, transparent 42%),radial-gradient(circle at 85% 92%, #e8dcc710 0, transparent 42%);
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,242,234,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;gap:5px;flex-wrap:wrap;padding:11px 28px;align-items:center;}
+  nav b{font-size:15px;font-weight:800;color:var(--accent);margin-right:12px;letter-spacing:-.02em;}
+  nav a{font-size:12.5px;color:var(--ink-soft);text-decoration:none;padding:5px 11px;border-radius:20px;transition:.2s;font-weight:500;}
+  nav a:hover{background:var(--accent);color:var(--white);}
+
+  header{padding:78px 0 54px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+  header:before{content:"";position:absolute;top:-60px;right:-40px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#e9dcc6 0,transparent 70%);opacity:.5;}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--accent-2);text-transform:uppercase;margin-bottom:20px;}
+  header h1{font-size:clamp(28px,4.6vw,46px);font-weight:800;line-height:1.3;letter-spacing:-.03em;color:var(--ink);}
+  header h1 .hl{color:var(--accent);}
+  header .sub{margin-top:22px;font-size:16px;color:var(--ink-soft);max-width:660px;font-weight:500;}
+  header .meta{margin-top:24px;font-size:12.5px;color:var(--ink-soft);opacity:.8;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  .sec-no{font-size:12.5px;font-weight:700;letter-spacing:.18em;color:var(--accent-2);margin-bottom:8px;}
+  h2{font-size:clamp(22px,3.2vw,30px);font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.03em;}
+  .lead{font-size:15px;color:var(--ink-soft);margin-bottom:30px;font-weight:500;max-width:700px;}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:24px 22px;transition:.25s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px #7c5a3a44;border-color:var(--accent-2);}
+  .card h3{font-size:15.5px;font-weight:700;color:var(--accent);margin-bottom:9px;}
+  .card p{font-size:13.5px;color:var(--ink-soft);font-weight:400;line-height:1.68;}
+
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--line);font-size:13.5px;margin-top:6px;}
+  th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--line);}
+  th{background:var(--paper-2);font-weight:700;color:var(--accent);font-size:13px;}
+  td:first-child{font-weight:600;color:var(--ink-soft);}
+  tr:last-child td{border-bottom:none;}
+  .hiya{color:var(--sage);font-weight:600;}
+  .bio{color:var(--ink-soft);}
+
+  .insight{background:linear-gradient(135deg,#fff 0,#f9f4eb 100%);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:28px 30px;margin-top:18px;}
+  .insight .big{font-size:clamp(18px,2.6vw,23px);font-weight:800;color:var(--ink);line-height:1.5;letter-spacing:-.02em;}
+  .insight .big em{color:var(--accent);font-style:normal;}
+  .insight .small{margin-top:13px;font-size:14px;color:var(--ink-soft);font-weight:400;line-height:1.7;}
+
+  .pts{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+  .pt{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:21px;}
+  .pt .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--white);background:var(--sage);padding:3px 11px;border-radius:20px;margin-bottom:11px;}
+  .pt .tag.b2{background:var(--rose);}
+  .pt .tag.b3{background:var(--accent-2);}
+  .pt .tag.b4{background:var(--blue);}
+  .pt h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:7px;}
+  .pt p{font-size:13px;color:var(--ink-soft);font-weight:400;line-height:1.65;}
+
+  .market{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+  .mk{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:21px;border-top:3px solid var(--line);}
+  .mk.first{border-top-color:var(--sage);}
+  .mk.next{border-top-color:var(--accent-2);}
+  .mk.card3{border-top-color:var(--rose);}
+  .mk .flag{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .mk .role{font-size:11px;color:var(--accent-2);letter-spacing:.06em;margin-bottom:10px;text-transform:uppercase;font-weight:600;}
+  .mk p{font-size:12.5px;color:var(--ink-soft);font-weight:400;line-height:1.6;}
+
+  .note{font-size:11.5px;color:var(--ink-soft);opacity:.72;margin-top:13px;font-weight:400;font-style:italic;}
+  .closing{text-align:center;padding:64px 0 40px;}
+  .closing .q{font-size:clamp(19px,2.8vw,26px);color:var(--ink);line-height:1.55;font-weight:800;max-width:780px;margin:0 auto;letter-spacing:-.02em;}
+  .closing .q em{color:var(--accent);font-style:normal;}
+
+  @media(max-width:760px){
+    .grid3,.grid2,.market,.pts{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <b>HYAAH 글로벌 전략</b>
+  <a href="#market">시장</a>
+  <a href="#status">현황</a>
+  <a href="#product">제품·리뷰</a>
+  <a href="#strategy">전략</a>
+  <a href="#direction">방향</a>
+  <a href="#debate">포지셔닝</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Global Market Entry Strategy</div>
+  <h1>클렌징을 넘어 <span class="hl">클렌징 케어</span>로 —<br>HYAAH 클워, 글로벌에서 어떻게 이기는가</h1>
+  <p class="sub">바이오더마와 같은 시장에서 싸우지 않는다. 공개 리뷰 67개 + 시장 데이터로 진단한, '클렌징 케어'의 글로벌 진출 가설.</p>
+  <p class="meta">분석: 올리브영 국내 33 · 아마존 미국 8 · 올리브영 글로벌 26 리뷰 + 시장 데이터 (Euromonitor·Beauty Independent·실리콘투 IR·KOTRA, 2026) · 외부 가설, 내부 데이터 검증 전제</p>
+</div></header>
+
+<!-- 1. 시장 -->
+<section id="market"><div class="wrap">
+  <div class="sec-no">01 — MARKET</div>
+  <h2>왜 북미 먼저인가</h2>
+  <p class="lead">업계가 북미로 모이는 건 유행이 아니라 구조입니다.</p>
+  <div class="grid3">
+    <div class="card"><h3>최대 시장 등극</h3><p>2025년 한국 화장품 대미 수출이 사상 처음 대중국 추월. 유로모니터: 2026년 중반 미국이 K-뷰티 최대 시장 전망.</p></div>
+    <div class="card"><h3>게이트 동시 개방</h3><p>Ulta·Sephora·Target 진입로 동시 개방 + 올리브영 2026 하반기 세포라 북미 650개 매장 'K-뷰티 존'.</p></div>
+    <div class="card"><h3>중소도 진입 가능</h3><p>아마존 입점 비교적 쉬움, 정부·아마존 지원. 美 아마존 스킨케어 베스트셀러 50개 중 10개가 한국 제품.</p></div>
+  </div>
+  <p class="note">+ 천연 성분 43.7% 점유, 무향 68% 표준. K-뷰티는 곧 상품화 → "고유 원료·스토리"가 유일한 생존선. (Beauty Independent 2026)</p>
+</div></section>
+
+<!-- 2. 현황 -->
+<section id="status"><div class="wrap">
+  <div class="sec-no">02 — STATUS</div>
+  <h2>이미 진출했다 — 그러나 아직 가동 전</h2>
+  <p class="lead">"어떻게 진출하나"가 아니라 "왜 아직 안 터졌나 / 어떻게 터뜨리나"가 진짜 질문입니다.</p>
+  <table>
+    <tr><th>채널</th><th>상태</th><th>관찰</th></tr>
+    <tr><td>아마존 (HYAAH Store)</td><td class="bio">다수 품절</td><td>메인 클워 일부 "Currently Unavailable", BSR 84만위권</td></tr>
+    <tr><td>hyaah.us (Shopify)</td><td class="bio">전 품목 Sold Out</td><td>"HYAAH Universe"·커뮤니티 구조는 구축. 재고/런칭은 미가동</td></tr>
+    <tr><td>올리브영 글로벌</td><td class="hiya">판매 중</td><td>진짜 구매자 후기 다수 — 재구매 활발</td></tr>
+    <tr><td>moida US (실리콘투)</td><td class="hiya">판매 중</td><td>실리콘투 오프라인 거점 통해 노출</td></tr>
+  </table>
+  <div class="insight">
+    <div class="big">채널(넓이)은 다 깔렸다. 그런데 대부분 <em>품절·Sold Out</em>.<br>= 세팅은 됐는데, <em>살아 움직이게 할 사람</em>이 필요한 단계.</div>
+    <div class="small">→ 원티드 공고 "고도화된 브랜드 경험을 제안할 사람"과 정확히 연결. 미국은 채널이 멈춰 있고, 다음은 *브랜드 경험을 가동시키는 일*. (※ Sold Out 원인은 추정 — 면접에서 확인 전제)</div>
+  </div>
+</div></section>
+
+<!-- 3. 제품·리뷰 -->
+<section id="product"><div class="wrap">
+  <div class="sec-no">03 — PRODUCT & REVIEWS</div>
+  <h2>리뷰 67개가 말하는 것 — 제품이 아니라 '경험'이 문제</h2>
+  <p class="lead">국내·미국·글로벌 세 시장 교차 분석. 순함·촉촉은 만국 공통. 그런데 재구매에서 갈립니다.</p>
+  <div class="grid2">
+    <div class="card"><h3>진짜 구매자 (올영 글로벌 26)</h3><p>"세 번째 구매", "이걸로 정착했다", "또 살 거다" — <b style="color:var(--sage)">재구매 활발.</b> 거품기 사용법까지 알고 팬이 됨.</p></div>
+    <div class="card"><h3>체험단 (아마존 Vine 8)</h3><p>"그냥 그런 미셀라", "비싸서 재구매 안 할 듯" — <b style="color:var(--rose)">시큰둥.</b> 사용법 모름("거품으로 쓰라는데 펌프도 없다").</p></div>
+  </div>
+  <div class="insight">
+    <div class="big">같은 제품인데 결과가 다르다. 차이는 <em>첫 경험</em>이다.</div>
+    <div class="small">→ 제대로 유입된 사람은 사용법 알고 → 만족 → 재구매(국내 50%). 아마존에선 "비싼 미셀라"로 첫인상 잡혀 경험 전 이탈. <b>안 터진 건 제품이 아니라 진입 포지셔닝·경험 설계의 문제.</b> 미국 리뷰 5/8이 "비싸다"(Garnier·라로슈포제와 비교) = '미셀라'로 포지셔닝되니 $5 제품과 비교당함.</div>
+  </div>
+  <table>
+    <tr><th>구분</th><th class="hiya">HYAAH 클워 (22성분)</th><th class="bio">바이오더마 (10성분)</th></tr>
+    <tr><td>철학</td><td class="hiya">더해서 돌본다 (식물 7종·발효·보습막)</td><td class="bio">덜어내 맡긴다 (미셀 1종)</td></tr>
+    <tr><td>마무리</td><td class="hiya">촉촉·매끄러움</td><td class="bio">산뜻·가벼움</td></tr>
+    <tr><td>타겟 피부</td><td class="hiya">건성·극민감</td><td class="bio">지성·복합성</td></tr>
+    <tr><td>향</td><td class="hiya">식물 원료향</td><td class="bio">무향</td></tr>
+  </table>
+  <p class="note">→ 세 시장 모두 "바이오더마가 더 순하다" 후기 존재 = 순함 정면승부는 불리. 차별점은 순함이 아니라 <b>촉촉함 + 재구매 만드는 경험.</b></p>
+  <div class="card" style="margin-top:18px;background:var(--paper-2);">
+    <h3>📖 용어</h3>
+    <p><b>미셀라 워터(Micellar Water):</b> 물에 '미셀'이라는 미세 세정 입자를 띄워, 기름때·메이크업을 끌어당겨 닦아내는 클렌징 워터. 헹굼 없이 화장솜으로 닦는 방식. 바이오더마 센시비오가 원조. 클워도 기술적으론 여기 속해 미국 아마존이 이 카테고리로 분류함.<br><br>
+    <b>가르니에(Garnier):</b> 프랑스 로레알 산하 대중 드러그스토어 브랜드. 미국에서 미셀라 워터를 $5~8에 팔아 "미셀라=저렴이" 인식을 만든 대표 주자. → 클워가 '미셀라 워터'로 불리면 가르니에($5)와 같은 칸에서 비교돼 "비싸다" 소리를 듣게 됨. <b>'클렌징 케어'로 포지셔닝하면 이 저가 비교에서 벗어난다.</b></p>
+  </div>
+</div></section>
+
+<!-- 4. 전략 -->
+<section id="strategy"><div class="wrap">
+  <div class="sec-no">04 — STRATEGY</div>
+  <h2>바이오더마와 싸우지 않고 이기는 법</h2>
+  <p class="lead">같은 클렌징워터 시장 정면승부 ❌ (5초당 1병 팔리는 창시자). 비교 불가능한 다른 자리를 만듭니다.</p>
+  <div class="pts">
+    <div class="pt"><span class="tag">포지셔닝</span><h3>닦임 → 촉촉함, 스킨케어로</h3><p>'클렌징'이 아니라 '클렌징 케어'. 닦으면서 돌본다. 바이오더마가 못 잡는 건성·자연주의층을 좁고 깊게.</p></div>
+    <div class="pt"><span class="tag b2">한끗 = 관계</span><h3>바이오더마가 못 산 것</h3><p>바이오더마는 더마 신뢰는 샀지만 관계(engagement)는 못 샀음(베트남 ROI 제로). 그 빈자리를 히야 커뮤니티로.</p></div>
+    <div class="pt"><span class="tag b3">향 전략</span><h3>천연 원료의 증거</h3><p>"향을 입힌 게 아니라 식물 7종을 담았다." 무향이 못 주는 진짜 원료의 감각적 증거로 정면돌파.</p></div>
+    <div class="pt"><span class="tag b4">채널</span><h3>넓이로 만나 깊이로 가둔다</h3><p>아마존·틱톡(넓이)으로 유입 → 글로벌 커뮤니티(깊이)로 락인. 유통은 실리콘투, 락인은 히야. 북미 사망원인(재구매 10%)을 커뮤니티로 푼다.</p></div>
+  </div>
+  <p class="note">+ 브랜드 세계관(마시는·바르는·입는 = 안팎으로 돌봄)은 클워로 본질 박은 *다음* 단계. 초기엔 히어로 단일 집중.</p>
+</div></section>
+
+<!-- 5. 방향 -->
+<section id="direction"><div class="wrap">
+  <div class="sec-no">05 — DIRECTION</div>
+  <h2>북미 거점 → 확산</h2>
+  <div class="market">
+    <div class="mk first"><div class="flag">🇺🇸 북미</div><div class="role">1순위 · 거점</div><p>최대 시장 + 게이트 개방. 실리콘투 미국 물류 거점(CA/NJ) 보유 → 유통 길 깔림. 미미박스 사례처럼 유통은 실리콘투, 기획은 히야.</p></div>
+    <div class="mk next"><div class="flag">🇪🇺 유럽</div><div class="role">다음 파도</div><p>실리콘투 유럽(네덜란드·폴란드) 2026 +63% 급성장. 미국 검증 후 실리콘투 유럽망으로 확산.</p></div>
+    <div class="mk card3"><div class="flag">단계 원칙</div><div class="role">온라인 먼저</div><p>온라인서 재구매·후기 검증 → 더마·체험 거점 → 세포라/얼타. 오프라인은 비용 크니 검증 후.</p></div>
+  </div>
+</div></section>
+
+<!-- 6. 포지셔닝 토론 -->
+<section id="debate"><div class="wrap">
+  <div class="sec-no">06 — POSITIONING</div>
+  <h2>열린 질문 — 미국 '무향·미셀라' vs '촉촉·케어'</h2>
+  <p class="lead">현재 미국 아마존은 "무향·미셀라·Dermatest"(바이오더마식)로, 국내 "촉촉·식물·에센스 세안"과 다르게 포지셔닝 중. (실리콘투 데이터 기반 협의로 추정)</p>
+  <div class="insight">
+    <div class="big">무향·미셀라로 가면 — 바이오더마·Garnier와 <em>같은 자리</em>에서 가격 비교당한다.</div>
+    <div class="small">→ 미국 리뷰의 "비싸다"가 그 증거($5 Garnier와 비교). '미셀라'가 아니라 '클렌징 케어'로 가면 $24는 "비싼 미셀라"가 아니라 "합리적 클렌징 에센스"가 됨. <b>다만 이건 함께 검증할 가설</b> — 미국 소비자 데이터를 보고 결정할 영역. 회사 결정을 존중하며 테이블에 올리는 관점.</div>
+  </div>
+</div></section>
+
+<div class="closing"><div class="wrap">
+  <p class="q">"채널은 이미 깔렸다. 이제 필요한 건 — <em>클렌징을 넘어 클렌징 케어로</em>,<br>그 경험을 살아 움직이게 만드는 일이다."</p>
+</div></div>
+
+</body>
+</html>
