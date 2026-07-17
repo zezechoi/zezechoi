@@ -460,6 +460,30 @@
     line-height: 1.65;
   }
   .work-desc strong { color: var(--text); font-weight: 600; }
+  .work-case {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 24px;
+    margin-top: 4px;
+  }
+  .work-case-item {
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .work-case-label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .work-case-item p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-soft);
+  }
   .work-foot {
     margin-top: auto;
     padding-top: 16px;
@@ -1053,6 +1077,7 @@
     .work-card.feature, .work-card.feature.split { grid-column: span 1; }
     .feature-img { min-height: 200px; }
     .feature-body { padding: 24px; }
+    .work-case { grid-template-columns: 1fr; }
     .kb-row {
       grid-template-columns: 1fr;
       gap: 8px;
@@ -1204,7 +1229,28 @@
         <span class="work-id">OW001 · T&S Trading · 2023—2025</span>
         <div class="work-stat">6<span class="unit">brands operated</span></div>
         <h3 class="work-title">이태리 럭셔리 인테리어 6개 브랜드 한국 운영 — 통합 가이드 체계 구축</h3>
-        <p class="work-desc">이태리 본사 6개 브랜드의 한국 커뮤니케이션 단독 총괄. 패키징·라벨 가이드를 통합 관리 체계로 정비, <strong>출시 단계 사양 오류 사전 차단</strong>.</p>
+        <div class="work-case">
+          <div class="work-case-item">
+            <span class="work-case-label">Context</span>
+            <p>이태리 럭셔리 인테리어 6개 브랜드를 한국에서 동시에 운영하며 본사 가이드·국내 사양·출시 일정을 조율해야 했습니다.</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Responsibility</span>
+            <p>6개 브랜드의 한국 커뮤니케이션과 패키징·라벨 확인 흐름을 담당했습니다.</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Decision</span>
+            <p>브랜드별로 흩어진 확인 항목을 하나의 가이드와 캘린더 기준으로 통합했습니다.</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Deliverable</span>
+            <p>패키징·라벨 통합 체크리스트 · 납기 캘린더 · 본사–한국 확인 흐름</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Operational Effect</span>
+            <p>출시 전 확인 단계와 책임 범위가 명확해져 누락 가능성을 줄이고 커뮤니케이션 기준을 맞췄습니다.</p>
+          </div>
+        </div>
         <div class="work-foot">
           <span class="work-tags">Brand Localization · Italian↔KR Operations</span>
         </div>
@@ -1420,7 +1466,7 @@
   <div class="sec-head">
     <div class="sec-head-left">
       <span class="num">04</span>
-      <span>Experience · 2017—2025</span>
+      <span>Experience · 2017—Present</span>
     </div>
     <h2 class="sec-title">직장의 나열이 아니라, <span class="soft">스킬의 누적 곡선.</span></h2>
   </div>
@@ -1429,7 +1475,27 @@
 
     <article class="career-row feature">
       <div class="career-period">
-        <div class="latest">LATEST</div>
+        <div class="latest">CURRENT · INDEPENDENT PROJECT</div>
+        2026 — Present
+      </div>
+      <div>
+        <h3 class="career-co">Independent K-Beauty Research</h3>
+        <div class="career-role">Brand Analysis · AI Content · Self-Initiated</div>
+        <p class="career-bizh">해외영업과 B2B 마케팅 경험을 K-뷰티 브랜드 분석과 AI 콘텐츠 제작으로 확장.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li>K-Beauty Files 브랜드 분석 <strong>7편</strong> 및 현장 노트 <strong>2편</strong> 기획·발행</li>
+          <li>뷰티·패션 AI 영상 챌린지 우수상 · AI 실전 활용 프로그램 우수 수료</li>
+          <li>Claude Code로 리서치·콘텐츠·아카이브 사이트 운영 흐름 구축</li>
+        </ul>
+        <div class="career-learned">정규 고용이 아닌 독립 프로젝트입니다.</div>
+      </div>
+    </article>
+
+    <article class="career-row">
+      <div class="career-period">
+        <div class="latest">RECENT ROLE</div>
         2023 — 2025
       </div>
       <div>
@@ -1439,10 +1505,10 @@
       </div>
       <div class="career-detail">
         <ul>
-          <li>이태리 본사 <strong>6개 브랜드</strong> 한국 커뮤니케이션 단독 총괄</li>
-          <li>본사–한국 운영 프로세스 재설계로 의사결정 흐름 단축</li>
-          <li>패키징·라벨 가이드 통합 관리 체계로 정비, 출시 사양 오류 사전 차단</li>
-          <li>납기 캘린더·일정 자동화 시스템 직접 구축</li>
+          <li>이태리 본사 <strong>6개 브랜드</strong>의 한국 커뮤니케이션과 운영 일정 담당</li>
+          <li>브랜드별 확인 항목을 패키징·라벨 통합 체크리스트로 정리</li>
+          <li>납기 캘린더와 본사–한국 확인 흐름을 구축해 확인 단계와 책임 범위를 명확화</li>
+          <li>이태리 본사와 국내 파트너 사이의 사양·일정·메시지 조율</li>
         </ul>
         <div class="career-learned">이태리 럭셔리 브랜드 아이덴티티를 한국 시장으로 옮기는 법을 배웠습니다.</div>
       </div>
@@ -1453,7 +1519,7 @@
       <div>
         <h3 class="career-co">Mondrian AI</h3>
         <div class="career-role">마케팅·영업팀 주임 · IT Startup</div>
-        <p class="career-bizh">B2B 마케터로 브랜드 음성을 처음부터 정의. 채널 리뉴얼·PR·해외 파트너 발굴 주도.</p>
+        <p class="career-bizh">브랜드 톤앤매너 가이드를 채널별 콘텐츠에 적용. 블로그·뉴스 기사·인터뷰 콘텐츠 제작·발행, Owned Media와 PR 운영.</p>
       </div>
       <div class="career-detail">
         <ul>
@@ -1462,7 +1528,7 @@
           <li>PR 언론활동·내외부 행사 기획·운영</li>
           <li>해외 파트너 발굴 + 정부지원 수출사업 제안서 작성</li>
         </ul>
-        <div class="career-learned">브랜드의 목소리를 백지에서 만드는 법을 배웠습니다.</div>
+        <div class="career-learned">B2B 브랜드의 메시지를 콘텐츠와 PR로 실행하는 법을 배웠습니다.</div>
       </div>
     </article>
 
@@ -1492,9 +1558,9 @@
   <div class="sec-head">
     <div class="sec-head-left">
       <span class="num">05</span>
-      <span>About — A Long Pivot</span>
+      <span>About — Global Sales to K-Beauty</span>
     </div>
-    <h2 class="sec-title">한 번 포기했던 꿈이,<br><span class="soft">7년의 운영 경험과 만났습니다.</span></h2>
+    <h2 class="sec-title">해외영업 6년, 마케팅 1년.<br><span class="soft">다음은 K-뷰티의 세계 시장으로.</span></h2>
   </div>
 
   <div class="about-grid">
@@ -1507,9 +1573,11 @@
     </aside>
 
     <div class="about-body">
-      <p class="lede">2020년 퍼스널컬러 강사가 되고 싶어 교육을 이수했지만,<br>현실적인 이유로 포기했습니다.</p>
+      <p class="lede">6년간 해외영업을 담당하며 이태리 럭셔리 인테리어 브랜드 6개의 한국 시장 운영과 6개국 신규 거래선 발굴을 경험했습니다.</p>
 
-      <p>그동안 뷰티는 멈춘 적이 없었습니다. 퍼스널컬러 자격, 성분 공부, 꾸준한 K-뷰티 분석. <strong>운영자로 일하면서 키운 시선과 소비자로서 쌓은 깊이가 만나는 곳</strong> — 그게 K-뷰티의 다음 챕터라고 생각합니다.</p>
+      <p>이후 1년간 B2B 마케팅을 맡아 콘텐츠와 PR을 실행했고, 지금은 두 경험을 <strong>K-뷰티의 해외 시장 확장</strong>에 연결하고 있습니다.</p>
+
+      <p>퍼스널컬러 교육과 성분 공부를 기반으로 매주 K-뷰티 브랜드를 분석하고 기록합니다. 한 번 미뤄두었던 뷰티에 대한 관심을 독립적인 리서치와 콘텐츠 제작으로 다시 증명하고 있습니다.</p>
     </div>
   </div>
 </section>
