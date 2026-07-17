@@ -529,53 +529,6 @@
     text-transform: uppercase;
   }
 
-  /* upcoming/preview rows (placeholder for future articles) */
-  .upcoming-section {
-    padding: 64px 32px 96px;
-    max-width: 1280px;
-    margin: 0 auto;
-    background: var(--bg-subtle);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .upcoming-section .pulse-head { margin-bottom: 24px; padding-bottom: 0; border: none; }
-  .upcoming-list { display: flex; flex-direction: column; }
-  .upcoming-row {
-    display: grid;
-    grid-template-columns: 80px 1fr 1.6fr 100px;
-    gap: 24px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--border-subtle);
-    align-items: baseline;
-  }
-  .upcoming-row:last-child { border-bottom: none; }
-  .upcoming-row .seq {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .upcoming-row .b {
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .upcoming-row .t {
-    font-size: 14px;
-    color: var(--text-soft);
-    line-height: 1.55;
-  }
-  .upcoming-row .when {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-mute);
-    letter-spacing: 0.04em;
-    text-align: right;
-    text-transform: uppercase;
-  }
-
   /* ─── BACK STRIP — dark to portfolio ─── */
   .back-strip {
     padding: 80px 32px;
@@ -657,7 +610,7 @@
     .hero { padding: 56px 20px 48px; }
     .editor-note { padding: 56px 20px; }
     .editor-note-inner { grid-template-columns: 1fr; gap: 28px; }
-    .pulse-section, .cats-section, .recent-section, .upcoming-section, .back-strip {
+    .pulse-section, .cats-section, .recent-section, .back-strip {
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -670,12 +623,6 @@
     }
     .card:hover { padding-left: 28px; }
     .card-tag { text-align: left; padding-top: 0; }
-    .upcoming-row {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 14px 0;
-    }
-    .upcoming-row .when { text-align: left; }
     .back-strip-inner { grid-template-columns: 1fr; gap: 32px; }
     footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
   }
@@ -705,7 +652,7 @@
   <div>
     <div class="hero-stamp">
       <span class="bar"></span>
-      <span>Insight Archive · Vol. 01</span>
+      <span>Insight Archive · 2026</span>
       <span>·</span>
       <span>2026 — </span>
     </div>
@@ -736,14 +683,14 @@
   <div class="editor-note-inner">
     <aside class="editor-note-aside">
       <span class="accent">— From the Editor</span>
-      Volume 09<br>
-      Spring 2026 / Seoul
+      2 Series · Ongoing<br>
+      Seoul / 2026
     </aside>
 
     <div class="editor-note-body">
       <p>이 아카이브는 "마케팅 캠페인 분석" 이 아닙니다.</p>
       <p>이태리 럭셔리 인테리어 브랜드 6개를 한국에서 운영하며 하나를 배웠습니다. <strong>본사가 보낸 한 줄을 시장이 받는 한 줄로 옮기는 결정, 그것이 곧 마케팅이라는 것</strong>. 저는 그 시선으로 K-뷰티 브랜드를 다시 읽습니다.</p>
-      <p>특히 <strong>크게 알려지지 않은 인디 클린 뷰티 브랜드</strong>의 첫 문장에 시선을 둡니다. 큰 캠페인이 아니라, 브랜드가 가장 먼저 쓴 한 문장 — 그 결정의 순간을 기록합니다.</p>
+      <p>특히 <strong>브랜드의 첫 문장</strong>에 시선을 둡니다. 큰 캠페인이 아니라, 브랜드가 가장 먼저 쓴 한 문장 — 그 결정의 순간을 기록합니다.</p>
       <p>그리고 강연·서밋·전시·미팅 등 <strong>현장에서 직접 본 것</strong>은 「현장 노트」 시리즈로 함께 기록합니다.</p>
 
       <div class="editor-note-sig">
@@ -767,14 +714,14 @@
       <span class="pulse-sub">2 series · ongoing</span>
     </div>
     <div class="pulse-stat">
-      <span class="label-sm">Edition</span>
-      <span class="pulse-num">Vol. <span data-stat="articles">07</span></span>
+      <span class="label-sm">Published</span>
+      <span class="pulse-num"><span data-stat="articles">09</span></span>
       <span class="pulse-sub">두 시리즈 누적 발행</span>
     </div>
     <div class="pulse-stat">
-      <span class="label-sm">Pipeline</span>
-      <span class="pulse-num"><em>+</em><span data-stat="pipeline">02</span></span>
-      <span class="pulse-sub">발행 예정 (Q2—Q3)</span>
+      <span class="label-sm">Lens</span>
+      <span class="pulse-num" style="font-size:clamp(28px, 3.2vw, 42px);line-height:1.1">Brand<br>+ Field</span>
+      <span class="pulse-sub">브랜드 전략 · 현장 기록</span>
     </div>
     <div class="pulse-stat">
       <span class="label-sm">Cadence</span>
@@ -826,7 +773,7 @@
         <span class="card-series">「브랜드의 첫 문장」 vol.7</span>
         <div class="brand">WHIPPED<span class="ko">휩드</span></div>
         <h3>선물이 첫 문장이다 — 바르는 게 아니라 "주고 싶은 마음" 을 파는 브랜드.</h3>
-        <p>크림케이크에서 영감받은 휩드 크림 클렌저. <strong>"휩드는 바르는 걸 팔지 않는다, 주고 싶은 마음을 판다"</strong> — 광고 없이 입소문·선물 심리만으로 연 매출 200억.</p>
+        <p>크림케이크에서 영감받은 휩드 크림 클렌저. <strong>"휩드는 바르는 걸 팔지 않는다, 주고 싶은 마음을 판다"</strong> — 제품 경험을 선물 심리와 입소문으로 확장한 브랜드의 결정.</p>
         <span class="card-link">View on Instagram →</span>
       </div>
       <div class="card-tag">Strategy</div>
@@ -838,7 +785,7 @@
         <span class="card-series">「브랜드의 첫 문장」 vol.6</span>
         <div class="brand">DEMAF<span class="ko">디마프</span></div>
         <h3>교육이 첫 문장이다 — 화장품을 팔지 않고 가르치는 브랜드.</h3>
-        <p>판테놀 앰플 + <strong>"피부 장벽학개론"</strong> 강의·미션 챌린지. CEO 의 교육 백그라운드가 비즈니스 모델로 — <strong>"디마프는 화장품을 팔지 않는다, 가르친다"</strong> 는 의사결정. 1년 매출 70억, 2년 누적 100억.</p>
+        <p>판테놀 앰플 + <strong>"피부 장벽학개론"</strong> 강의·미션 챌린지. CEO의 교육 백그라운드를 비즈니스 모델로 연결해 <strong>"디마프는 화장품을 팔지 않는다, 가르친다"</strong>는 관점을 만든 브랜드.</p>
         <span class="card-link">View on Instagram →</span>
       </div>
       <div class="card-tag">Strategy</div>
@@ -874,7 +821,7 @@
         <span class="card-series">「브랜드의 첫 문장」 vol.4</span>
         <div class="brand">TORRIDEN<span class="ko">토리든</span></div>
         <h3>성분이 첫 문장이다 — 유행이 아니라 성분이었다.</h3>
-        <p>저분자 히알루론산이 표면이 아니라 속으로. <strong>"토리든은 유행이 아니었다, 성분이었다"</strong> 는 한 마디로 2024 올리브영 마스크팩 1위를 차지한 인디 브랜드의 결정.</p>
+        <p>저분자 히알루론산이 표면이 아니라 속으로. <strong>"토리든은 유행이 아니었다, 성분이었다"</strong>는 한 문장으로 성분 중심의 브랜드 선택을 읽었습니다.</p>
         <span class="card-link">View on Instagram →</span>
       </div>
       <div class="card-tag">Strategy</div>
@@ -930,24 +877,7 @@
 
   </div>
 
-  <div class="empty" id="empty" style="display:none;">— No entries in this category yet · 곧 발행 예정 —</div>
-</section>
-
-<!-- ─── EDITORIAL CALENDAR — Plan / Preview ─────── -->
-<section class="upcoming-section">
-  <div class="pulse-head">
-    <span class="pulse-title">— Editorial Calendar</span>
-    <span class="pulse-meta">Upcoming issues</span>
-  </div>
-
-  <div class="upcoming-list">
-    <div class="upcoming-row">
-      <span class="seq">vol.8</span>
-      <span class="b">[ 인디 클린 뷰티 — TBD ]</span>
-      <span class="t" style="color:var(--text-mute);font-style:italic;">발행 시 공개</span>
-      <span class="when">2026 Q2</span>
-    </div>
-  </div>
+  <div class="empty" id="empty" style="display:none;">— No published entries in this category yet —</div>
 </section>
 
 <!-- ─── BACK STRIP — DARK ───────────────────────── -->
@@ -960,7 +890,7 @@
     <div class="back-actions">
       <div class="back-line">
         <span class="lab">Portfolio</span>
-        <a href="index.html">← Zeze Choi · Premium Brand Operator</a>
+        <a href="index.html">← Zeze Choi · Global Sales &amp; Marketing</a>
       </div>
       <div class="back-line">
         <span class="lab">Selected Work</span>
@@ -981,47 +911,27 @@
 <!-- ─── FOOTER ──────────────────────────────────── -->
 <footer>
   <span>© 2026 최지예 Zeze Choi · Insight Archive</span>
-  <span>Last updated 2026.07.10 · Vol. 01</span>
+  <span>2 Series · Ongoing</span>
 </footer>
 
 <script>
-  // 카드 데이터에서 통계 자동 계산 (Vol. + Pipeline 포함)
+  // 발행된 카드 데이터에서 통계 자동 계산
   (function () {
-    const realCards = document.querySelectorAll('.card:not(.placeholder)');
-    const upcomingRows = document.querySelectorAll('.upcoming-row');
-
+    const realCards = [...document.querySelectorAll('.card:not(.placeholder)')];
     const published = realCards.length;
-    const pipeline = upcomingRows.length;
-
     const pad = n => String(n).padStart(2, '0');
-    const setStat = (key, val) => {
-      const el = document.querySelector(`[data-stat="${key}"]`);
-      if (el) el.textContent = pad(val);
-    };
-    // Edition = 두 시리즈 (「첫 문장」 + 「현장 노트」) 누적 발행 수
-    setStat('articles', published);
-    setStat('pipeline', pipeline);
 
-    // 카테고리 카운트 — 발행된 글 + 파이프라인 모두 합산
-    const upcomingCats = [...upcomingRows].map(r => {
-      const t = r.querySelector('.t');
-      if (!t) return null;
-      const text = t.textContent.toLowerCase();
-      if (text.includes('research')) return 'research';
-      if (text.includes('strategy')) return 'strategy';
-      return null;
-    }).filter(Boolean);
+    const articles = document.querySelector('[data-stat="articles"]');
+    if (articles) articles.textContent = pad(published);
 
     document.querySelectorAll('[data-count]').forEach(el => {
       const cat = el.dataset.count;
-      const cardCount = [...realCards].filter(c => c.dataset.category === cat).length;
-      const upcomingCount = upcomingCats.filter(c => c === cat).length;
-      const total = cardCount + upcomingCount;
-      el.textContent = pad(total);
+      const count = realCards.filter(card => card.dataset.category === cat).length;
+      el.textContent = pad(count);
     });
 
     const totalEl = document.querySelector('[data-cats-total]');
-    if (totalEl) totalEl.textContent = `${published} published · +${pipeline} planned`;
+    if (totalEl) totalEl.textContent = `${published} published · 2 series`;
   })();
 
   // 필터 토글
