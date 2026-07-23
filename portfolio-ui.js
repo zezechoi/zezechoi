@@ -9,6 +9,17 @@
   const categoryLabel = category => data.archive.categories[category] || category;
 
   function updateMetadata() {
+    const issues = data.archive.issues;
+    const seriesVolumes = new Map(
+      data.archive.series.map(series => [
+        series.label,
+        issues
+          .filter(issue => issue.series === series.label)
+          .map(issue => issue.volume)
+          .sort((a, b) => a - b)
+      ])
+    );
+
     document.querySelectorAll("[data-portfolio-edition]").forEach(el => {
       el.textContent = data.meta.edition;
     });
@@ -17,13 +28,12 @@
       if (el.tagName === "TIME") el.dateTime = data.meta.updatedIso;
     });
     document.querySelectorAll("[data-portfolio-volume]").forEach(el => {
-      el.textContent = data.meta.archiveVolume;
+      el.textContent = pad(issues.length);
     });
     document.querySelectorAll("[data-portfolio-season]").forEach(el => {
       el.textContent = data.meta.season;
     });
 
-    const issues = data.archive.issues;
     const counts = issues.reduce((result, issue) => {
       result[issue.category] = (result[issue.category] || 0) + 1;
       return result;
@@ -41,6 +51,14 @@
     });
     document.querySelectorAll("[data-portfolio-series-count]").forEach(el => {
       el.textContent = data.archive.series.length;
+    });
+    document.querySelectorAll("[data-portfolio-series-list]").forEach(container => {
+      container.innerHTML = data.archive.series.map(series => {
+        const volumes = seriesVolumes.get(series.label)
+          .map(volume => `vol.${volume}`)
+          .join(" · ");
+        return `<p><span>「${series.label}」</span> — ${volumes} · in progress</p>`;
+      }).join("");
     });
   }
 

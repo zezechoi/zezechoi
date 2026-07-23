@@ -8,7 +8,6 @@
       updated: "2026.07.23",
       updatedIso: "2026-07-23",
       location: "Seoul, KR",
-      archiveVolume: "09",
       season: "SUMMER 2026 / SEOUL"
     }),
     archive: Object.freeze({

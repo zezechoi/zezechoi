@@ -1,5 +1,5 @@
 import { spawn } from "node:child_process";
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -7,7 +7,6 @@ const root = path.resolve(import.meta.dirname, "..");
 const outputDir = path.join(root, "tmp", "qa");
 const profileDir = path.join(outputDir, "chrome-cdp");
 const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const port = 9333;
 
 await mkdir(outputDir, { recursive: true });
 await rm(profileDir, { recursive: true, force: true });
@@ -17,7 +16,7 @@ const chrome = spawn(chromePath, [
   "--disable-gpu",
   "--no-first-run",
   "--allow-file-access-from-files",
-  `--remote-debugging-port=${port}`,
+  "--remote-debugging-port=0",
   `--user-data-dir=${profileDir}`,
   "about:blank"
 ], {
@@ -30,6 +29,8 @@ const delay = milliseconds => new Promise(resolve => setTimeout(resolve, millise
 async function waitForTarget() {
   for (let attempt = 0; attempt < 60; attempt += 1) {
     try {
+      const activePort = await readFile(path.join(profileDir, "DevToolsActivePort"), "utf8");
+      const [port] = activePort.trim().split(/\r?\n/);
       const response = await fetch(`http://127.0.0.1:${port}/json/list`);
       const targets = await response.json();
       const page = targets.find(target => target.type === "page");
@@ -56,6 +57,12 @@ socket.addEventListener("message", async event => {
   pending.delete(message.id);
   if (message.error) request.reject(new Error(message.error.message));
   else request.resolve(message.result);
+});
+socket.addEventListener("close", () => {
+  for (const request of pending.values()) {
+    request.reject(new Error("Chrome DevTools socket closed before the request completed."));
+  }
+  pending.clear();
 });
 
 if (socket.readyState !== WebSocket.OPEN) {

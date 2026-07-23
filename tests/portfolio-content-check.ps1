@@ -93,6 +93,9 @@ Assert-Contains $archive 'data-portfolio-archive' "Archive has no shared render 
 Assert-Contains $ui "PORTFOLIO_DATA" "Shared UI does not consume canonical data."
 Assert-Contains $data 'edition: "03"' "Canonical Edition is not 03."
 Assert-Contains $data 'updated: "2026.07.23"' "Canonical update date is not current."
+Assert-NotContains $data "archiveVolume" "Archive volume must be derived from issue records."
+Assert-Contains $archive "data-portfolio-series-list" "Archive series volumes are not rendered from canonical data."
+Assert-Contains $ui "seriesVolumes" "Shared UI does not derive per-series volumes."
 
 $issueCount = ([regex]::Matches($data, 'url:\s*"https://www\.instagram\.com/p/')).Count
 if ($issueCount -ne 9) {
