@@ -59,6 +59,20 @@ Assert-InOrder $index @(
   "AI-Enabled Operations"
 ) "Capabilities are missing or incorrectly ordered."
 
+# Resume alignment for title and GPA.
+$mondrianRole = Decode-Utf8 "7IKs7JeF67aAIOyjvOyehA=="
+$oldMondrianRole = Decode-Utf8 "66eI7LyA7YyFwrfsmIHsl4XtjIAg7KO87J6E"
+$exactGpa = Decode-Utf8 "NC4wNS80LjUw"
+$oldGpa = Decode-Utf8 "NC4wLzQuNQ=="
+Assert-Contains $index $mondrianRole "Homepage Mondrian title does not match the final resume."
+Assert-Contains $cv $mondrianRole "CV Mondrian title does not match the final resume."
+Assert-NotContains $index $oldMondrianRole "Homepage still contains the previous Mondrian title."
+Assert-NotContains $cv $oldMondrianRole "CV still contains the previous Mondrian title."
+Assert-Contains $index $exactGpa "Homepage GPA is not the exact final value."
+Assert-Contains $cv $exactGpa "CV GPA is not the exact final value."
+Assert-NotContains $index $oldGpa "Homepage still contains the previous GPA."
+Assert-NotContains $cv $oldGpa "CV still contains the previous GPA."
+
 # Selected Work must use the requested evidence structure.
 foreach ($label in @("Role", "Scope", "Actions", "Outcome")) {
   $labelPattern = 'work-case-label">' + $label + '<'
