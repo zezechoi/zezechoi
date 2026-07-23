@@ -7,6 +7,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const outputDir = path.join(root, "tmp", "qa");
 const profileDir = path.join(outputDir, "chrome-cdp");
 const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+const captureScreenshots = process.argv.includes("--screenshots");
 
 await mkdir(outputDir, { recursive: true });
 await rm(profileDir, { recursive: true, force: true });
@@ -177,9 +178,11 @@ try {
   assert(indexDesktop.scrollWidth <= indexDesktop.viewport, "Homepage overflows horizontally on desktop.");
   assert(indexDesktop.latest === 3, "Homepage must render the latest three K-Beauty issues.");
   assert(indexDesktop.edition === "03", "Homepage Edition did not render from canonical data.");
-  await screenshot("index-desktop-full");
-  await screenshotSection("#work", "index-work-desktop");
-  await screenshotSection("#capabilities", "index-capabilities-desktop");
+  if (captureScreenshots) {
+    await screenshot("index-desktop-full");
+    await screenshotSection("#work", "index-work-desktop");
+    await screenshotSection("#capabilities", "index-capabilities-desktop");
+  }
 
   await navigate("index.html", { width: 390, height: 844, mobile: true });
   const indexMobile = await evaluate(`({
@@ -190,7 +193,7 @@ try {
   })`);
   assert(indexMobile.scrollWidth <= indexMobile.viewport, `Homepage mobile overflow: ${indexMobile.scrollWidth}px > ${indexMobile.viewport}px.`);
   assert(indexMobile.stampWidth <= indexMobile.heroWidth, "Mobile hero stamp exceeds the hero width.");
-  await screenshot("index-mobile-full");
+  if (captureScreenshots) await screenshot("index-mobile-full");
 
   await navigate("archive.html", { width: 1440, height: 1200, mobile: false });
   const archiveDesktop = await evaluate(`(() => {
@@ -217,8 +220,10 @@ try {
   assert(archiveDesktop.total === 9 && archiveDesktop.uniqueLinks === 9, "Archive must render nine unique issue links.");
   assert(archiveDesktop.strategy === 7 && archiveDesktop.research === 2 && archiveDesktop.all === 9, "Archive filters returned incorrect counts.");
   assert(archiveDesktop.totalLabel === "9 published · 2 series", "Archive total label is inconsistent.");
-  await screenshot("archive-desktop-full");
-  await screenshotSection("#recent", "archive-cards-desktop");
+  if (captureScreenshots) {
+    await screenshot("archive-desktop-full");
+    await screenshotSection("#recent", "archive-cards-desktop");
+  }
 
   await navigate("archive.html", { width: 390, height: 844, mobile: true });
   const archiveMobile = await evaluate(`({
@@ -228,7 +233,7 @@ try {
   })`);
   assert(archiveMobile.scrollWidth <= archiveMobile.viewport, `Archive mobile overflow: ${archiveMobile.scrollWidth}px > ${archiveMobile.viewport}px.`);
   assert(archiveMobile.cards === 9, "Archive mobile view did not render all issues.");
-  await screenshot("archive-mobile-full");
+  if (captureScreenshots) await screenshot("archive-mobile-full");
 
   console.log(JSON.stringify({
     status: "passed",
