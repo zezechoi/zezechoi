@@ -2,12 +2,14 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Zeze Choi — Global Sales &amp; Marketing · K-Beauty</title>
+<title>Zeze Choi — Global B2B Sales &amp; Brand Operations</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="해외영업 6년 · B2B 마케팅 1년. 이태리 럭셔리 브랜드 6개 운영과 6개국 신규 거래선 발굴 경험으로 K-뷰티의 해외 시장을 연결합니다. — 최지예 Zeze Choi">
+<meta name="description" content="해외영업 및 B2B 마케팅 경력 7년. 해외 파트너 발굴·거래 운영·수출 실무를 브랜드와 현지 시장 커뮤니케이션까지 연결하는 K-Beauty 글로벌 B2B 지원자 — 최지예 Zeze Choi">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<script src="portfolio-data.js" defer></script>
+<script src="portfolio-ui.js" defer></script>
 
 <style>
   :root {
@@ -104,6 +106,8 @@
     font-size: 14px;
     letter-spacing: -0.01em;
     color: var(--text);
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
   .nav-stamp {
     font-family: var(--mono);
@@ -514,6 +518,7 @@
     display: grid;
     grid-template-rows: 1fr;
   }
+  .work-card.feature.full { grid-column: 1 / -1; }
   .feature-img {
     background: var(--bg-subtle);
     overflow: hidden;
@@ -1056,17 +1061,42 @@
       grid-column: span 2;
       grid-template-columns: 1fr;
     }
+    .work-card.feature.full { grid-column: span 2; }
     .index-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px) {
     nav.site-nav { padding: 12px 20px; }
-    .nav-links, .nav-stamp { display: none; }
+    .nav-links, .nav-stamp, .nav-status { display: none; }
+    .nav-left, .hero > div, .hero-meta-cell { min-width: 0; }
     .hero {
       grid-template-columns: 1fr;
       padding: 48px 20px 48px;
       gap: 48px;
       min-height: auto;
     }
+    .hero-stamp {
+      display: grid;
+      grid-template-columns: 20px minmax(0, 1fr);
+      gap: 8px 12px;
+      max-width: 100%;
+      line-height: 1.55;
+    }
+    .hero-stamp .bar { flex-basis: 20px; }
+    .hero-stamp > span { min-width: 0; overflow-wrap: anywhere; }
+    .hero-stamp > span:nth-child(3) { display: none; }
+    .hero-stamp > span:nth-child(4) { grid-column: 2; }
+    .hero-line-1, .hero-line-2, .hero-en, .hero-meta-row {
+      max-width: 100%;
+      min-width: 0;
+    }
+    .hero-en {
+      padding-left: 12px;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+    .hero-meta-row { gap: 22px; }
+    .hero-meta-cell { flex: 1 1 100%; }
     .hero-portrait { max-width: 100%; aspect-ratio: 4 / 3; }
     .toc { padding: 14px 20px; }
     .toc-inner { gap: 4px 20px; font-size: 10px; }
@@ -1075,6 +1105,7 @@
     .sec-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
     .work-grid { grid-template-columns: 1fr; }
     .work-card.feature, .work-card.feature.split { grid-column: span 1; }
+    .work-card.feature.full { grid-column: span 1; }
     .feature-img { min-height: 200px; }
     .feature-body { padding: 24px; }
     .work-case { grid-template-columns: 1fr; }
@@ -1110,7 +1141,7 @@
 <nav class="site-nav">
   <div class="nav-left">
     <a href="#top" class="nav-logo">Zeze Choi</a>
-    <span class="nav-stamp">— Portfolio · Ed. 02 / 2026</span>
+    <span class="nav-stamp">— Portfolio · Ed. <span data-portfolio-edition>03</span> / 2026</span>
   </div>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
@@ -1119,7 +1150,7 @@
     <li><a href="#career">Experience</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <div class="nav-status"><span class="dot-live"></span>Open for Global Sales &amp; Marketing Roles</div>
+  <div class="nav-status"><span class="dot-live"></span>Open for K-Beauty Global B2B Roles</div>
 </nav>
 
 <!-- ─── HERO — PIVOT THESIS ─────────────────────── -->
@@ -1127,30 +1158,30 @@
   <div>
     <div class="hero-stamp">
       <span class="bar"></span>
-      <span>Global Sales &amp; Marketing · Overseas Sales → K-Beauty</span>
+      <span>Global B2B Sales &amp; Brand Operations · Italian Luxury → K-Beauty</span>
       <span>·</span>
       <span>Seoul, KR</span>
     </div>
 
     <div class="hero-thesis">
       <h1 class="hero-line-1">
-        6년의 해외영업 경험 위에,<br>
-        <strong>마케팅의 시선을 더했습니다.</strong>
+        해외 파트너를 발굴하고,<br>
+        <strong>거래를 운영해온 7년.</strong>
       </h1>
       <h1 class="hero-line-2">
-        <span class="arrow">→</span> 다음은,<br>
-        <span class="accent">K-뷰티의 해외 시장</span>으로.
+        <span class="arrow">→</span> 브랜드와 현지 시장까지<br>
+        <span class="accent">연결하는 해외영업</span>으로.
       </h1>
     </div>
 
     <p class="hero-en">
-      Six years in overseas sales and one year in B2B marketing — operating six Italian luxury interior brands in Korea and building new business across six markets. Now bringing that commercial and brand perspective to K-beauty’s global growth.
+      Seven years across overseas sales and B2B marketing — developing buyers, coordinating orders and exports, and translating brand value for local partners. Now bringing that operating experience from Italian luxury to K-Beauty.
     </p>
 
     <div class="hero-meta-row">
       <div class="hero-meta-cell">
         <span class="label">Currently</span>
-        <span class="val">해외영업 · 글로벌 세일즈·마케팅 포지션 탐색 중</span>
+        <span class="val">K-Beauty 해외영업 / 글로벌 B2B 포지션 탐색 중</span>
       </div>
       <div class="hero-meta-cell">
         <span class="label">Languages</span>
@@ -1190,24 +1221,24 @@
 <!-- ─── OPERATOR METRICS ────────────────────────── -->
 <section class="metrics">
   <div class="metric">
-    <span class="label">Operating Scope</span>
+    <span class="label">Brand Operations</span>
     <div class="metric-num">6<span class="unit">brands</span></div>
-    <p class="metric-desc">이태리 럭셔리 인테리어 6개 브랜드의 한국 시장 단독 책임.</p>
+    <p class="metric-desc">이태리 하이엔드 브랜드 6개 본사 커뮤니케이션 및 국내 유통 운영 담당.</p>
   </div>
   <div class="metric">
-    <span class="label">Cross-Continental</span>
-    <div class="metric-num">2<span class="unit">continents</span></div>
-    <p class="metric-desc">유럽 본사 ↔ 한국 사이 운영 흐름 직접 설계.</p>
+    <span class="label">Initial Orders</span>
+    <div class="metric-num">≈ ₩125<span class="unit">M</span></div>
+    <p class="metric-desc">베트남 약 3,500만원 · 러시아 약 9,000만원 초도 주문 실무.</p>
   </div>
   <div class="metric">
-    <span class="label">From Zero</span>
-    <div class="metric-num">0<span class="arrow">→</span>6<span class="unit">markets</span></div>
-    <p class="metric-desc">제로에서 거래선 발굴해 글로벌 영업 기반 구축.</p>
+    <span class="label">B2B Event</span>
+    <div class="metric-num">259<span class="unit">visitors</span></div>
+    <p class="metric-desc">AI EXPO KOREA 2022 부스 방문객 · 명함 집계 기준.</p>
   </div>
   <div class="metric">
-    <span class="label">Beauty Depth</span>
-    <div class="metric-num">7<span class="unit">brands</span></div>
-    <p class="metric-desc">운영자의 시선으로 분석한 K-뷰티 브랜드.</p>
+    <span class="label">Beauty Intelligence</span>
+    <div class="metric-num">9<span class="unit">issues</span></div>
+    <p class="metric-desc">제품·유통·시장 진입 관점의 K-Beauty Files와 현장 노트.</p>
   </div>
 </section>
 
@@ -1218,81 +1249,96 @@
       <span class="num">01</span>
       <span>Selected Work</span>
     </div>
-    <h2 class="sec-title">실제 한 일과 <span class="soft">스스로 만든 일.</span></h2>
+    <h2 class="sec-title">거래를 만들고 운영한 <span class="soft">세 가지 장면.</span></h2>
   </div>
 
   <div class="work-grid">
 
-    <!-- OW001 - T&S Trading (Featured · text only) -->
-    <div class="work-card feature">
+    <!-- OW001 - T&S Trading -->
+    <div class="work-card feature full">
       <div class="feature-body">
-        <span class="work-id">OW001 · T&S Trading · 2023—2025</span>
-        <div class="work-stat">6<span class="unit">brands operated</span></div>
-        <h3 class="work-title">이태리 럭셔리 인테리어 6개 브랜드 한국 운영 — 통합 가이드 체계 구축</h3>
+        <span class="work-id">OW001 · T&amp;S Trading · 2023—2025</span>
+        <div class="work-stat">6<span class="unit">Italian brands</span></div>
+        <h3 class="work-title">이태리 하이엔드 브랜드 6개 — 본사와 국내 유통 현장을 잇는 운영</h3>
         <div class="work-case">
           <div class="work-case-item">
-            <span class="work-case-label">Context</span>
-            <p>이태리 럭셔리 인테리어 6개 브랜드를 한국에서 동시에 운영하며 본사 가이드·국내 사양·출시 일정을 조율해야 했습니다.</p>
+            <span class="work-case-label">Role</span>
+            <p>무역부 대리 · 본사 커뮤니케이션 및 운영 실무 전담</p>
           </div>
           <div class="work-case-item">
-            <span class="work-case-label">Responsibility</span>
-            <p>6개 브랜드의 한국 커뮤니케이션과 패키징·라벨 확인 흐름을 담당했습니다.</p>
+            <span class="work-case-label">Scope</span>
+            <p>6개 브랜드 국내 유통 운영 · 유럽 제조사/공급사 소싱 · 수입 실무</p>
           </div>
           <div class="work-case-item">
-            <span class="work-case-label">Decision</span>
-            <p>브랜드별로 흩어진 확인 항목을 하나의 가이드와 캘린더 기준으로 통합했습니다.</p>
+            <span class="work-case-label">Actions</span>
+            <p>발주·생산·납기·제품 사양·A/S 이슈 조율. KC 인증과 이탈리아 출장, 독일 등 신규 공급사 직접 접촉.</p>
           </div>
           <div class="work-case-item">
-            <span class="work-case-label">Deliverable</span>
-            <p>패키징·라벨 통합 체크리스트 · 납기 캘린더 · 본사–한국 확인 흐름</p>
-          </div>
-          <div class="work-case-item">
-            <span class="work-case-label">Operational Effect</span>
-            <p>출시 전 확인 단계와 책임 범위가 명확해져 누락 가능성을 줄이고 커뮤니케이션 기준을 맞췄습니다.</p>
+            <span class="work-case-label">Outcome</span>
+            <p>본사–공급사–국내 파트너 사이의 주문·납기·사후 이슈를 하나의 운영 흐름으로 연결.</p>
           </div>
         </div>
         <div class="work-foot">
-          <span class="work-tags">Brand Localization · Italian↔KR Operations</span>
+          <span class="work-tags">Account Operations · Sourcing · Import</span>
         </div>
       </div>
     </div>
 
-    <!-- OW003 - Saturn Bath -->
+    <!-- OW002 - Saturn Bath -->
     <div class="work-card">
-      <span class="work-id">OW003 · Saturn Bath · 2017—2020</span>
-      <div class="work-stat">0<span class="arrow">→</span>6<span class="unit">markets</span></div>
-      <h3 class="work-title">제로에서 6개국 거래선 발굴 — 글로벌 B2B 영업</h3>
-      <p class="work-desc">백지에서 글로벌 바이어 발굴부터 계약 클로징까지 전 사이클. <strong>영문 브랜드 제안서 표준화</strong>. 인도 진달 그룹 등 신흥 시장 현지 파트너 직접 발굴·관계 구축.</p>
+      <span class="work-id">OW002 · Saturn Bath · 2017—2020</span>
+      <div class="work-stat">3<span class="unit">focus markets</span></div>
+      <h3 class="work-title">다국가 신규 바이어 발굴과 초기 거래 개발</h3>
+      <div class="work-case">
+        <div class="work-case-item">
+          <span class="work-case-label">Role</span>
+          <p>해외영업부 주임 · Global B2B</p>
+        </div>
+        <div class="work-case-item">
+          <span class="work-case-label">Scope</span>
+          <p>베트남·러시아·인도 바이어 발굴 · 수출 실무 · 해외 전시회</p>
+        </div>
+        <div class="work-case-item">
+          <span class="work-case-label">Actions</span>
+          <p>상담·견적·샘플·초기 주문·후속 관리. 영문 제안서 표준화와 현지 파트너 관계 구축.</p>
+        </div>
+        <div class="work-case-item">
+          <span class="work-case-label">Outcome</span>
+          <p>베트남 약 3,500만원·러시아 약 9,000만원 초도 주문. 인도 파트너 관계를 현지 초청·한국 본사 미팅·합작사업 검토까지 확대.</p>
+        </div>
+      </div>
       <div class="work-foot">
-        <span class="work-tags">Global B2B · Cross-Cultural</span>
+        <span class="work-tags">Buyer Development · Export · Exhibition</span>
       </div>
     </div>
 
-    <!-- SI001 - AI Video (Featured) -->
-    <a href="https://www.instagram.com/p/DXlky7jkb2k/" target="_blank" rel="noopener" class="work-card feature split">
-      <div class="feature-img">
-        <img src="cap1.jpg" alt="AI 화장품 영상 — kared.kr 브랜드 샤라웃">
-      </div>
+    <!-- OW003 - Mondrian AI -->
+    <div class="work-card feature">
       <div class="feature-body">
-        <span class="work-id">SI001 · Featured · 2026.04</span>
-        <div class="work-stat">2x<span class="unit">brand shoutouts</span></div>
-        <h3 class="work-title">AI 화장품 영상 — 시장 검증 + 외부 우수상</h3>
-        <p class="work-desc">AI 툴로 직접 제작한 뷰티 영상이 실제 브랜드 계정에서 샤라웃을 받으며 시장 검증. <strong>Selfish Club 뷰티·패션 AI 영상 챌린지 우수상</strong>.</p>
-        <div class="work-foot">
-          <span class="work-tags">Selfish Club · AI Video · Award</span>
-          <span class="work-arrow">Watch on Instagram →</span>
+        <span class="work-id">OW003 · Mondrian AI · 2021—2022</span>
+        <div class="work-stat">259<span class="unit">booth visitors</span></div>
+        <h3 class="work-title">AI EXPO KOREA 2022 — B2B 접점을 콘텐츠와 현장으로 연결</h3>
+        <div class="work-case">
+          <div class="work-case-item">
+            <span class="work-case-label">Role</span>
+            <p>마케팅·영업팀 주임 · B2B 콘텐츠/PR</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Scope</span>
+            <p>블로그·뉴스 기사·인터뷰 · PR · 전시회 · 해외 파트너 지원</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Actions</span>
+            <p>AI EXPO 기획·사전 홍보·현장 운영·사후 콘텐츠 전 과정과 브랜드 톤앤매너 기반 채널 콘텐츠 제작·발행.</p>
+          </div>
+          <div class="work-case-item">
+            <span class="work-case-label">Outcome</span>
+            <p>명함 집계 기준 부스 방문객 259명. 행사 전후 B2B 메시지와 후속 접점을 콘텐츠로 연결.</p>
+          </div>
         </div>
-      </div>
-    </a>
-
-    <!-- SI002 - Research Archive -->
-    <div class="work-card">
-      <span class="work-id">SI002 · Continuous · 2026—</span>
-      <div class="work-stat">∞<span class="unit">running</span></div>
-      <h3 class="work-title">K-Beauty Files 리서치 아카이브</h3>
-      <p class="work-desc">인디 클린 뷰티 브랜드의 "첫 문장" 을 한 브랜드씩 운영자의 시선으로 추적. <strong>Claude Code 로 리서치 자동화</strong> 시스템 직접 구축·운영.</p>
-      <div class="work-foot">
-        <span class="work-tags">Claude Code · Notion · Automation</span>
+        <div class="work-foot">
+          <span class="work-tags">B2B Content · PR · Trade Show</span>
+        </div>
       </div>
     </div>
 
@@ -1304,39 +1350,18 @@
   <div class="sec-head">
     <div class="sec-head-left">
       <span class="num">02</span>
-      <span>K-Beauty Files · POV</span>
+      <span>K-Beauty Files · Global Business Lens</span>
     </div>
-    <h2 class="sec-title">인디 클린 뷰티를 한 브랜드씩,<br><span class="soft">"첫 문장" 을 추적합니다.</span></h2>
+    <h2 class="sec-title">K-뷰티 브랜드를 제품과 유통으로 읽고,<br><span class="soft">해외 시장의 가능성을 질문합니다.</span></h2>
   </div>
 
   <div class="kb-files">
-    <ul class="kb-files-list" style="list-style:none;padding:0;margin:0">
-
-      <a href="https://www.instagram.com/p/DZJ4I8fAc1C/" target="_blank" rel="noopener" class="kb-row" style="text-decoration:none;color:inherit;">
-        <span class="num">vol.7</span>
-        <div class="brand">WHIPPED<span class="ko">휩드</span></div>
-        <div class="topic"><strong>"선물이 첫 문장이다"</strong> — 바르는 게 아니라 "주고 싶은 마음" 을 파는 브랜드. 광고 없이 연 200억.</div>
-        <span class="meta">Published<span class="arrow">→</span></span>
-      </a>
-
-      <a href="https://www.instagram.com/p/DZCaXWrgcwD/" target="_blank" rel="noopener" class="kb-row" style="text-decoration:none;color:inherit;">
-        <span class="num">vol.6</span>
-        <div class="brand">DEMAF<span class="ko">디마프</span></div>
-        <div class="topic"><strong>"교육이 첫 문장이다"</strong> — 화장품을 팔지 않고 가르치는 브랜드. 강의·미션 챌린지로 2년 누적 100억.</div>
-        <span class="meta">Published<span class="arrow">→</span></span>
-      </a>
-
-      <a href="https://www.instagram.com/p/DYySjIVAWgr/" target="_blank" rel="noopener" class="kb-row" style="text-decoration:none;color:inherit;">
-        <span class="num">vol.5</span>
-        <div class="brand">FROMRIER<span class="ko">프롬리에</span></div>
-        <div class="topic"><strong>"배리어 프리가 첫 문장이다"</strong> — 점자와 기부, 장벽을 없애는 의사결정.</div>
-        <span class="meta">Published<span class="arrow">→</span></span>
-      </a>
-
+    <ul class="kb-files-list" data-portfolio-latest data-limit="3" style="list-style:none;padding:0;margin:0">
+      <li class="kb-row">최신 발행 글을 불러오는 중입니다.</li>
     </ul>
 
     <div class="kb-cta">
-      <a href="archive.html">View all issues</a>
+      <a href="archive.html">View all <span data-portfolio-count="all">09</span> issues</a>
     </div>
   </div>
 </section>
@@ -1346,14 +1371,14 @@
   <div class="manifesto-inner">
     <aside class="manifesto-aside">
       <span class="accent">— Manifesto</span>
-      운영자의 시선으로<br>브랜드를 본다는 것.
+      해외영업의 시선으로<br>브랜드를 본다는 것.
     </aside>
     <div>
       <p class="manifesto-quote">
-        브랜드는 카피로 만들어지지 않습니다.<br>
-        브랜드는 <span class="accent">매일의 운영 결정</span>으로 만들어집니다.
+        좋은 제품만으로 거래가 시작되지는 않습니다.<br>
+        제품의 가치를 <span class="accent">바이어의 언어와 시장 조건</span>으로 연결해야 합니다.
       </p>
-      <p class="manifesto-cite">유럽 본사가 보낸 가이드를 한국 시장에 옮기는 매일이, 마케팅이었습니다.</p>
+      <p class="manifesto-cite">본사·공급사·현지 파트너 사이에서 그 연결을 실행해왔습니다.</p>
     </div>
   </div>
 </section>
@@ -1365,7 +1390,7 @@
       <span class="num">03</span>
       <span>Capabilities</span>
     </div>
-    <h2 class="sec-title">경력을 연결하는 <span class="soft">네 가지 교차점.</span></h2>
+    <h2 class="sec-title">해외 거래를 움직이는 <span class="soft">네 가지 역량.</span></h2>
   </div>
 
   <div class="caps-list">
@@ -1373,60 +1398,60 @@
     <div class="cap-row">
       <span class="cap-id">CP01</span>
       <div>
-        <div class="cap-headline">Cross-Cultural Operating</div>
-        <span class="cap-en">Italian HQ ↔ KR Brand Operations</span>
+        <div class="cap-headline">Global Account Management</div>
+        <span class="cap-en">HQ · Supplier · Local Partner</span>
       </div>
       <div class="cap-info">
-        <p>이태리 본사와 한국 시장 사이의 럭셔리 브랜드 운영을 <strong>직접 해본 사람</strong>. 본사가 무엇을 지키고 싶어하는지, 한국 시장이 무엇을 요구하는지를 양쪽 언어로 조율한 경험.</p>
+        <p>본사·공급사·국내 파트너 사이에서 <strong>발주부터 납기와 A/S까지</strong> 거래 이후의 운영을 이어갑니다.</p>
       </div>
       <div class="cap-proof">
         <span class="pl">Proof</span>
-        이태리 본사 컨퍼런스 콜·이메일 직접 응대. 8시간 시차 사이의 운영 리듬 직접 설계.
+        이태리 6개 브랜드 본사 커뮤니케이션 · 제품 사양·생산·납기·A/S 조율
       </div>
     </div>
 
     <div class="cap-row">
       <span class="cap-id">CP02</span>
       <div>
-        <div class="cap-headline">Localization at Premium Tier</div>
-        <span class="cap-en">Premium Brand Translation</span>
+        <div class="cap-headline">New Market Development</div>
+        <span class="cap-en">Prospecting · Quotation · Initial Order</span>
       </div>
       <div class="cap-info">
-        <p>럭셔리 톤을 <strong>잃지 않으면서 시장에 옮기는 법</strong>을 안다. 패키징·라벨·카피·매장 응대까지 일관성을 유지하는 통합 가이드 운영 경험.</p>
+        <p>시장과 파트너를 조사하고 직접 접촉해 <strong>상담·견적·샘플·초기 거래·후속 관리</strong>로 사업 기회를 발전시킵니다.</p>
       </div>
       <div class="cap-proof">
         <span class="pl">Proof</span>
-        본사 가이드와 한국 시장의 요구 사이에서 매일 결정. 가격대·매장·콘텐츠 채널별 톤 분리.
+        베트남·러시아 초도 주문 실무 · 인도 파트너와 현지 초청·본사 미팅·합작사업 검토
       </div>
     </div>
 
     <div class="cap-row">
       <span class="cap-id">CP03</span>
       <div>
-        <div class="cap-headline">Beauty Insider Perspective</div>
-        <span class="cap-en">Consumer + Curator Lens</span>
+        <div class="cap-headline">Brand &amp; Market Communication</div>
+        <span class="cap-en">Sales-Enabled Content &amp; Local Context</span>
       </div>
       <div class="cap-info">
-        <p>퍼스널컬러 자격부터 성분 공부, 꾸준한 K-뷰티 분석까지 — <strong>소비자이자 큐레이터로서의 시선</strong>.</p>
+        <p>제품과 브랜드의 강점을 <strong>현지 파트너가 이해하고 활용할 수 있는 메시지</strong>로 정리합니다. 콘텐츠는 영업 접점을 넓히는 수단입니다.</p>
       </div>
       <div class="cap-proof">
         <span class="pl">Proof</span>
-        퍼스널컬러 컨설턴트 자격 · 성분 리터러시 · K-Beauty Files 연재.
+        B2B 콘텐츠·PR · 전시회 운영 · K-Beauty 제품 USP·유통 채널 리서치
       </div>
     </div>
 
     <div class="cap-row">
       <span class="cap-id">CP04</span>
       <div>
-        <div class="cap-headline">AI-Native Operator</div>
-        <span class="cap-en">Builder, not just User</span>
+        <div class="cap-headline">AI-Enabled Operations</div>
+        <span class="cap-en">Data · Workflow · Decision Support</span>
       </div>
       <div class="cap-info">
-        <p>AI 도구를 <strong>쓰는 사람이 아니라 만드는 사람</strong>. 리서치 자동화 시스템과 이 포트폴리오 모두 본인이 직접 구축.</p>
+        <p>반복 업무와 정보를 구조화해 <strong>거래처 관리와 의사결정 속도</strong>를 높입니다. 도구보다 실제 업무 흐름을 먼저 봅니다.</p>
       </div>
       <div class="cap-proof">
         <span class="pl">Proof</span>
-        AI 영상 챌린지 우수상 · Claude Code 자동화 아카이브 · 이 사이트 직접 구축.
+        Excel · Microsoft Lists · Power BI · AI 도구 기반 리서치·콘텐츠·업무 자동화
       </div>
     </div>
 
@@ -1440,32 +1465,12 @@
       <span class="num">04</span>
       <span>Experience · 2017—Present</span>
     </div>
-    <h2 class="sec-title">직장의 나열이 아니라, <span class="soft">스킬의 누적 곡선.</span></h2>
+    <h2 class="sec-title">해외 거래에서 시작해, <span class="soft">브랜드와 시장까지.</span></h2>
   </div>
 
   <div class="career-list">
 
     <article class="career-row feature">
-      <div class="career-period">
-        <div class="latest">CURRENT · INDEPENDENT PROJECT</div>
-        2026 — Present
-      </div>
-      <div>
-        <h3 class="career-co">Independent K-Beauty Research</h3>
-        <div class="career-role">Brand Analysis · AI Content · Self-Initiated</div>
-        <p class="career-bizh">해외영업과 B2B 마케팅 경험을 K-뷰티 브랜드 분석과 AI 콘텐츠 제작으로 확장.</p>
-      </div>
-      <div class="career-detail">
-        <ul>
-          <li>K-Beauty Files 브랜드 분석 <strong>7편</strong> 및 현장 노트 <strong>2편</strong> 기획·발행</li>
-          <li>뷰티·패션 AI 영상 챌린지 우수상 · AI 실전 활용 프로그램 우수 수료</li>
-          <li>Claude Code로 리서치·콘텐츠·아카이브 사이트 운영 흐름 구축</li>
-        </ul>
-        <div class="career-learned">정규 고용이 아닌 독립 프로젝트입니다.</div>
-      </div>
-    </article>
-
-    <article class="career-row">
       <div class="career-period">
         <div class="latest">RECENT ROLE</div>
         2023 — 2025
@@ -1473,34 +1478,16 @@
       <div>
         <h3 class="career-co">T&amp;S Trading</h3>
         <div class="career-role">무역부 대리 · Italian Premium Interior</div>
-        <p class="career-bizh">이태리 럭셔리 인테리어 6개 브랜드 한국 운영. 본사 ↔ 한국 사이의 운영을 새로 설계.</p>
+        <p class="career-bizh">이태리 하이엔드 브랜드 6개 본사 커뮤니케이션 및 국내 유통 운영.</p>
       </div>
       <div class="career-detail">
         <ul>
-          <li>이태리 본사 <strong>6개 브랜드</strong>의 한국 커뮤니케이션과 운영 일정 담당</li>
-          <li>브랜드별 확인 항목을 패키징·라벨 통합 체크리스트로 정리</li>
-          <li>납기 캘린더와 본사–한국 확인 흐름을 구축해 확인 단계와 책임 범위를 명확화</li>
-          <li>이태리 본사와 국내 파트너 사이의 사양·일정·메시지 조율</li>
+          <li>이태리 본사 <strong>6개 브랜드</strong> 커뮤니케이션 및 운영 실무 전담</li>
+          <li>발주·생산·납기·제품 사양·A/S 이슈를 본사·공급사·국내 파트너와 조율</li>
+          <li>독일 등 유럽 제조사·공급사 직접 접촉, 제품 소싱 및 수입 실무</li>
+          <li>KC 인증 관련 실무 · 이탈리아 출장 및 본사 미팅</li>
         </ul>
-        <div class="career-learned">이태리 럭셔리 브랜드 아이덴티티를 한국 시장으로 옮기는 법을 배웠습니다.</div>
-      </div>
-    </article>
-
-    <article class="career-row">
-      <div class="career-period">2021 — 2022</div>
-      <div>
-        <h3 class="career-co">Mondrian AI</h3>
-        <div class="career-role">마케팅·영업팀 주임 · IT Startup</div>
-        <p class="career-bizh">브랜드 톤앤매너 가이드를 채널별 콘텐츠에 적용. 블로그·뉴스 기사·인터뷰 콘텐츠 제작·발행, Owned Media와 PR 운영.</p>
-      </div>
-      <div class="career-detail">
-        <ul>
-          <li>브랜드 <strong>톤앤매너 가이드 적용</strong> · 블로그·뉴스 기사·인터뷰 콘텐츠 제작·발행</li>
-          <li>SNS·홈페이지 Owned Media 운영, 콘텐츠 발행 사이클 안정화</li>
-          <li>PR 언론활동·내외부 행사 기획·운영</li>
-          <li>해외 파트너 발굴 + 정부지원 수출사업 제안서 작성</li>
-        </ul>
-        <div class="career-learned">B2B 브랜드의 메시지를 콘텐츠와 PR로 실행하는 법을 배웠습니다.</div>
+        <div class="career-learned">브랜드 기준과 국내 거래 조건을 함께 지키는 운영 방식을 익혔습니다.</div>
       </div>
     </article>
 
@@ -1509,16 +1496,54 @@
       <div>
         <h3 class="career-co">Saturn Bath</h3>
         <div class="career-role">해외영업부 주임 · Global B2B</div>
-        <p class="career-bizh">백지에서 6개국 거래선 발굴. 영문 제안서 표준화로 글로벌 영업 기반 구축.</p>
+        <p class="career-bizh">다국가 신규 바이어 발굴 및 사업 기회 개발. 수출과 전시회 현장 실무.</p>
       </div>
       <div class="career-detail">
         <ul>
-          <li>글로벌 바이어 발굴부터 계약 클로징까지 전 사이클, <strong>6개국 신규 거래선 확보</strong></li>
-          <li>회사 영문 브랜드 제안서 처음부터 제작·표준화</li>
-          <li>심천 국제 공업 디자인전시회 등 해외 전시회 현장 상담</li>
-          <li>인도 진달 그룹 등 신흥 시장 현지 파트너 직접 발굴·관계 구축</li>
+          <li>베트남·러시아·인도 등 신규 바이어 발굴 및 <strong>상담·견적·초기 거래·후속 관리</strong></li>
+          <li>베트남 약 3,500만원 · 러시아 약 9,000만원 초도 주문 실무</li>
+          <li>인도 진달그룹 계열 유통사와 현지 초청·한국 본사 미팅·합작사업 검토까지 관계 확대</li>
+          <li>영문 제안서 제작·표준화 · 수출 서류 · 해외 전시회 현장 상담</li>
         </ul>
-        <div class="career-learned">백지에서 글로벌 B2B 관계를 만드는 법을 배웠습니다.</div>
+        <div class="career-learned">신규 접점을 실제 사업 기회와 장기 파트너 관계로 발전시키는 법을 배웠습니다.</div>
+      </div>
+    </article>
+
+    <article class="career-row">
+      <div class="career-period">2021 — 2022</div>
+      <div>
+        <h3 class="career-co">Mondrian AI</h3>
+        <div class="career-role">마케팅·영업팀 주임 · IT Startup</div>
+        <p class="career-bizh">B2B 콘텐츠와 PR, 전시회를 통해 브랜드 메시지를 영업 접점으로 확장.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li>브랜드 톤앤매너 가이드 적용 · 블로그·뉴스 기사·인터뷰 콘텐츠 제작·발행</li>
+          <li>AI EXPO KOREA 2022 기획·사전 홍보·현장 운영·사후 콘텐츠 전 과정 수행</li>
+          <li>명함 집계 기준 부스 방문객 <strong>259명</strong> · 행사 후속 콘텐츠 발행</li>
+          <li>해외 파트너 발굴 지원 · 정부지원 수출사업 제안서 작성</li>
+        </ul>
+        <div class="career-learned">콘텐츠와 현장 운영을 B2B 고객 접점에 연결하는 법을 배웠습니다.</div>
+      </div>
+    </article>
+
+    <article class="career-row">
+      <div class="career-period">
+        <div class="latest">ONGOING · INDEPENDENT</div>
+        2026 — Present
+      </div>
+      <div>
+        <h3 class="career-co">K-Beauty Files &amp; Field Notes</h3>
+        <div class="career-role">Independent Research · Global Business Lens</div>
+        <p class="career-bizh">제품 USP·유통 채널·시장 진입·글로벌 확장 가능성을 꾸준히 기록.</p>
+      </div>
+      <div class="career-detail">
+        <ul>
+          <li>K-Beauty Files <strong>7편</strong> · 현장 노트 <strong>2편</strong> 기획·발행</li>
+          <li>퍼스널컬러·성분 학습을 제품과 시장 분석의 보조 근거로 활용</li>
+          <li>AI 도구로 리서치·콘텐츠·아카이브 운영 흐름을 구조화</li>
+        </ul>
+        <div class="career-learned">정규 고용이 아닌 독립 프로젝트이며, 해외영업 지원을 위한 산업 리서치입니다.</div>
       </div>
     </article>
 
@@ -1530,9 +1555,9 @@
   <div class="sec-head">
     <div class="sec-head-left">
       <span class="num">05</span>
-      <span>About — Global Sales to K-Beauty</span>
+      <span>About — Italian Luxury to K-Beauty</span>
     </div>
-    <h2 class="sec-title">해외영업 6년, 마케팅 1년.<br><span class="soft">다음은 K-뷰티의 세계 시장으로.</span></h2>
+    <h2 class="sec-title">해외영업 및 B2B 마케팅 경력 7년.<br><span class="soft">다음은 K-뷰티의 글로벌 B2B로.</span></h2>
   </div>
 
   <div class="about-grid">
@@ -1545,11 +1570,11 @@
     </aside>
 
     <div class="about-body">
-      <p class="lede">6년간 해외영업을 담당하며 이태리 럭셔리 인테리어 브랜드 6개의 한국 시장 운영과 6개국 신규 거래선 발굴을 경험했습니다.</p>
+      <p class="lede">해외영업을 중심으로 이태리 하이엔드 브랜드 6개의 본사 커뮤니케이션과 국내 유통 운영, 다국가 신규 바이어 발굴과 수출 실무를 경험했습니다.</p>
 
-      <p>이후 1년간 B2B 마케팅을 맡아 콘텐츠와 PR을 실행했고, 지금은 두 경험을 <strong>K-뷰티의 해외 시장 확장</strong>에 연결하고 있습니다.</p>
+      <p>B2B 마케팅 경험은 별도의 직무 전환이 아니라, 제품과 브랜드의 강점을 <strong>바이어와 현지 시장이 이해할 수 있는 언어</strong>로 전달하는 영업 역량으로 활용합니다.</p>
 
-      <p>퍼스널컬러 교육과 성분 공부를 기반으로 매주 K-뷰티 브랜드를 분석하고 기록합니다. 한 번 미뤄두었던 뷰티에 대한 관심을 독립적인 리서치와 콘텐츠 제작으로 다시 증명하고 있습니다.</p>
+      <p>K-Beauty Files와 현장 노트를 통해 제품 USP·유통 채널·시장 진입·글로벌 확장 가능성을 꾸준히 학습하고 있습니다.</p>
     </div>
   </div>
 </section>
@@ -1620,11 +1645,11 @@
       </div>
       <div class="index-row">
         <div class="name">Operations</div>
-        <div class="desc">브랜드 가이드 · 채널 운영 · 자동화 워크플로우</div>
+        <div class="desc">거래처 관리 · 발주·납기 · 수출·수입 · 공급사 커뮤니케이션</div>
       </div>
       <div class="index-row">
         <div class="name">Tools / AI</div>
-        <div class="desc">Claude Code · Notion · Figma · Canva</div>
+        <div class="desc">Excel · Microsoft Lists · Power BI · AI 도구 · Notion</div>
       </div>
     </div>
 
@@ -1638,8 +1663,8 @@
       <span class="label">— 07 / Contact</span>
       <h2>다음 챕터를<br><span class="accent">함께 쓸 팀</span>을 찾습니다.</h2>
       <p style="margin-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-mute);line-height:1.85">
-        Currently · 해외영업 · 글로벌 세일즈·마케팅 포지션 탐색 중<br>
-        Building · K-Beauty Files 연재 · Claude Code 자동화
+        Currently · K-Beauty 해외영업 / 글로벌 B2B 포지션 탐색 중<br>
+        Building · K-Beauty Files · 현장 노트 · AI-Enabled Operations
       </p>
     </div>
     <div class="contact-right">
@@ -1673,8 +1698,8 @@
 
 <!-- ─── FOOTER ──────────────────────────────────── -->
 <footer>
-  <span>© 2026 최지예 Zeze Choi · Global Sales &amp; Marketing</span>
-  <span>Last updated 2026.07.10 · Edition 02</span>
+  <span>© 2026 최지예 Zeze Choi · Global B2B Sales &amp; Brand Operations</span>
+  <span>Last updated <time data-portfolio-updated datetime="2026-07-23">2026.07.23</time> · Edition <span data-portfolio-edition>03</span></span>
 </footer>
 
 </body>

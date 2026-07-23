@@ -2,12 +2,14 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Insight Archive — Zeze Choi</title>
+<title>K-Beauty Global Business Archive — Zeze Choi</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="K-뷰티 브랜드를 한 브랜드씩, 운영자의 시선으로 분석합니다. — Insight Archive by Zeze Choi">
+<meta name="description" content="K-뷰티의 제품 USP, 유통 채널, 시장 진입과 글로벌 확장 가능성을 해외영업 관점으로 기록합니다. — Zeze Choi">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<script src="portfolio-data.js" defer></script>
+<script src="portfolio-ui.js" defer></script>
 
 <style>
   :root {
@@ -93,6 +95,8 @@
     font-size: 14px;
     letter-spacing: -0.01em;
     color: var(--text);
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
   .nav-stamp {
     font-family: var(--mono);
@@ -606,8 +610,10 @@
   }
   @media (max-width: 760px) {
     nav.site-nav { padding: 12px 20px; }
-    .nav-links, .nav-stamp { display: none; }
+    .nav-links, .nav-stamp, .nav-status { display: none; }
+    .nav-left, .hero > div { min-width: 0; }
     .hero { padding: 56px 20px 48px; }
+    .hero-stamp { flex-wrap: wrap; gap: 8px 12px; line-height: 1.55; }
     .editor-note { padding: 56px 20px; }
     .editor-note-inner { grid-template-columns: 1fr; gap: 28px; }
     .pulse-section, .cats-section, .recent-section, .back-strip {
@@ -644,7 +650,7 @@
     <li><a href="index.html#career">Experience</a></li>
     <li><a href="archive.html" class="active">Archive</a></li>
   </ul>
-  <div class="nav-status"><span class="dot-live"></span>2 Series · Ongoing</div>
+  <div class="nav-status"><span class="dot-live"></span><span data-portfolio-series-count>2</span> Series · Ongoing</div>
 </nav>
 
 <!-- ─── HERO ────────────────────────────────────── -->
@@ -652,9 +658,9 @@
   <div>
     <div class="hero-stamp">
       <span class="bar"></span>
-      <span>Insight Archive · 2026</span>
+      <span>Insight Archive · Ed. <span data-portfolio-edition>03</span> / 2026</span>
       <span>·</span>
-      <span>2026 — </span>
+      <span>Volume <span data-portfolio-volume>09</span></span>
     </div>
 
     <aside class="hero-meta-aside">
@@ -668,11 +674,11 @@
 
   <div>
     <h1 class="hero-title">
-      K-뷰티를 한 브랜드씩,<br>
-      <span class="accent">운영자의 시선</span>으로 읽습니다.
+      K-뷰티를 제품과 유통으로,<br>
+      <span class="accent">글로벌 사업의 시선</span>으로 읽습니다.
     </h1>
     <p class="hero-blurb">
-      브랜드 전략, 캠페인, 트렌드. 한 편에 한 가지 시선을 골라 기록합니다. 브랜드를 직접 운영해본 사람의 관점에서 — <strong>"카피가 말하기 전에 브랜드가 가장 먼저 쓴 한 문장"</strong> 을 추적합니다.
+      제품 USP, 유통 채널, 시장 진입, 글로벌 확장 가능성. 한 편에 한 가지 사업 질문을 골라 기록합니다. <strong>브랜드의 선택이 해외 바이어와 현지 시장에서 어떻게 읽힐지</strong>를 살핍니다.
       여기 쌓이는 글은 <a href="https://www.instagram.com/zeze_beautynote/" target="_blank" rel="noopener">@zeze_beautynote</a> 인스타그램에도 함께 발행됩니다.
     </p>
   </div>
@@ -688,13 +694,13 @@
     </aside>
 
     <div class="editor-note-body">
-      <p>이 아카이브는 "마케팅 캠페인 분석" 이 아닙니다.</p>
-      <p>이태리 럭셔리 인테리어 브랜드 6개를 한국에서 운영하며 하나를 배웠습니다. <strong>본사가 보낸 한 줄을 시장이 받는 한 줄로 옮기는 결정, 그것이 곧 마케팅이라는 것</strong>. 저는 그 시선으로 K-뷰티 브랜드를 다시 읽습니다.</p>
-      <p>특히 <strong>브랜드의 첫 문장</strong>에 시선을 둡니다. 큰 캠페인이 아니라, 브랜드가 가장 먼저 쓴 한 문장 — 그 결정의 순간을 기록합니다.</p>
-      <p>그리고 강연·서밋·전시·미팅 등 <strong>현장에서 직접 본 것</strong>은 「현장 노트」 시리즈로 함께 기록합니다.</p>
+      <p>이 아카이브는 콘텐츠 포트폴리오가 아니라 <strong>K-Beauty 해외 사업을 위한 시장 학습 기록</strong>입니다.</p>
+      <p>해외영업과 브랜드 운영 경험을 바탕으로 각 브랜드의 <strong>제품 USP와 유통 채널</strong>을 먼저 봅니다. 무엇을 파는지보다 누구에게, 어떤 근거로, 어떤 접점에서 선택될지를 질문합니다.</p>
+      <p>「브랜드의 첫 문장」에서는 <strong>시장 진입 메시지와 글로벌 확장 가능성</strong>을, 「현장 노트」에서는 전시·서밋에서 확인한 바이어 관심과 카테고리 변화를 기록합니다.</p>
+      <p>목표는 하나입니다. 좋은 브랜드를 발견하는 데서 멈추지 않고, <strong>해외 파트너에게 설명하고 거래 기회로 연결할 수 있는 시선</strong>을 쌓는 것.</p>
 
       <div class="editor-note-sig">
-        <span class="name">최지예 Zeze Choi</span> · Editor & Operator
+        <span class="name">최지예 Zeze Choi</span> · Global B2B Sales &amp; Brand Operations
       </div>
     </div>
   </div>
@@ -715,7 +721,7 @@
     </div>
     <div class="pulse-stat">
       <span class="label-sm">Published</span>
-      <span class="pulse-num"><span data-stat="articles">09</span></span>
+      <span class="pulse-num"><span data-portfolio-count="all">09</span></span>
       <span class="pulse-sub">두 시리즈 누적 발행</span>
     </div>
     <div class="pulse-stat">
@@ -735,19 +741,19 @@
 <section class="cats-section">
   <div class="cats-head">
     <h2>By Category <span class="soft">— 분류별 인덱스</span></h2>
-    <span class="total" data-cats-total>0 entries</span>
+    <span class="total" data-portfolio-total>9 published · 2 series</span>
   </div>
 
   <div class="cats-list" id="catsList">
     <a href="#strategy" class="cat-row" data-cat="strategy">
       <span class="cat-name">브랜드 전략 <span style="font-family:var(--mono);font-size:11px;color:var(--text-mute);letter-spacing:0.06em;text-transform:uppercase;margin-left:8px">Strategy</span></span>
       <span class="cat-leader"></span>
-      <span class="cat-count" data-count="strategy">00</span>
+      <span class="cat-count" data-portfolio-count="strategy">07</span>
     </a>
     <a href="#research" class="cat-row" data-cat="research">
       <span class="cat-name">시장 조사 <span style="font-family:var(--mono);font-size:11px;color:var(--text-mute);letter-spacing:0.06em;text-transform:uppercase;margin-left:8px">Market Research</span></span>
       <span class="cat-leader"></span>
-      <span class="cat-count" data-count="research">00</span>
+      <span class="cat-count" data-portfolio-count="research">02</span>
     </a>
   </div>
 </section>
@@ -761,123 +767,15 @@
 
   <div class="filters">
     <button class="filter active" data-filter="all">All</button>
-    <button class="filter" data-filter="strategy">Strategy</button>
-    <button class="filter" data-filter="research">Market Research</button>
+    <button class="filter" id="strategy" data-filter="strategy">Strategy</button>
+    <button class="filter" id="research" data-filter="research">Market Research</button>
   </div>
 
-  <div class="cards" id="cards">
-
-    <a href="https://www.instagram.com/p/DZJ4I8fAc1C/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="whipped" data-date="2026-06-11">
-      <div class="card-date">2026.06.11</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.7</span>
-        <div class="brand">WHIPPED<span class="ko">휩드</span></div>
-        <h3>선물이 첫 문장이다 — 바르는 게 아니라 "주고 싶은 마음" 을 파는 브랜드.</h3>
-        <p>크림케이크에서 영감받은 휩드 크림 클렌저. <strong>"휩드는 바르는 걸 팔지 않는다, 주고 싶은 마음을 판다"</strong> — 제품 경험을 선물 심리와 입소문으로 확장한 브랜드의 결정.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DZCaXWrgcwD/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="demaf" data-date="2026-06-04">
-      <div class="card-date">2026.06.04</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.6</span>
-        <div class="brand">DEMAF<span class="ko">디마프</span></div>
-        <h3>교육이 첫 문장이다 — 화장품을 팔지 않고 가르치는 브랜드.</h3>
-        <p>판테놀 앰플 + <strong>"피부 장벽학개론"</strong> 강의·미션 챌린지. CEO의 교육 백그라운드를 비즈니스 모델로 연결해 <strong>"디마프는 화장품을 팔지 않는다, 가르친다"</strong>는 관점을 만든 브랜드.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DY33dwJgRgZ/" target="_blank" rel="noopener" class="card" data-category="research" data-brand="cosmobeauty-2026" data-date="2026-05-28">
-      <div class="card-date">2026.05.28</div>
-      <div class="card-body">
-        <span class="card-series">「현장 노트」 vol.2</span>
-        <div class="brand">COSMOBEAUTY SEOUL 2026<span class="ko">전시 노트</span></div>
-        <h3>"덮는 게 아니라 고치는 방향" — 830개 부스가 향하는 곳.</h3>
-        <p>830 부스 · 4,700 브랜드 한 자리에서 본 K-뷰티의 다음 방향. <strong>PDRN · 콜라겐 · 글루타치온</strong>이 성분 주류, <strong>글로우·진정·배리어 복구</strong>가 기능 축. 스킨케어가 60% 이지만 바이어 관심은 헤어·두피·이너뷰티로 분산. 결국 차별점은 내러티브와 데이터 기반 처방.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Market Research</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DYySjIVAWgr/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="fromrier" data-date="2026-05-27">
-      <div class="card-date">2026.05.27</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.5</span>
-        <div class="brand">FROMRIER<span class="ko">프롬리에</span></div>
-        <h3>배리어 프리가 첫 문장이다 — 점자로 시작한 의사결정.</h3>
-        <p>EGF·병풀 선앰플에 점자 각인, 매출 1% 기부. <strong>"제품을 만들지 않는다, 장벽을 없앤다"</strong> 는 의사결정 기준으로 접근성을 브랜드 철학으로 삼은 인디 브랜드.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DYl2QE0gT4u/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="torriden" data-date="2026-05-23">
-      <div class="card-date">2026.05.23</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.4</span>
-        <div class="brand">TORRIDEN<span class="ko">토리든</span></div>
-        <h3>성분이 첫 문장이다 — 유행이 아니라 성분이었다.</h3>
-        <p>저분자 히알루론산이 표면이 아니라 속으로. <strong>"토리든은 유행이 아니었다, 성분이었다"</strong>는 한 문장으로 성분 중심의 브랜드 선택을 읽었습니다.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DYZWVw4AROT/" target="_blank" rel="noopener" class="card" data-category="research" data-brand="bm-summit-2026" data-date="2026-05-16">
-      <div class="card-date">2026.05.16</div>
-      <div class="card-body">
-        <span class="card-series">「현장 노트」 vol.1</span>
-        <div class="brand">Beauty BM Intelligence Summit 2026<span class="ko">서밋 노트</span></div>
-        <h3>"팔고 싶은 거 만들지 마세요" — BM의 시대가 끝난 자리.</h3>
-        <p>하루 종일 강연 들으면서 계속 같은 말이 나왔다. <strong>HERO 제품은 "기획이 아니라 발견"</strong>, 국내는 포화 — 글로벌로 가라. BM에서 운영자로 시선이 옮겨가는 분기점.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Market Research</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DYRQNQigVwc/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="parnell" data-date="2026-05-13">
-      <div class="card-date">2026.05.13</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.3</span>
-        <div class="brand">PARNELL<span class="ko">파넬</span></div>
-        <h3>진정이 첫 문장이다 — 커버 대신 케어를 선택한 쿠션.</h3>
-        <p>병풀 + 뉴질랜드 마누카 꿀의 시카 마누 세럼 쿠션. <strong>"커버하지 않는다, 진정한다"</strong> 는 한 마디로 쿠션 카테고리를 다시 정의한 인디 브랜드의 결정.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DX54Ya5ges2/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="hyaah" data-date="2026-05-04">
-      <div class="card-date">2026.05.04</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.2</span>
-        <div class="brand">HYAAH<span class="ko">히야</span></div>
-        <h3>카테고리 확장이 곧 브랜드 철학이다.</h3>
-        <p>스킨케어를 넘어 음식·침구로 확장하는 히야는, 제품 라인이 아니라 <strong>피부를 다루는 방식 자체를 라이프스타일로 재정의</strong>한다.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
-    <a href="https://www.instagram.com/p/DXyTG5UgSDW/" target="_blank" rel="noopener" class="card" data-category="strategy" data-brand="kared" data-date="2026-05-01">
-      <div class="card-date">2026.05.01</div>
-      <div class="card-body">
-        <span class="card-series">「브랜드의 첫 문장」 vol.1</span>
-        <div class="brand">KARED<span class="ko">케어드</span></div>
-        <h3>유통이 브랜드의 첫 메시지다 — 약국 입점이 말해주는 것.</h3>
-        <p>올리브영이 아닌 약국이라는 채널 선택은, <strong>카피가 말하기 전에 브랜드가 가장 먼저 쓴 한 문장</strong>이다.</p>
-        <span class="card-link">View on Instagram →</span>
-      </div>
-      <div class="card-tag">Strategy</div>
-    </a>
-
+  <div class="cards" id="cards" data-portfolio-archive>
+    <p class="archive-loading">발행 글을 불러오는 중입니다.</p>
   </div>
 
-  <div class="empty" id="empty" style="display:none;">— No published entries in this category yet —</div>
+  <div class="empty" id="empty" hidden>— No published entries in this category yet —</div>
 </section>
 
 <!-- ─── BACK STRIP — DARK ───────────────────────── -->
@@ -890,15 +788,15 @@
     <div class="back-actions">
       <div class="back-line">
         <span class="lab">Portfolio</span>
-        <a href="index.html">← Zeze Choi · Global Sales &amp; Marketing</a>
+        <a href="index.html">← Zeze Choi · Global B2B Sales &amp; Brand Operations</a>
       </div>
       <div class="back-line">
         <span class="lab">Selected Work</span>
-        <a href="index.html#work">대표 작업 — 직장에서 한 일 + 스스로 한 일</a>
+        <a href="index.html#work">대표 경력 — 거래 운영 · 신규 시장 · B2B 접점</a>
       </div>
       <div class="back-line">
         <span class="lab">K-Beauty Files</span>
-        <a href="index.html#kbeauty">K-뷰티 5개 브랜드 분석 인덱스</a>
+        <a href="index.html#kbeauty">K-Beauty 글로벌 사업 리서치 인덱스</a>
       </div>
       <div class="back-line">
         <span class="lab">Get in Touch</span>
@@ -911,58 +809,8 @@
 <!-- ─── FOOTER ──────────────────────────────────── -->
 <footer>
   <span>© 2026 최지예 Zeze Choi · Insight Archive</span>
-  <span>2 Series · Ongoing</span>
+  <span>Last updated <time data-portfolio-updated datetime="2026-07-23">2026.07.23</time> · Edition <span data-portfolio-edition>03</span></span>
 </footer>
-
-<script>
-  // 발행된 카드 데이터에서 통계 자동 계산
-  (function () {
-    const realCards = [...document.querySelectorAll('.card:not(.placeholder)')];
-    const published = realCards.length;
-    const pad = n => String(n).padStart(2, '0');
-
-    const articles = document.querySelector('[data-stat="articles"]');
-    if (articles) articles.textContent = pad(published);
-
-    document.querySelectorAll('[data-count]').forEach(el => {
-      const cat = el.dataset.count;
-      const count = realCards.filter(card => card.dataset.category === cat).length;
-      el.textContent = pad(count);
-    });
-
-    const totalEl = document.querySelector('[data-cats-total]');
-    if (totalEl) totalEl.textContent = `${published} published · 2 series`;
-  })();
-
-  // 필터 토글
-  const cards = document.querySelectorAll('.card');
-  const empty = document.getElementById('empty');
-  document.querySelectorAll('.filter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      let visible = 0;
-      cards.forEach(c => {
-        const show = f === 'all' || c.dataset.category === f;
-        c.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      empty.style.display = visible === 0 ? 'block' : 'none';
-    });
-  });
-
-  // 카테고리 클릭 시 해당 필터로 자동 적용
-  document.querySelectorAll('.cat-row').forEach(row => {
-    row.addEventListener('click', (e) => {
-      e.preventDefault();
-      const cat = row.dataset.cat;
-      const filterBtn = document.querySelector(`.filter[data-filter="${cat}"]`);
-      if (filterBtn) filterBtn.click();
-      document.getElementById('recent').scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-</script>
 
 </body>
 </html>
