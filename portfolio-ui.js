@@ -83,15 +83,18 @@
   }
 
   function archiveIssueCard(issue) {
+    const isExternal = issue.url.startsWith("http");
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener"' : '';
+    const linkLabel = isExternal ? "View on Instagram →" : "Read more →";
     return `
-      <a href="${issue.url}" target="_blank" rel="noopener" class="card" data-category="${issue.category}" data-brand="${issue.id}" data-date="${issue.date}">
+      <a href="${issue.url}"${targetAttr} class="card" data-category="${issue.category}" data-brand="${issue.id}" data-date="${issue.date}">
         <div class="card-date">${displayDate(issue.date)}</div>
         <div class="card-body">
           <span class="card-series">「${issue.series}」 vol.${issue.volume}</span>
           <div class="brand">${issue.brand}<span class="ko">${issue.brandKo}</span></div>
           <h3>${issue.title}</h3>
           <p>${issue.summaryHtml}</p>
-          <span class="card-link">View on Instagram →</span>
+          <span class="card-link">${linkLabel}</span>
         </div>
         <div class="card-tag">${categoryLabel(issue.category)}</div>
       </a>`;
