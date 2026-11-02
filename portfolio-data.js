@@ -5,8 +5,8 @@
     meta: Object.freeze({
       edition: "03",
       year: "2026",
-      updated: "2026.07.23",
-      updatedIso: "2026-07-23",
+      updated: "2026.11.02",
+      updatedIso: "2026-11-02",
       location: "Seoul, KR",
       season: "SUMMER 2026 / SEOUL"
     }),
@@ -28,6 +28,18 @@
         research: "Market Research"
       }),
       issues: Object.freeze([
+        Object.freeze({
+          id: "intercharm-incos-field-3",
+          volume: 3,
+          series: "현장 노트",
+          category: "research",
+          brand: "인터참코리아·인코스메틱스코리아 2026",
+          brandKo: "전시 노트",
+          date: "2026-07-03",
+          url: "#",
+          title: "\"노화 예방이 아니라 노화된 세포를 정리한다\" — 이노베이션 존 64종이 가리키는 방향.",
+          summaryHtml: "인코스메틱스 코리아 이노베이션 존의 신규 원료 64종 순위에서 <strong>엑소좀·세놀리틱스</strong>가 상위권을 반복했습니다. '노화 예방'에서 '노화 세포 제거·재건'으로, 피부 단독에서 스킨-마인드 시스템으로의 방향 이동을 현장에서 기록했습니다."
+        }),
         Object.freeze({
           id: "whipped-vol-7",
           volume: 7,
