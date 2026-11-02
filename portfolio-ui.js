@@ -63,9 +63,11 @@
   }
 
   function latestIssueRow(issue) {
+    const isExternal = issue.url.startsWith("http");
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener"' : '';
     return `
-      <a href="${issue.url}" target="_blank" rel="noopener" class="kb-row" style="text-decoration:none;color:inherit;">
-        <span class="num">vol.${issue.volume}</span>
+      <a href="${issue.url}"${targetAttr} class="kb-row" style="text-decoration:none;color:inherit;">
+        <span class="num">「${issue.series}」 vol.${issue.volume}</span>
         <div class="brand">${issue.brand}<span class="ko">${issue.brandKo}</span></div>
         <div class="topic"><strong>${issue.title}</strong></div>
         <span class="meta">Published<span class="arrow">→</span></span>
@@ -75,9 +77,7 @@
   function renderLatestIssues() {
     document.querySelectorAll("[data-portfolio-latest]").forEach(container => {
       const limit = Number(container.dataset.limit || 3);
-      const latest = data.archive.issues
-        .filter(issue => issue.category === "strategy")
-        .slice(0, limit);
+      const latest = data.archive.issues.slice(0, limit);
       container.innerHTML = latest.map(latestIssueRow).join("");
     });
   }
